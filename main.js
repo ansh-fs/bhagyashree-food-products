@@ -194,7 +194,8 @@ if (ctaBtn) {
 
 // Router Hash Listener
 window.addEventListener("hashchange", router);
-window.addEventListener("load", router);
+// Call router immediately since script is deferred as a module
+router();
 
 // --- RENDER PAGES ---
 
