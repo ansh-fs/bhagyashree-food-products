@@ -15,39 +15,46 @@ const BUSINESS = {
 
 const BREAD_PRODUCTS = [
   {
-    name: "Good Morning India Premium White Bread",
-    desc: "Soft, oven-fresh white bread slice, ideal for daily toast and sandwiches.",
-    weight: "400g / 800g (Family Pack)",
-    variants: "Standard, Family",
-    img: "./assets/bread_product.jpg"
+    name: "Good Morning India Fresh White Bread",
+    desc: "Soft, oven-fresh white bread slice, ideal for daily breakfast toast, sandwiches, and family dining.",
+    weight: "500g Pack",
+    variants: "Standard Slices",
+    img: "./assets/bread/500gm.jpeg"
   },
   {
-    name: "Good Morning India Jumbo Sandwich Bread",
-    desc: "Large-slice bread specifically baked with high structural integrity for griddles and toasters.",
-    weight: "700g Jumbo Pack",
-    variants: "Jumbo Slices",
-    img: "./assets/bread_product.jpg"
+    name: "Good Morning India Premium Bread",
+    desc: "Richly formulated bread baked for extra softness and nutritious morning family table breakfasts.",
+    weight: "600g Family Pack",
+    variants: "Large Loaf",
+    img: "./assets/bread/600gm.jpeg"
   },
   {
-    name: "Good Morning India Whole Wheat Bread",
-    desc: "Baked with 100% whole wheat flour, high fiber, perfect for healthy breakfast tables.",
-    weight: "400g Pack",
-    variants: "Brown / Whole Wheat",
-    img: "./assets/bread_product.jpg"
+    name: "Good Morning India Special Sandwich Bread",
+    desc: "Specially crafted soft slice bread in vibrant red pouch, perfect for quick morning snacks.",
+    weight: "350g Pack",
+    variants: "Sandwich Slices",
+    img: "./assets/bread/350gm.jpeg"
   },
   {
-    name: "Good Morning India Special Sweet Bun",
-    desc: "Fluffy, lightly sweetened bakery buns, perfect with butter, jam, or milk.",
-    weight: "Pack of 2 Buns",
-    variants: "Sweet Fruity",
-    img: "./assets/bread_product.jpg"
+    name: "Good Morning India Fresh Sandwich Bread",
+    desc: "Delicate orange packaging sandwich bread baked to standard softness and clean slice texture.",
+    weight: "300g Pack",
+    variants: "Daily Pack",
+    img: "./assets/bread/300gm.jpeg"
   },
   {
-    name: "Good Morning India Premium Burger Buns",
-    desc: "Soft-topped buns baked to uniform sizing for quick service restaurants (QSR) and home chefs.",
-    weight: "Pack of 4 Buns",
-    variants: "Sesame Topped / Plain",
-    img: "./assets/bread_product.jpg"
+    name: "Good Morning India Classic Sandwich Bread",
+    desc: "Compact everyday sandwich loaf packed with fresh grain nutrition for daily consumption.",
+    weight: "220g Value Pack",
+    variants: "Value Pack",
+    img: "./assets/bread/220gm.jpeg"
+  },
+  {
+    name: "Good Morning India Gattu Sandwich Bread",
+    desc: "Signature blue & green checked package sandwich bread offering great slice volume and texture.",
+    weight: "Gattu Special Pack",
+    variants: "Special Edition",
+    img: "./assets/bread/GATTU.jpeg"
   }
 ];
 
@@ -194,8 +201,7 @@ if (ctaBtn) {
 
 // Router Hash Listener
 window.addEventListener("hashchange", router);
-// Call router immediately since script is deferred as a module
-router();
+window.addEventListener("load", router);
 
 // --- RENDER PAGES ---
 
@@ -210,23 +216,91 @@ function renderHome() {
 
   return `
     <!-- HERO SECTION -->
-    <section class="hero">
+    <section class="hero" id="hero-section">
+      <!-- Background Bakery Light Rays Overlay -->
+      <div class="sunlight-rays"></div>
+      
+      <!-- Subtle Floating Flour Particles -->
+      <div class="flour-particles">
+        <span class="particle p1"></span>
+        <span class="particle p2"></span>
+        <span class="particle p3"></span>
+        <span class="particle p4"></span>
+        <span class="particle p5"></span>
+        <span class="particle p6"></span>
+      </div>
+
       <div class="container hero-grid">
-        <div>
-          <span class="hero-tagline">🏢 Industrial Bakery Manufacturer</span>
-          <h1 class="hero-title">Baked Fresh.<br><span>Delivered Daily.</span></h1>
-          <p class="hero-desc">Bhagyashree Food Products manufactures bulk breakfast and tea-time staples. Operating state-of-the-art ovens in Moradabad to feed major retail markets and distributors since 2012.</p>
+        <div class="hero-text-col">
+          <div class="hero-tag-badge">
+            <i data-lucide="sparkles" style="width: 14px; height: 14px; color: var(--accent-gold);"></i>
+            <span>PREMIUM FMCG BAKERY BRAND</span>
+          </div>
+          <h1 class="hero-title">Freshly Baked<br><span>Every Morning.</span></h1>
+          <p class="hero-desc">Delivering soft, hygienic and delicious bread made with quality ingredients for families, retailers and distributors.</p>
+          
           <div class="hero-actions">
-            <a href="#/brands" class="btn btn-primary">
-              Explore Our Catalogues
-              <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
+            <a href="#/brands/good-morning-india" class="btn btn-primary hero-btn-primary">
+              <span>Explore Products</span>
+              <i data-lucide="arrow-right" style="width: 18px; height: 18px;"></i>
             </a>
-            <a href="#/distributors" class="btn btn-secondary">Distributor Enquiry</a>
+            <a href="#/distributors" class="btn btn-secondary hero-btn-secondary">
+              <i data-lucide="handshake" style="width: 18px; height: 18px; color: var(--accent-gold);"></i>
+              <span>Become a Distributor</span>
+            </a>
+          </div>
+
+          <!-- TRUST BADGES -->
+          <div class="trust-badges-grid">
+            <div class="trust-badge-item">
+              <div class="trust-badge-icon">
+                <i data-lucide="check" style="width: 16px; height: 16px;"></i>
+              </div>
+              <span>Fresh Every Day</span>
+            </div>
+            <div class="trust-badge-item">
+              <div class="trust-badge-icon">
+                <i data-lucide="shield-check" style="width: 16px; height: 16px;"></i>
+              </div>
+              <span>Hygienically Packed</span>
+            </div>
+            <div class="trust-badge-item">
+              <div class="trust-badge-icon">
+                <i data-lucide="award" style="width: 16px; height: 16px;"></i>
+              </div>
+              <span>Quality Ingredients</span>
+            </div>
+            <div class="trust-badge-item">
+              <div class="trust-badge-icon">
+                <i data-lucide="users" style="width: 16px; height: 16px;"></i>
+              </div>
+              <span>Trusted by Thousands</span>
+            </div>
           </div>
         </div>
-        <div class="hero-image-wrapper">
-          <img src="./assets/hero_products.jpg" alt="Bhagyashree Baked Bliss Product Spread" class="hero-image">
+
+        <div class="hero-visual-col">
+          <!-- Main Hero Product Showcase with Floating Animation -->
+          <div class="hero-product-stage">
+            <div class="hero-sun-glow"></div>
+            <div class="hero-product-card-wrapper float-animation">
+              <img src="./assets/bread/500gm.jpeg" alt="Good Morning India Fresh White Bread" class="hero-product-main-img">
+              <div class="hero-product-badge">
+                <span class="badge-title">Good Morning India</span>
+                <span class="badge-sub">Fresh White Bread • 500g</span>
+              </div>
+            </div>
+            <!-- Soft Realistic Drop Shadow -->
+            <div class="hero-product-shadow"></div>
+          </div>
         </div>
+      </div>
+
+      <!-- Curved Bottom Transition Divider -->
+      <div class="hero-curved-divider">
+        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path d="M0,32 C360,96 1080,96 1440,32 L1440,120 L0,120 Z" fill="#FFFFFF"></path>
+        </svg>
       </div>
     </section>
 
@@ -303,7 +377,7 @@ function renderHome() {
               <a href="#/brands/good-morning-india" class="btn btn-primary" style="background: var(--gmi-red);">View Bread Products</a>
             </div>
             <div class="brand-preview-img-container">
-              <img src="./assets/bread_product.jpg" alt="Good Morning India Bread Preview">
+              <img src="./assets/bread/500gm.jpeg" alt="Good Morning India Bread Preview">
             </div>
           </div>
         </div>
@@ -426,7 +500,7 @@ function renderBrands() {
               <a href="#/brands/good-morning-india" class="btn btn-primary" style="background: var(--gmi-red);">View GMI Bread Catalogue</a>
             </div>
             <div class="brand-preview-img-container" style="height: 300px;">
-              <img src="./assets/bread_product.jpg" alt="Good Morning India Bread range">
+              <img src="./assets/bread/500gm.jpeg" alt="Good Morning India Bread range">
             </div>
           </div>
         </div>
@@ -679,12 +753,12 @@ function renderDistributors() {
 // Render: Gallery
 function renderGallery() {
   const images = [
-    { title: "Production Facility", desc: "Our enhanced production facility view.", type: "facility", img: "./assets/gallery1.jpeg" },
-    { title: "Fresh Bakery Products", desc: "Freshly baked items straight from the oven.", type: "bread", img: "./assets/gallery2.jpeg" },
-    { title: "Quality Check", desc: "Rigorous quality standards maintained.", type: "rusk", img: "./assets/gallery3.jpeg" },
-    { title: "Baking Process", desc: "Industrial baking process in action.", type: "rusk", img: "./assets/gallery4.jpeg" },
-    { title: "Packaging Area", desc: "Hygienic and automated packaging.", type: "facility", img: "./assets/gallery5.jpeg" },
-    { title: "Finished Goods", desc: "Ready for distribution.", type: "rusk", img: "./assets/gallery6.jpeg" }
+    { title: "Industrial Plant Layout", desc: "Production floor displaying automated bread ovens on Delhi Road.", type: "facility", img: "./assets/factory_interior.jpg" },
+    { title: "Fresh Slices of GMI Bread", desc: "Soft white bread slices ready for automatic wrapper feed.", type: "bread", img: "./assets/bread/500gm.jpeg" },
+    { title: "Preeti Rusk Stack", desc: "Cardamom crispy double-baked rusk snacks ready for bulk dispatch.", type: "rusk", img: "./assets/rusk_product.jpg" },
+    { title: "Preeti Suji Toast", desc: "Suji toast baked cleanly with digestive seeds.", type: "rusk", img: "./assets/suji_toast.jpg" },
+    { title: "Industrial Conveyors", desc: "Continuous automated ovens running multiple baking shifts daily.", type: "facility", img: "./assets/factory_interior.jpg" },
+    { title: "Preeti Cookies Showcase", desc: "Golden-brown butter and cashew baked biscuits.", type: "rusk", img: "./assets/biscuit_product.jpg" }
   ];
 
   return `
@@ -829,7 +903,9 @@ function initInteractions(path) {
   }
 
   // Route-Specific JS Listeners
-  if (path === "/gallery") {
+  if (path === "/" || path === "") {
+    initHeroParallax();
+  } else if (path === "/gallery") {
     initGalleryFilters();
     initLightbox();
   } else if (path === "/distributors") {
@@ -837,6 +913,19 @@ function initInteractions(path) {
   } else if (path === "/contact") {
     initContactForm();
   }
+}
+
+// Hero Parallax Scroll Logic
+function initHeroParallax() {
+  const heroStage = document.querySelector(".hero-product-stage");
+  if (!heroStage) return;
+
+  window.addEventListener("scroll", () => {
+    const scrollY = window.scrollY;
+    if (scrollY < 700) {
+      heroStage.style.transform = `translateY(${scrollY * 0.12}px)`;
+    }
+  }, { passive: true });
 }
 
 // Gallery Filtering Logic
