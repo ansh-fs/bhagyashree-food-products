@@ -280,14 +280,74 @@ function renderHome() {
         </div>
 
         <div class="hero-visual-col">
-          <!-- Main Hero Product Showcase with Floating Animation -->
+          <!-- Product Carousel Showcase -->
           <div class="hero-product-stage">
             <div class="hero-sun-glow"></div>
-            <div class="hero-product-card-wrapper float-animation">
-              <img src="./assets/bread/500gm.jpeg" alt="Good Morning India Fresh White Bread" class="hero-product-main-img">
-              <div class="hero-product-badge">
-                <span class="badge-title">Good Morning India</span>
-                <span class="badge-sub">Fresh White Bread • 500g</span>
+            <div class="hero-carousel" id="hero-carousel">
+              <div class="hero-carousel-track float-animation">
+                <div class="hero-slide active" data-index="0">
+                  <div class="hero-product-card-wrapper">
+                    <img src="./assets/bread/500gm.jpeg" alt="Fresh White Bread 500g" class="hero-product-main-img">
+                    <div class="hero-product-badge">
+                      <span class="badge-title">Good Morning India</span>
+                      <span class="badge-sub">Fresh White Bread • 500g</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="hero-slide" data-index="1">
+                  <div class="hero-product-card-wrapper">
+                    <img src="./assets/bread/600gm.jpeg" alt="Premium Bread 600g" class="hero-product-main-img">
+                    <div class="hero-product-badge">
+                      <span class="badge-title">Good Morning India</span>
+                      <span class="badge-sub">Premium Bread • 600g</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="hero-slide" data-index="2">
+                  <div class="hero-product-card-wrapper">
+                    <img src="./assets/bread/350gm.jpeg" alt="Special Sandwich Bread 350g" class="hero-product-main-img">
+                    <div class="hero-product-badge">
+                      <span class="badge-title">Good Morning India</span>
+                      <span class="badge-sub">Sandwich Bread • 350g</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="hero-slide" data-index="3">
+                  <div class="hero-product-card-wrapper">
+                    <img src="./assets/bread/300gm.jpeg" alt="Fresh Sandwich Bread 300g" class="hero-product-main-img">
+                    <div class="hero-product-badge">
+                      <span class="badge-title">Good Morning India</span>
+                      <span class="badge-sub">Sandwich Bread • 300g</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="hero-slide" data-index="4">
+                  <div class="hero-product-card-wrapper">
+                    <img src="./assets/bread/220gm.jpeg" alt="Classic Sandwich Bread 220g" class="hero-product-main-img">
+                    <div class="hero-product-badge">
+                      <span class="badge-title">Good Morning India</span>
+                      <span class="badge-sub">Sandwich Bread • 220g</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="hero-slide" data-index="5">
+                  <div class="hero-product-card-wrapper">
+                    <img src="./assets/bread/GATTU.jpeg" alt="Gattu Sandwich Bread" class="hero-product-main-img">
+                    <div class="hero-product-badge">
+                      <span class="badge-title">Good Morning India</span>
+                      <span class="badge-sub">Gattu Special Pack</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Carousel Dots -->
+              <div class="hero-carousel-dots" id="hero-carousel-dots">
+                <button class="carousel-dot active" data-slide="0"></button>
+                <button class="carousel-dot" data-slide="1"></button>
+                <button class="carousel-dot" data-slide="2"></button>
+                <button class="carousel-dot" data-slide="3"></button>
+                <button class="carousel-dot" data-slide="4"></button>
+                <button class="carousel-dot" data-slide="5"></button>
               </div>
             </div>
             <!-- Soft Realistic Drop Shadow -->
@@ -915,17 +975,58 @@ function initInteractions(path) {
   }
 }
 
-// Hero Parallax Scroll Logic
+// Hero Parallax Scroll Logic + Product Carousel
 function initHeroParallax() {
   const heroStage = document.querySelector(".hero-product-stage");
   if (!heroStage) return;
 
+  // Parallax on scroll
   window.addEventListener("scroll", () => {
     const scrollY = window.scrollY;
     if (scrollY < 700) {
       heroStage.style.transform = `translateY(${scrollY * 0.12}px)`;
     }
   }, { passive: true });
+
+  // Product Carousel
+  const slides = document.querySelectorAll(".hero-slide");
+  const dots = document.querySelectorAll(".carousel-dot");
+  if (slides.length === 0) return;
+
+  let currentSlide = 0;
+  let carouselInterval;
+
+  function goToSlide(index) {
+    slides.forEach(s => s.classList.remove("active"));
+    dots.forEach(d => d.classList.remove("active"));
+    slides[index].classList.add("active");
+    dots[index].classList.add("active");
+    currentSlide = index;
+  }
+
+  function nextSlide() {
+    goToSlide((currentSlide + 1) % slides.length);
+  }
+
+  // Auto-rotate every 3.5 seconds
+  function startAutoplay() {
+    carouselInterval = setInterval(nextSlide, 3500);
+  }
+
+  function resetAutoplay() {
+    clearInterval(carouselInterval);
+    startAutoplay();
+  }
+
+  // Dot click handlers
+  dots.forEach(dot => {
+    dot.addEventListener("click", () => {
+      goToSlide(parseInt(dot.getAttribute("data-slide")));
+      resetAutoplay();
+    });
+  });
+
+  startAutoplay();
 }
 
 // Gallery Filtering Logic

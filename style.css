@@ -118,14 +118,49 @@ main {
   letter-spacing: 1px;
   padding: 8px 0;
   text-transform: uppercase;
+  overflow: hidden;
 }
 
-.header-top .container {
+.header-top-desktop {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   gap: 8px;
+}
+
+/* Mobile marquee - hidden on desktop */
+.header-top-marquee {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .header-top-desktop {
+    display: none;
+  }
+  .header-top-marquee {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 2px 0;
+  }
+  .header-top {
+    padding: 6px 0;
+  }
+  .marquee-track {
+    display: inline-flex;
+    animation: marqueeScroll 22s linear infinite;
+  }
+  .marquee-content {
+    display: inline-block;
+    white-space: nowrap;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+  }
+  @keyframes marqueeScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
 }
 
 .header-nav {
@@ -534,6 +569,69 @@ main {
   background: #FFFFFF;
   border: 6px solid #FFFFFF;
   box-shadow: 0 25px 50px -12px rgba(30, 27, 24, 0.18), 0 0 0 1px rgba(212, 160, 23, 0.2);
+}
+
+/* Hero Product Carousel */
+.hero-carousel {
+  position: relative;
+  width: 100%;
+  z-index: 3;
+}
+
+.hero-carousel-track {
+  position: relative;
+  width: 100%;
+}
+
+.hero-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transform: scale(0.96);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-slide.active {
+  position: relative;
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+  z-index: 2;
+}
+
+/* Carousel Dot Indicators */
+.hero-carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 18px;
+  z-index: 5;
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid rgba(212, 160, 23, 0.4);
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.carousel-dot:hover {
+  border-color: var(--accent-gold);
+  background: rgba(212, 160, 23, 0.2);
+}
+
+.carousel-dot.active {
+  background: var(--accent-gold);
+  border-color: var(--accent-gold);
+  transform: scale(1.25);
 }
 
 .float-animation {
