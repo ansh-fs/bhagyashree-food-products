@@ -1733,9 +1733,16 @@ textarea.form-input {
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.social-icon-btn i {
+.social-icon-btn svg {
   width: 18px;
   height: 18px;
+  stroke: currentColor;
+}
+
+.social-link svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
 }
 
 /* Brand Hover States */
