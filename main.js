@@ -487,7 +487,7 @@ function renderAbout() {
         <div class="about-text">
           <h2>Built for Volume, Consistency & Compliance</h2>
           <p>Established in 2012 as a partnership firm, our company has strictly avoided retail bakery model complications. Instead, we focused solely on automated manufacturing pipelines, morning route delivery dispatch systems, and long-term distributor stability.</p>
-          <p>Our plant located on Delhi Road (Khushalpur Road, Shahpur Tigri), Moradabad runs multiple automated production shifts daily. Raw material arrivals (premium wheat flour, edible dairy oils, spices, sugar) undergo sensory checking before storage. Standard baking temperature programs ensure that each loaf of Good Morning India bread matches the freshness, weight, and flavor of the next.</p>
+          <p>Our plant located at Khushalpur Road, Shahpur Tigri, Delhi Road, Moradabad, Uttar Pradesh - 244001 runs multiple automated production shifts daily. Raw material arrivals (premium wheat flour, edible dairy oils, spices, sugar) undergo sensory checking before storage. Standard baking temperature programs ensure that each loaf of Good Morning India bread matches the freshness, weight, and flavor of the next.</p>
           <p>With registered FSSAI licensing, MSME Udyam credentials, and standard GST billing compliance, we provide institutional grocery clients and supermarkets clean paperwork and clean supply operations.</p>
         </div>
         <div class="about-image">
@@ -894,7 +894,7 @@ function renderContact() {
               <div class="contact-info-icon"><i data-lucide="phone"></i></div>
               <div class="contact-info-text">
                 <h3>Phone Contacts</h3>
-                <p><a href="tel:${BUSINESS.phone}" style="color: var(--gmi-red); font-weight: 700;">${BUSINESS.phone}</a> (Despatch Manager)</p>
+                <p><a href="tel:${BUSINESS.phone}" style="color: var(--gmi-red); font-weight: 700;">${BUSINESS.phone}</a></p>
               </div>
             </div>
 
