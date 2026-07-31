@@ -60,39 +60,39 @@ const BREAD_PRODUCTS = [
 
 const PREETI_PRODUCTS = [
   {
-    name: "Preeti Premium Elaichi Rusk",
-    desc: "Double-baked crispy biscuits infused with natural cardamom seeds. Perfectly sweet and crunchy.",
-    weight: "200g / 400g Value Packs",
-    variants: "Premium Cardamom",
-    img: "./assets/rusk_product.jpg"
+    name: "Preeti Biscottis – Classic",
+    desc: "100% eggless handmade biscuits in classic orange packaging. Crispy, crunchy and perfect with tea.",
+    weight: "Assorted Pack",
+    variants: "Classic Orange",
+    img: "./assets/rusk/preeti_biscottis_orange.jpg"
   },
   {
-    name: "Preeti Special Milk Rusk",
-    desc: "Enriched with real milk solids for a buttery, melting crunch in every tea dip.",
-    weight: "300g Pack",
-    variants: "Rich Milk",
-    img: "./assets/rusk_product.jpg"
+    name: "Preeti Biscottis – Dry Fruits",
+    desc: "Premium dry fruits variant of our signature eggless handmade biscuits. Rich, nutty and delicious.",
+    weight: "Assorted Pack",
+    variants: "Dry Fruits Special",
+    img: "./assets/rusk/preeti_biscottis_dryfruits.jpg"
   },
   {
-    name: "Preeti Traditional Suji Toast",
-    desc: "Crisp tea-time toast made with fine semolina flour (Suji) and digestive seeds.",
-    weight: "300g Premium Pack",
-    variants: "Suji & Saunf",
-    img: "./assets/suji_toast.jpg"
+    name: "Preeti Biscottis – Premium",
+    desc: "100% eggless handmade biscuit in tall premium pack. For a healthier, fresh, rich and tasty treat.",
+    weight: "Premium Pack",
+    variants: "Premium Orange",
+    img: "./assets/rusk/preeti_biscottis_tall.jpg"
   },
   {
-    name: "Preeti Crunchy Kaju Butter Cookies",
-    desc: "Rich butter-baked cookies studded with real premium cashew bits. A luxury tea-time treat.",
-    weight: "200g Premium Box",
-    variants: "Rich Cashew Butter",
-    img: "./assets/biscuit_product.jpg"
+    name: "Keshav Bread Suji Toast",
+    desc: "Tasty and crunchy bread suji toast made with finest semolina. A delightful tea-time companion.",
+    weight: "Standard Pack",
+    variants: "Suji Toast",
+    img: "./assets/rusk/keshav_suji_toast.jpg"
   },
   {
-    name: "Preeti Handcrafted Atta Biscuits",
-    desc: "Whole-wheat crisp biscuits made with pure ghee flavorings, perfect for health-conscious snacks.",
-    weight: "250g Pack",
-    variants: "Traditional Atta",
-    img: "./assets/biscuit_product.jpg"
+    name: "Preeti Bread Rusk Toast",
+    desc: "Double-baked crispy bread rusk toast with 0% artificial preservatives. Premium quality guaranteed.",
+    weight: "Standard Pack",
+    variants: "Bread Rusk",
+    img: "./assets/rusk/preeti_rusk_toast.jpg"
   }
 ];
 
@@ -424,7 +424,7 @@ function renderHome() {
               <a href="#/brands/preeti" class="btn btn-primary" style="background: var(--preeti-blue);">View Preeti Products</a>
             </div>
             <div class="brand-preview-img-container">
-              <img src="./assets/rusk_product.jpg" alt="Preeti Rusk Packaging Preview">
+              <img src="./assets/rusk/preeti_rusk_toast.jpg" alt="Preeti Rusk Packaging Preview">
             </div>
           </div>
 
@@ -547,7 +547,7 @@ function renderBrands() {
               <a href="#/brands/preeti" class="btn btn-primary" style="background: var(--preeti-blue);">View Preeti Catalogue</a>
             </div>
             <div class="brand-preview-img-container" style="height: 300px;">
-              <img src="./assets/rusk_product.jpg" alt="Preeti Rusk range">
+              <img src="./assets/rusk/preeti_rusk_toast.jpg" alt="Preeti Rusk range">
             </div>
           </div>
 
