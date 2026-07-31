@@ -1503,6 +1503,31 @@ textarea.form-input {
   cursor: pointer;
 }
 
+.lightbox-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+  padding: 20px 24px;
+  color: #ffffff;
+  border-bottom-left-radius: var(--radius-sm);
+  border-bottom-right-radius: var(--radius-sm);
+}
+
+.lightbox-caption h3 {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: var(--accent-gold);
+}
+
+.lightbox-caption p {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
 /* --- CONTACT PAGE SPLIT --- */
 .contact-split {
   display: grid;

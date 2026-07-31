@@ -813,19 +813,29 @@ function renderDistributors() {
 // Render: Gallery
 function renderGallery() {
   const images = [
-    { title: "Industrial Plant Layout", desc: "Production floor displaying automated bread ovens on Delhi Road.", type: "facility", img: "./assets/factory_interior.jpg" },
-    { title: "Fresh Slices of GMI Bread", desc: "Soft white bread slices ready for automatic wrapper feed.", type: "bread", img: "./assets/bread/500gm.jpeg" },
-    { title: "Preeti Rusk Stack", desc: "Cardamom crispy double-baked rusk snacks ready for bulk dispatch.", type: "rusk", img: "./assets/rusk_product.jpg" },
-    { title: "Preeti Suji Toast", desc: "Suji toast baked cleanly with digestive seeds.", type: "rusk", img: "./assets/suji_toast.jpg" },
-    { title: "Industrial Conveyors", desc: "Continuous automated ovens running multiple baking shifts daily.", type: "facility", img: "./assets/factory_interior.jpg" },
-    { title: "Preeti Cookies Showcase", desc: "Golden-brown butter and cashew baked biscuits.", type: "rusk", img: "./assets/biscuit_product.jpg" }
+    // Factory & Facility
+    { title: "Bread Production Line", desc: "Workers handling fresh bread loaves on the stainless steel production conveyor belt.", type: "facility", img: "./assets/gallery/bread_production_line.jpg" },
+    { title: "Factory Floor Overview", desc: "Full view of the bakery floor — racks loaded with thousands of fresh loaves and industrial ovens running.", type: "facility", img: "./assets/gallery/factory_floor_overview.jpg" },
+    { title: "Automated Conveyor System", desc: "Precision automated conveyor belt with bread molds moving through the baking station.", type: "facility", img: "./assets/gallery/automated_conveyor.jpg" },
+    // Packaging
+    { title: "Packaging Station", desc: "Trained operator at the weighing and sealing station, packaging fresh bread for dispatch.", type: "packaging", img: "./assets/gallery/packaging_station.jpg" },
+    { title: "Packaging Conveyor Line", desc: "Wrapped bread loaves on the packaging conveyor belt, ready for distribution.", type: "packaging", img: "./assets/gallery/packaging_conveyor.jpg" },
+    // Bread Products
+    { title: "Good Morning India – 500g", desc: "Our flagship 500g Fresh White Bread in vibrant red and yellow packaging.", type: "bread", img: "./assets/bread/500gm.jpeg" },
+    { title: "Good Morning India – 600g", desc: "Premium 600g family pack bread, baked for extra softness.", type: "bread", img: "./assets/bread/600gm.jpeg" },
+    { title: "Good Morning India – 350g", desc: "Special 350g sandwich bread in distinctive maroon packaging.", type: "bread", img: "./assets/bread/350gm.jpeg" },
+    { title: "Good Morning India – Gattu", desc: "Signature Gattu Special Pack sandwich bread in blue and green packaging.", type: "bread", img: "./assets/bread/GATTU.jpeg" },
+    // Rusk & Biscuit Products
+    { title: "Preeti Biscottis – Classic", desc: "100% eggless handmade biscuits in vibrant orange packaging.", type: "rusk", img: "./assets/rusk/preeti_biscottis_orange.jpg" },
+    { title: "Preeti Bread Rusk Toast", desc: "Crispy double-baked bread rusk toast — 0% artificial preservatives.", type: "rusk", img: "./assets/rusk/preeti_rusk_toast.jpg" },
+    { title: "Keshav Bread Suji Toast", desc: "Tasty and crunchy bread suji toast made with the finest semolina.", type: "rusk", img: "./assets/rusk/keshav_suji_toast.jpg" }
   ];
 
   return `
     <section class="page-hero">
       <div class="container">
         <h1>Factory &amp; Product Gallery</h1>
-        <p>A transparent visual look at our automated baking floors, cooling conveyors, and finished products.</p>
+        <p>A transparent visual look at our automated baking floors, packaging lines, and finished products.</p>
       </div>
     </section>
 
@@ -834,14 +844,15 @@ function renderGallery() {
         <div class="gallery-tabs">
           <button class="gallery-tab active" data-filter="all">Show All</button>
           <button class="gallery-tab" data-filter="facility">Production Facility</button>
-          <button class="gallery-tab" data-filter="bread">Morning Bread Loaves</button>
+          <button class="gallery-tab" data-filter="packaging">Packaging</button>
+          <button class="gallery-tab" data-filter="bread">Bread Products</button>
           <button class="gallery-tab" data-filter="rusk">Rusk &amp; Biscuits</button>
         </div>
 
         <div class="gallery-grid" id="gallery-grid">
           ${images.map(img => `
             <div class="gallery-item" data-type="${img.type}">
-              <img src="${img.img}" alt="${img.title}">
+              <img src="${img.img}" alt="${img.title}" data-title="${img.title}" data-desc="${img.desc}">
               <div class="gallery-overlay">
                 <h3>${img.title}</h3>
                 <p>${img.desc}</p>
@@ -1059,12 +1070,18 @@ function initGalleryFilters() {
 function initLightbox() {
   const lightbox = document.getElementById("lightbox");
   const lightboxImg = document.getElementById("lightbox-img");
+  const lightboxTitle = document.getElementById("lightbox-title");
+  const lightboxDesc = document.getElementById("lightbox-desc");
   const closeBtn = document.getElementById("lightbox-close");
-  const galleryItems = document.querySelectorAll(".gallery-item img");
+  const galleryItems = document.querySelectorAll(".gallery-item");
 
-  galleryItems.forEach(img => {
-    img.addEventListener("click", () => {
+  galleryItems.forEach(item => {
+    item.addEventListener("click", () => {
+      const img = item.querySelector("img");
+      if (!img) return;
       lightboxImg.src = img.src;
+      if (lightboxTitle) lightboxTitle.textContent = img.getAttribute("data-title") || "";
+      if (lightboxDesc) lightboxDesc.textContent = img.getAttribute("data-desc") || "";
       lightbox.classList.add("active");
     });
   });
