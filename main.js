@@ -537,7 +537,7 @@ function renderBrands() {
 
     <section class="section-padding">
       <div class="container">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+        <div class="brands-grid">
           <!-- Preeti Card -->
           <div class="brand-showcase-card preeti">
             <div class="brand-card-header preeti">
@@ -546,7 +546,7 @@ function renderBrands() {
               <p>Special double-baked crispy rusks (sweet cardamom and milk flavors), light digestible saunf suji toast, and crumbly butter cookies built to keep tea dipping delicious.</p>
               <a href="#/brands/preeti" class="btn btn-primary" style="background: var(--preeti-blue);">View Preeti Catalogue</a>
             </div>
-            <div class="brand-preview-img-container" style="height: 300px;">
+            <div class="brand-preview-img-container">
               <img src="./assets/rusk/preeti_rusk_toast.jpg" alt="Preeti Rusk range">
             </div>
           </div>
@@ -559,7 +559,7 @@ function renderBrands() {
               <p>Standard white slicing loaves, jumbo sandwich bread for catering outlets, whole wheat bread, burger buns, and soft sweet buns packed under protective atmosphere parameters.</p>
               <a href="#/brands/good-morning-india" class="btn btn-primary" style="background: var(--gmi-red);">View GMI Bread Catalogue</a>
             </div>
-            <div class="brand-preview-img-container" style="height: 300px;">
+            <div class="brand-preview-img-container">
               <img src="./assets/bread/500gm.jpeg" alt="Good Morning India Bread range">
             </div>
           </div>
@@ -611,9 +611,9 @@ function renderPreeti() {
           `).join('')}
         </div>
 
-        <div style="margin-top: 60px; background: var(--preeti-bg); padding: 40px; border-radius: var(--radius-md); border: 1px solid rgba(27,58,140,0.1); text-align: center;">
-          <h3 style="font-family: var(--font-display); font-size: 24px; font-weight: 800; color: var(--preeti-blue); margin-bottom: 12px;">Interested in Booking a Wholesale Shipment of Preeti Products?</h3>
-          <p style="color: var(--text-dark); max-width: 600px; margin: 0 auto 24px; opacity: 0.8;">Get distributor rates, sample shipments, and transport details straight to your warehouse.</p>
+        <div class="brand-cta-box preeti">
+          <h3>Interested in Booking a Wholesale Shipment of Preeti Products?</h3>
+          <p>Get distributor rates, sample shipments, and transport details straight to your warehouse.</p>
           <a href="#/distributors" class="btn btn-primary" style="background: var(--preeti-blue);">Request Wholesale Rates</a>
         </div>
       </div>
@@ -663,9 +663,9 @@ function renderGMI() {
           `).join('')}
         </div>
 
-        <div style="margin-top: 60px; background: var(--gmi-bg); padding: 40px; border-radius: var(--radius-md); border: 1px solid rgba(192,39,45,0.1); text-align: center;">
-          <h3 style="font-family: var(--font-display); font-size: 24px; font-weight: 800; color: var(--gmi-red); margin-bottom: 12px;">Run a Hotel, School, or Sandwich Supply Chain?</h3>
-          <p style="color: var(--text-dark); max-width: 600px; margin: 0 auto 24px; opacity: 0.8;">Ensure morning delivery slots direct from our plant to your kitchen door. Route contracts available for Moradabad region.</p>
+        <div class="brand-cta-box gmi">
+          <h3>Run a Hotel, School, or Sandwich Supply Chain?</h3>
+          <p>Ensure morning delivery slots direct from our plant to your kitchen door. Route contracts available for Moradabad region.</p>
           <a href="#/contact" class="btn btn-primary" style="background: var(--gmi-red);">Contact Route Manager</a>
         </div>
       </div>
