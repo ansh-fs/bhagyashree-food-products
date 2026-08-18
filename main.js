@@ -205,26 +205,26 @@ window.addEventListener("load", router);
 
 // --- RENDER PAGES ---
 
-// Render: Home Page
+// Render: Home Page (8-Section FMCG Architecture)
 function renderHome() {
   const pillars = [
-    { icon: "factory", title: "Automated Baking Plant", desc: "Equipped with continuous automated ovens, steel proofing setups, and hygienic conveyor feeds." },
-    { icon: "check-circle", title: "Standardized QC Lines", desc: "Rigorous FSSAI compliant checking protocols for flour quality, yeast balance, and baking temperatures." },
-    { icon: "truck", title: "Morning Dispatch Fleet", desc: "Strategically located on Delhi Road to launch fresh delivery trucks before dawn daily." },
-    { icon: "users", title: "B2B Distribution Network", desc: "Supporting over 150 wholesale distributors and wholesale hubs throughout UP and neighboring districts." }
+    { icon: "factory", title: "Manufacturing & Production", desc: "Equipped with continuous automated baking ovens, steel proofing chambers, and hygienic conveyor feeds." },
+    { icon: "check-circle", title: "Quality Control", desc: "Standardized FSSAI compliant checking protocols for flour quality, yeast balance, and baking temperatures." },
+    { icon: "package", title: "Packaging & Dispatch", desc: "Standardized unit weights, sealed tamper-evident packaging, and daily early-morning dispatch logistics." },
+    { icon: "truck", title: "Distribution Network", desc: "Dedicated B2B supply lines supporting wholesale stockists and grocery retail routes throughout Uttar Pradesh." }
   ];
 
   return `
-    <!-- HERO SECTION (FMCG CORPORATE) -->
+    <!-- SECTION 1: HERO BANNER (PRODUCT-FIRST) -->
     <section class="hero" id="hero-section">
       <div class="container hero-grid">
         <div class="hero-text-col">
           <h1 class="hero-title">Freshly Baked<br>Every Morning.</h1>
-          <p class="hero-desc">Delivering soft, hygienic and delicious bread made with quality ingredients for families, retailers and distributors.</p>
+          <p class="hero-desc">Delivering soft, hygienic bread, crispy rusks, and handmade biscottis crafted with quality ingredients for families, retailers, and distributors.</p>
           
           <div class="hero-actions">
             <a href="#/brands" class="btn btn-primary hero-btn-primary">
-              <span>Explore Products</span>
+              <span>Explore Our Products</span>
               <i data-lucide="arrow-right" style="width: 18px; height: 18px;"></i>
             </a>
             <a href="#/distributors" class="btn btn-secondary hero-btn-secondary">
@@ -277,7 +277,7 @@ function renderHome() {
                     <img src="./assets/rusk/preeti_rusk_toast.jpg" alt="Preeti Bread Rusk Toast" class="hero-product-main-img">
                     <div class="hero-product-badge">
                       <span class="badge-brand preeti">Preeti</span>
-                      <span class="badge-sub">Bread Rusk Toast • 0% Preservatives</span>
+                      <span class="badge-sub">Bread Rusk Toast • Crispy</span>
                     </div>
                   </div>
                   <!-- Slide 2: GMI 600g Premium Bread -->
@@ -329,49 +329,224 @@ function renderHome() {
       </div>
     </section>
 
-    <!-- SUB-BRAND DISTINCTION SECTION -->
-    <section class="brand-duo-section">
+    <!-- SECTION 2: FEATURED PRODUCTS (PRODUCT-FIRST DISCOVERY) -->
+    <section class="section-padding featured-section">
       <div class="container">
-        <div class="brand-duo-heading">
-          <h2>Our Core Manufacturing Verticals</h2>
-          <p>Two focused product portfolios serving breakfast tables and tea-time snacks across Uttar Pradesh.</p>
+        <div class="section-title">
+          <span class="section-badge">Product Discovery</span>
+          <h2>Featured Products</h2>
+          <p>Explore our daily baked breakfast loaves, sandwich bread, handmade eggless biscottis and crispy rusks.</p>
         </div>
-        <div class="brand-duo-grid">
-          <!-- Preeti Brand Card -->
-          <a href="#/brands/preeti" class="brand-duo-card preeti">
-            <div class="brand-duo-info">
-              <img src="./assets/preeti_logo.png" alt="Preeti Rusk & Biscuits" class="brand-duo-logo">
-              <h3>Preeti</h3>
-              <p>Double-baked crispy rusks, eggless handmade biscottis, and light digestive suji toast for wholesale distribution.</p>
-              <span class="brand-duo-link">View Preeti Range <i data-lucide="arrow-right" style="width: 15px; height: 15px;"></i></span>
+        <div class="featured-grid">
+          ${FEATURED_PRODUCTS.map(p => `
+            <div class="featured-card">
+              <div class="featured-img-wrap">
+                <img src="${p.img}" alt="${p.name}" loading="lazy">
+                <span class="featured-badge ${p.brandClass}">${p.brand}</span>
+              </div>
+              <div class="featured-body">
+                <div class="featured-meta">
+                  <span class="featured-category">${p.category}</span>
+                  <span class="featured-weight">${p.weight}</span>
+                </div>
+                <h3 class="featured-name">${p.name}</h3>
+                <p class="featured-desc">${p.desc}</p>
+                <a href="${p.link}" class="featured-link">View Product <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i></a>
+              </div>
             </div>
-            <div class="brand-duo-img">
-              <img src="./assets/rusk/preeti_rusk_toast.jpg" alt="Preeti Rusk & Toast Products">
+          `).join('')}
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: OUR COLLECTIONS (3 VISUAL BANNERS) -->
+    <section class="section-padding collections-section">
+      <div class="container">
+        <div class="section-title">
+          <span class="section-badge">Our Collections</span>
+          <h2>Baked for Every Meal &amp; Tea Time</h2>
+          <p>Explore our core product lines crafted for morning breakfast tables and evening refreshments.</p>
+        </div>
+        <div class="collections-grid">
+          <!-- Collection 1: Bread & Bakery -->
+          <a href="#/brands/good-morning-india" class="collection-banner-card collection-bread">
+            <div class="collection-banner-backdrop"></div>
+            <div class="collection-content">
+              <span class="collection-tag">Bread &amp; Bakery</span>
+              <h3>Good Morning India Breads</h3>
+              <p>Soft white loaves, sandwich bread, standard daily packs &amp; family loaves.</p>
+              <span class="collection-link">Explore Collection <i data-lucide="arrow-right" style="width: 15px; height: 15px;"></i></span>
+            </div>
+            <div class="collection-image-box">
+              <img src="./assets/bread/500gm.jpeg" alt="Good Morning India Bread Collection" loading="lazy">
             </div>
           </a>
 
-          <!-- Good Morning India Brand Card -->
-          <a href="#/brands/good-morning-india" class="brand-duo-card gmi">
-            <div class="brand-duo-info">
-              <img src="./assets/gmi_logo.png" alt="Good Morning India Bread" class="brand-duo-logo">
-              <h3>Good Morning India</h3>
-              <p>Fresh white loaves, sandwich bread, sweet buns, and burger buns with morning route dispatch reliability.</p>
-              <span class="brand-duo-link">View Bread Range <i data-lucide="arrow-right" style="width: 15px; height: 15px;"></i></span>
+          <!-- Collection 2: Eggless Biscottis -->
+          <a href="#/brands/preeti" class="collection-banner-card collection-biscotti">
+            <div class="collection-banner-backdrop"></div>
+            <div class="collection-content">
+              <span class="collection-tag">Eggless Bakery</span>
+              <h3>Preeti Biscottis &amp; Cookies</h3>
+              <p>100% eggless handmade biscottis in classic orange &amp; dry fruit varieties.</p>
+              <span class="collection-link">Explore Collection <i data-lucide="arrow-right" style="width: 15px; height: 15px;"></i></span>
             </div>
-            <div class="brand-duo-img">
-              <img src="./assets/bread/500gm.jpeg" alt="Good Morning India Bread Products">
+            <div class="collection-image-box">
+              <img src="./assets/rusk/preeti_biscottis_orange.jpg" alt="Preeti Biscottis Collection" loading="lazy">
+            </div>
+          </a>
+
+          <!-- Collection 3: Rusks & Suji Toast -->
+          <a href="#/brands/preeti" class="collection-banner-card collection-rusk">
+            <div class="collection-banner-backdrop"></div>
+            <div class="collection-content">
+              <span class="collection-tag">Tea-Time Staples</span>
+              <h3>Preeti Rusks &amp; Suji Toast</h3>
+              <p>Double-baked crispy rusks and semolina toast crafted for the daily tea cup.</p>
+              <span class="collection-link">Explore Collection <i data-lucide="arrow-right" style="width: 15px; height: 15px;"></i></span>
+            </div>
+            <div class="collection-image-box">
+              <img src="./assets/rusk/preeti_rusk_toast.jpg" alt="Preeti Rusks &amp; Toast Collection" loading="lazy">
             </div>
           </a>
         </div>
       </div>
     </section>
 
-    <!-- CORPORATE PILLARS -->
-    <section class="section-padding">
+    <!-- SECTION 4: QUALITY ASSURANCE & PRODUCT SHOWCASE -->
+    <section class="section-padding qa-section">
+      <div class="container">
+        <div class="qa-grid">
+          <!-- QA Left Column: Quality Story & Commitments -->
+          <div class="qa-narrative-col">
+            <div class="qa-header">
+              <span class="section-badge">Quality Assurance</span>
+              <h2>Wholesome Ingredients.<br><span>Masterfully Baked.</span></h2>
+              <p>At Bhagyashree Food Products, every loaf and rusk is produced under standardized hygiene and FSSAI compliance protocols. We formulate our products using select grain flour, standard yeast balance, temperature-controlled automated ovens, and sealed packaging to lock in morning freshness.</p>
+            </div>
+            <div class="qa-features-list">
+              <div class="qa-feature-item">
+                <div class="qa-feature-icon">
+                  <i data-lucide="shield-check"></i>
+                </div>
+                <div>
+                  <h4>100% Vegetarian / Eggless Rusks</h4>
+                  <p>Prepared in clean, hygienic lines adhering to standard food safety practices.</p>
+                </div>
+              </div>
+              <div class="qa-feature-item">
+                <div class="qa-feature-icon">
+                  <i data-lucide="package-check"></i>
+                </div>
+                <div>
+                  <h4>Hygienic Sealed Packaging</h4>
+                  <p>Pouch-sealed and moisture-protected packaging to lock in morning bake freshness.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- QA Right Column: Interactive Product Specs Switcher -->
+          <div class="qa-switcher-col">
+            <div class="qa-tabs-header">
+              <span class="qa-tabs-title">Select Product to Inspect Specs:</span>
+            </div>
+            <div class="qa-tabs-row" id="qa-tabs">
+              ${QA_PRODUCTS.map((qp, idx) => `
+                <button class="qa-tab-btn ${idx === 0 ? 'active' : ''}" data-qa-id="${qp.id}" aria-label="${qp.name}">
+                  <img src="${qp.img}" alt="${qp.name}">
+                  <span>${qp.category}</span>
+                </button>
+              `).join('')}
+            </div>
+            <div class="qa-spec-card" id="qa-detail-card">
+              <!-- Initial rendered detail for 1st product -->
+              <div class="qa-card-head">
+                <span class="portfolio-pill gmi">Good Morning India</span>
+                <span class="qa-spec-badge">Verified Spec</span>
+              </div>
+              <h3 class="qa-card-title">${QA_PRODUCTS[0].name}</h3>
+              <p class="qa-card-highlight">${QA_PRODUCTS[0].highlight}</p>
+              
+              <div class="qa-spec-grid">
+                <div class="qa-spec-item">
+                  <span class="qa-spec-label">Pack Weight</span>
+                  <span class="qa-spec-val">${QA_PRODUCTS[0].weight}</span>
+                </div>
+                <div class="qa-spec-item">
+                  <span class="qa-spec-label">Slice Type</span>
+                  <span class="qa-spec-val">${QA_PRODUCTS[0].slices}</span>
+                </div>
+                <div class="qa-spec-item">
+                  <span class="qa-spec-label">Packaging</span>
+                  <span class="qa-spec-val">${QA_PRODUCTS[0].sealed}</span>
+                </div>
+                <div class="qa-spec-item">
+                  <span class="qa-spec-label">Freshness Mode</span>
+                  <span class="qa-spec-val">${QA_PRODUCTS[0].shelf}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: THE BRANDS BEHIND EVERY BITE (PORTFOLIO HUB) -->
+    <section class="section-padding portfolio-section">
       <div class="container">
         <div class="section-title">
-          <h2>Our Manufacturing Excellence</h2>
-          <p>How we scale operations to feed regional market demand with precision, safety, and fresh quality.</p>
+          <span class="section-badge">Our Portfolio</span>
+          <h2>The Brands Behind Every Bite</h2>
+          <p>Two distinct verticals delivering consistent taste and fresh bakery staples across Uttar Pradesh.</p>
+        </div>
+        <div class="portfolio-grid">
+          <!-- Brand 1: Good Morning India -->
+          <div class="portfolio-card gmi">
+            <div class="portfolio-card-header">
+              <span class="portfolio-pill gmi">Bread &amp; Bakery</span>
+              <div class="portfolio-logo-wrap">
+                <img src="./assets/gmi_logo.png" alt="Good Morning India" class="portfolio-logo">
+              </div>
+              <h3>Good Morning India</h3>
+              <p>Oven-fresh white bread, sandwich slices, and family packs dispatched daily on early-morning route vehicles.</p>
+            </div>
+            <div class="portfolio-card-body">
+              <img src="./assets/bread/500gm.jpeg" alt="Good Morning India Range" loading="lazy">
+            </div>
+            <div class="portfolio-card-footer">
+              <a href="#/brands/good-morning-india" class="portfolio-link gmi">Explore Bread Range <i data-lucide="arrow-right" style="width: 15px; height: 15px;"></i></a>
+            </div>
+          </div>
+
+          <!-- Brand 2: Preeti -->
+          <div class="portfolio-card preeti">
+            <div class="portfolio-card-header">
+              <span class="portfolio-pill preeti">Rusk &amp; Biscottis</span>
+              <div class="portfolio-logo-wrap">
+                <img src="./assets/preeti_logo.png" alt="Preeti Rusk &amp; Biscuits" class="portfolio-logo">
+              </div>
+              <h3>Preeti</h3>
+              <p>Double-baked crispy rusks, 100% eggless handmade biscottis, and crunchy suji toast for classic tea-time snacking.</p>
+            </div>
+            <div class="portfolio-card-body">
+              <img src="./assets/rusk/preeti_rusk_toast.jpg" alt="Preeti Products Range" loading="lazy">
+            </div>
+            <div class="portfolio-card-footer">
+              <a href="#/brands/preeti" class="portfolio-link preeti">Explore Preeti Range <i data-lucide="arrow-right" style="width: 15px; height: 15px;"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: MANUFACTURING EXCELLENCE (4 VERIFIED PILLARS) -->
+    <section class="section-padding manufacturing-section">
+      <div class="container">
+        <div class="section-title">
+          <span class="section-badge">Infrastructure &amp; Capabilities</span>
+          <h2>Manufacturing Excellence</h2>
+          <p>How we scale production to supply regional wholesale and retail networks with consistency.</p>
         </div>
         <div class="pillars-grid">
           ${pillars.map(p => `
@@ -387,23 +562,23 @@ function renderHome() {
       </div>
     </section>
 
-    <!-- CHANNEL PARTNERS MARQUEE -->
+    <!-- SECTION 7: RETAIL & LOGISTICS FOOTPRINT (GENERAL NETWORK) -->
     <section class="marquee-container">
-      <div class="marquee-title">Supplying to Leading Logistics & Grocery Outlets</div>
+      <div class="marquee-title">Retail &amp; Distribution Supply Network</div>
       <div class="marquee-content">
-        ${PARTNER_CHANNELS.map(pc => `
+        ${DISTRIBUTION_CHANNELS.map(ch => `
           <div class="marquee-item">
             <i data-lucide="store" style="width: 18px; height: 18px;"></i>
-            <span>${pc}</span>
+            <span>${ch}</span>
           </div>
         `).join('')}
       </div>
     </section>
 
-    <!-- B2B CALL TO ACTION -->
-    <section class="section-padding" style="background: var(--bg-card); border-bottom: 1px solid var(--border-color);">
+    <!-- SECTION 8: B2B DISTRIBUTOR PARTNERSHIP CTA -->
+    <section class="section-padding b2b-cta-section">
       <div class="container" style="text-align: center; max-width: 800px;">
-        <span class="hero-tagline" style="background: #EAF8F0; color: #10B981; border-color: rgba(16,185,129,0.1);">📈 Expanding Territory</span>
+        <span class="hero-tagline" style="background: #EAF8F0; color: #10B981; border-color: rgba(16,185,129,0.1);">📈 Expanding Wholesale Routes</span>
         <h2 style="font-family: var(--font-display); font-size: 36px; font-weight: 800; margin: 16px 0 20px;">Partner With Moradabad's Leading Bakery Plant</h2>
         <p style="color: var(--text-muted); font-size: 16px; margin-bottom: 30px;">We allocate exclusive geographic routes and wholesale price structures to authorized logistics stockists, supermarket distribution managers, and large retail traders. Contact our partnership desk today.</p>
         <div class="hero-actions" style="justify-content: center;">
@@ -919,6 +1094,7 @@ function initInteractions(path) {
   // Route-Specific JS Listeners
   if (path === "/" || path === "") {
     initHeroCarousel();
+    initQASwitcher();
   } else if (path === "/gallery") {
     initGalleryFilters();
     initLightbox();
@@ -927,6 +1103,52 @@ function initInteractions(path) {
   } else if (path === "/contact") {
     initContactForm();
   }
+}
+
+// Interactive Quality Assurance & Specs Switcher
+function initQASwitcher() {
+  const tabs = document.querySelectorAll(".qa-tab-btn");
+  const detailCard = document.getElementById("qa-detail-card");
+  if (!tabs.length || !detailCard) return;
+
+  tabs.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const qId = btn.getAttribute("data-qa-id");
+      const prod = QA_PRODUCTS.find(p => p.id === qId);
+      if (!prod) return;
+
+      tabs.forEach(t => t.classList.remove("active"));
+      btn.classList.add("active");
+
+      detailCard.innerHTML = `
+        <div class="qa-card-head">
+          <span class="portfolio-pill ${prod.brandClass}">${prod.brand}</span>
+          <span class="qa-spec-badge">Verified Spec</span>
+        </div>
+        <h3 class="qa-card-title">${prod.name}</h3>
+        <p class="qa-card-highlight">${prod.highlight}</p>
+        
+        <div class="qa-spec-grid">
+          <div class="qa-spec-item">
+            <span class="qa-spec-label">Pack Weight</span>
+            <span class="qa-spec-val">${prod.weight}</span>
+          </div>
+          <div class="qa-spec-item">
+            <span class="qa-spec-label">Slice Type</span>
+            <span class="qa-spec-val">${prod.slices}</span>
+          </div>
+          <div class="qa-spec-item">
+            <span class="qa-spec-label">Packaging</span>
+            <span class="qa-spec-val">${prod.sealed}</span>
+          </div>
+          <div class="qa-spec-item">
+            <span class="qa-spec-label">Freshness Mode</span>
+            <span class="qa-spec-val">${prod.shelf}</span>
+          </div>
+        </div>
+      `;
+    });
+  });
 }
 
 // Hero Product Carousel
