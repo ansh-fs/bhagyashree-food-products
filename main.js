@@ -96,10 +96,150 @@ const PREETI_PRODUCTS = [
   }
 ];
 
-const PARTNER_CHANNELS = [
-  "Vishal Mega Mart", "Swiggy Instamart", "Blinkit", "Zepto", 
-  "Reliance Smart", "Burger Singh", "KFC Franchise Network", "BigBasket",
-  "Vishal Mega Mart", "Swiggy Instamart", "Blinkit", "Zepto"
+const DISTRIBUTION_CHANNELS = [
+  "Authorized Wholesale Stockists",
+  "Regional Logistics Depots",
+  "Supermarket & Modern Trade Outlets",
+  "Local Retail Grocery Stores",
+  "Morning Delivery Routes",
+  "Institutional & Food Service Supply",
+  "Authorized Wholesale Stockists",
+  "Regional Logistics Depots",
+  "Supermarket & Modern Trade Outlets",
+  "Local Retail Grocery Stores"
+];
+
+// Featured Products for Home Discovery (Authentic SKUs)
+const FEATURED_PRODUCTS = [
+  {
+    name: "Good Morning India Fresh White Bread",
+    brand: "Good Morning India",
+    brandClass: "gmi",
+    category: "Daily White Bread",
+    weight: "500g Pack",
+    desc: "Soft, oven-fresh standard slices for breakfast toast and sandwiches.",
+    img: "./assets/bread/500gm.jpeg",
+    link: "#/brands/good-morning-india"
+  },
+  {
+    name: "Preeti Bread Rusk Toast",
+    brand: "Preeti",
+    brandClass: "preeti",
+    category: "Crispy Rusk",
+    weight: "Standard Pack",
+    desc: "Double-baked crispy bread rusk toast for authentic tea-time crunch.",
+    img: "./assets/rusk/preeti_rusk_toast.jpg",
+    link: "#/brands/preeti"
+  },
+  {
+    name: "Good Morning India Premium Bread",
+    brand: "Good Morning India",
+    brandClass: "gmi",
+    category: "Family Loaf",
+    weight: "600g Family Pack",
+    desc: "Richly formulated large loaf baked for family table breakfasts.",
+    img: "./assets/bread/600gm.jpeg",
+    link: "#/brands/good-morning-india"
+  },
+  {
+    name: "Preeti Biscottis – Classic",
+    brand: "Preeti",
+    brandClass: "preeti",
+    category: "100% Eggless",
+    weight: "Assorted Pack",
+    desc: "Eggless handmade biscuits in signature orange packaging.",
+    img: "./assets/rusk/preeti_biscottis_orange.jpg",
+    link: "#/brands/preeti"
+  },
+  {
+    name: "Good Morning India Special Sandwich Bread",
+    brand: "Good Morning India",
+    brandClass: "gmi",
+    category: "Sandwich Slices",
+    weight: "350g Pack",
+    desc: "Specially crafted soft slice bread in vibrant red pouch.",
+    img: "./assets/bread/350gm.jpeg",
+    link: "#/brands/good-morning-india"
+  },
+  {
+    name: "Preeti Biscottis – Dry Fruits",
+    brand: "Preeti",
+    brandClass: "preeti",
+    category: "Premium Biscottis",
+    weight: "Assorted Pack",
+    desc: "Nutty and delicious eggless handmade biscuits with dry fruits.",
+    img: "./assets/rusk/preeti_biscottis_dryfruits.jpg",
+    link: "#/brands/preeti"
+  }
+];
+
+// Verified Product Data for Quality Assurance Showcase
+const QA_PRODUCTS = [
+  {
+    id: "gmi-500",
+    name: "Good Morning India Fresh White Bread",
+    brand: "Good Morning India",
+    brandClass: "gmi",
+    category: "Daily White Bread",
+    weight: "500g Pack",
+    slices: "Standard Uniform Slices",
+    sealed: "Hygienic Sealed Poly Pouch",
+    shelf: "Daily Fresh Morning Dispatch",
+    img: "./assets/bread/500gm.jpeg",
+    highlight: "Soft, oven-fresh white bread slice, ideal for daily breakfast toast, sandwiches, and family dining."
+  },
+  {
+    id: "preeti-rusk",
+    name: "Preeti Bread Rusk Toast",
+    brand: "Preeti",
+    brandClass: "preeti",
+    category: "Crispy Bread Rusk",
+    weight: "Standard Pack",
+    slices: "Double-Baked Crispy Toast",
+    sealed: "Moisture-Proof Sealed Pouch",
+    shelf: "Extended Tea-Time Shelf Life",
+    img: "./assets/rusk/preeti_rusk_toast.jpg",
+    highlight: "Double-baked crispy bread rusk toast made with finest ingredients, baked for authentic Indian tea-time crunch."
+  },
+  {
+    id: "gmi-600",
+    name: "Good Morning India Premium Bread",
+    brand: "Good Morning India",
+    brandClass: "gmi",
+    category: "Family Bread Loaf",
+    weight: "600g Family Pack",
+    slices: "Extra Soft Large Slices",
+    sealed: "Sealed Poly Bag with Clip",
+    shelf: "Daily Fresh Morning Dispatch",
+    img: "./assets/bread/600gm.jpeg",
+    highlight: "Richly formulated bread baked for extra softness and nutritious morning family table breakfasts."
+  },
+  {
+    id: "preeti-biscotti",
+    name: "Preeti Biscottis – Classic",
+    brand: "Preeti",
+    brandClass: "preeti",
+    category: "100% Eggless Biscotti",
+    weight: "Assorted Pack",
+    slices: "Handmade Crunchy Biscuit",
+    sealed: "Protective Sealed Box",
+    shelf: "Bakery Confectionery Grade",
+    img: "./assets/rusk/preeti_biscottis_orange.jpg",
+    highlight: "100% eggless handmade biscuits in classic orange packaging. Crispy, crunchy and rich in taste."
+  },
+  {
+    id: "keshav-suji",
+    name: "Keshav Bread Suji Toast",
+    brand: "Preeti Range",
+    brandClass: "preeti",
+    category: "Crispy Suji Toast",
+    weight: "Standard Pack",
+    slices: "Golden Baked Semolina Toast",
+    sealed: "Moisture-Proof Pouch",
+    shelf: "Crisp Tea-Time Staple",
+    img: "./assets/rusk/keshav_suji_toast.jpg",
+    highlight: "Tasty and crunchy bread suji toast made with semolina for an authentic tea-time companion."
+  }
 ];
 
 // Router Configuration
