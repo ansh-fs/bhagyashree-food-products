@@ -171,23 +171,20 @@ const navMenu = document.getElementById("nav-menu");
 if (mobileToggle && navMenu) {
   mobileToggle.addEventListener("click", () => {
     navMenu.classList.toggle("active");
-    const icon = mobileToggle.querySelector("i");
-    if (navMenu.classList.contains("active")) {
-      icon.setAttribute("data-lucide", "x");
-    } else {
-      icon.setAttribute("data-lucide", "menu");
-    }
-    lucide.createIcons();
+    const isOpen = navMenu.classList.contains("active");
+    mobileToggle.innerHTML = isOpen
+      ? '<i data-lucide="x" style="width: 24px; height: 24px;"></i>'
+      : '<i data-lucide="menu" style="width: 24px; height: 24px;"></i>';
+    if (typeof lucide !== 'undefined') lucide.createIcons();
   });
 }
 
 // Close mobile navbar on nav link click
 document.addEventListener("click", (e) => {
-  if (e.target.classList.contains("nav-link")) {
+  if (e.target.closest(".nav-link") && navMenu && mobileToggle) {
     navMenu.classList.remove("active");
-    const icon = mobileToggle.querySelector("i");
-    icon.setAttribute("data-lucide", "menu");
-    lucide.createIcons();
+    mobileToggle.innerHTML = '<i data-lucide="menu" style="width: 24px; height: 24px;"></i>';
+    if (typeof lucide !== 'undefined') lucide.createIcons();
   }
 });
 
@@ -199,9 +196,14 @@ if (ctaBtn) {
   });
 }
 
-// Router Hash Listener
+// Router Hash Listener & Execution
 window.addEventListener("hashchange", router);
-window.addEventListener("load", router);
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", router);
+} else {
+  router();
+}
 
 // --- RENDER PAGES ---
 
