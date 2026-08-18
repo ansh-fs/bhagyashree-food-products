@@ -215,173 +215,153 @@ function renderHome() {
   ];
 
   return `
-    <!-- HERO SECTION -->
+    <!-- HERO SECTION (FMCG CORPORATE) -->
     <section class="hero" id="hero-section">
-      <!-- Background Bakery Light Rays Overlay -->
-      <div class="sunlight-rays"></div>
-      
-      <!-- Subtle Floating Flour Particles -->
-      <div class="flour-particles">
-        <span class="particle p1"></span>
-        <span class="particle p2"></span>
-        <span class="particle p3"></span>
-        <span class="particle p4"></span>
-        <span class="particle p5"></span>
-        <span class="particle p6"></span>
-      </div>
-
       <div class="container hero-grid">
         <div class="hero-text-col">
-          <div class="hero-tag-badge">
-            <i data-lucide="sparkles" style="width: 14px; height: 14px; color: var(--accent-gold);"></i>
-            <span>PREMIUM FMCG BAKERY BRAND</span>
-          </div>
-          <h1 class="hero-title">Freshly Baked<br><span>Every Morning.</span></h1>
+          <h1 class="hero-title">Freshly Baked<br>Every Morning.</h1>
           <p class="hero-desc">Delivering soft, hygienic and delicious bread made with quality ingredients for families, retailers and distributors.</p>
           
           <div class="hero-actions">
-            <a href="#/brands/good-morning-india" class="btn btn-primary hero-btn-primary">
+            <a href="#/brands" class="btn btn-primary hero-btn-primary">
               <span>Explore Products</span>
               <i data-lucide="arrow-right" style="width: 18px; height: 18px;"></i>
             </a>
             <a href="#/distributors" class="btn btn-secondary hero-btn-secondary">
-              <i data-lucide="handshake" style="width: 18px; height: 18px; color: var(--accent-gold);"></i>
+              <i data-lucide="handshake" style="width: 18px; height: 18px;"></i>
               <span>Become a Distributor</span>
             </a>
           </div>
 
-          <!-- TRUST BADGES -->
-          <div class="trust-badges-grid">
-            <div class="trust-badge-item">
-              <div class="trust-badge-icon">
-                <i data-lucide="check" style="width: 16px; height: 16px;"></i>
-              </div>
-              <span>Fresh Every Day</span>
+          <!-- FACTUAL TRUST STRIP -->
+          <div class="hero-trust-strip">
+            <div class="trust-strip-item">
+              <span class="trust-strip-dot"></span>
+              <span>FSSAI Licensed</span>
             </div>
-            <div class="trust-badge-item">
-              <div class="trust-badge-icon">
-                <i data-lucide="shield-check" style="width: 16px; height: 16px;"></i>
-              </div>
-              <span>Hygienically Packed</span>
+            <div class="trust-strip-item">
+              <span class="trust-strip-dot"></span>
+              <span>GST Registered</span>
             </div>
-            <div class="trust-badge-item">
-              <div class="trust-badge-icon">
-                <i data-lucide="award" style="width: 16px; height: 16px;"></i>
-              </div>
-              <span>Quality Ingredients</span>
+            <div class="trust-strip-item">
+              <span class="trust-strip-dot"></span>
+              <span>Udyam Registered</span>
             </div>
-            <div class="trust-badge-item">
-              <div class="trust-badge-icon">
-                <i data-lucide="users" style="width: 16px; height: 16px;"></i>
-              </div>
-              <span>Trusted by Thousands</span>
+            <div class="trust-strip-item">
+              <span class="trust-strip-dot"></span>
+              <span>Est. 2012</span>
+            </div>
+            <div class="trust-strip-item">
+              <span class="trust-strip-dot"></span>
+              <span>24×7 Production</span>
             </div>
           </div>
         </div>
 
         <div class="hero-visual-col">
-          <!-- Product Carousel Showcase -->
+          <!-- Multi-Brand Product Carousel Showcase (GMI & Preeti) -->
           <div class="hero-product-stage">
-            <div class="hero-sun-glow"></div>
-            <div class="hero-carousel" id="hero-carousel">
-              <div class="hero-carousel-track float-animation">
-                <div class="hero-slide active" data-index="0">
-                  <div class="hero-product-card-wrapper">
-                    <img src="./assets/bread/500gm.jpeg" alt="Fresh White Bread 500g" class="hero-product-main-img">
+            <div class="hero-product-card-wrapper">
+              <div class="hero-carousel" id="hero-carousel">
+                <div class="hero-carousel-track">
+                  <!-- Slide 0: GMI 500g Bread -->
+                  <div class="hero-slide active" data-index="0">
+                    <img src="./assets/bread/500gm.jpeg" alt="Good Morning India Fresh White Bread 500g" class="hero-product-main-img">
                     <div class="hero-product-badge">
-                      <span class="badge-title">Good Morning India</span>
+                      <span class="badge-brand gmi">Good Morning India</span>
                       <span class="badge-sub">Fresh White Bread • 500g</span>
                     </div>
                   </div>
-                </div>
-                <div class="hero-slide" data-index="1">
-                  <div class="hero-product-card-wrapper">
-                    <img src="./assets/bread/600gm.jpeg" alt="Premium Bread 600g" class="hero-product-main-img">
+                  <!-- Slide 1: Preeti Bread Rusk Toast -->
+                  <div class="hero-slide" data-index="1">
+                    <img src="./assets/rusk/preeti_rusk_toast.jpg" alt="Preeti Bread Rusk Toast" class="hero-product-main-img">
                     <div class="hero-product-badge">
-                      <span class="badge-title">Good Morning India</span>
-                      <span class="badge-sub">Premium Bread • 600g</span>
+                      <span class="badge-brand preeti">Preeti</span>
+                      <span class="badge-sub">Bread Rusk Toast • 0% Preservatives</span>
                     </div>
                   </div>
-                </div>
-                <div class="hero-slide" data-index="2">
-                  <div class="hero-product-card-wrapper">
-                    <img src="./assets/bread/350gm.jpeg" alt="Special Sandwich Bread 350g" class="hero-product-main-img">
+                  <!-- Slide 2: GMI 600g Premium Bread -->
+                  <div class="hero-slide" data-index="2">
+                    <img src="./assets/bread/600gm.jpeg" alt="Good Morning India Premium Bread 600g" class="hero-product-main-img">
                     <div class="hero-product-badge">
-                      <span class="badge-title">Good Morning India</span>
+                      <span class="badge-brand gmi">Good Morning India</span>
+                      <span class="badge-sub">Premium Bread • 600g Family Pack</span>
+                    </div>
+                  </div>
+                  <!-- Slide 3: Preeti Biscottis Classic -->
+                  <div class="hero-slide" data-index="3">
+                    <img src="./assets/rusk/preeti_biscottis_orange.jpg" alt="Preeti Biscottis Classic" class="hero-product-main-img">
+                    <div class="hero-product-badge">
+                      <span class="badge-brand preeti">Preeti</span>
+                      <span class="badge-sub">Handmade Biscottis • 100% Eggless</span>
+                    </div>
+                  </div>
+                  <!-- Slide 4: GMI Special Sandwich Bread -->
+                  <div class="hero-slide" data-index="4">
+                    <img src="./assets/bread/350gm.jpeg" alt="Good Morning India Sandwich Bread 350g" class="hero-product-main-img">
+                    <div class="hero-product-badge">
+                      <span class="badge-brand gmi">Good Morning India</span>
                       <span class="badge-sub">Sandwich Bread • 350g</span>
                     </div>
                   </div>
-                </div>
-                <div class="hero-slide" data-index="3">
-                  <div class="hero-product-card-wrapper">
-                    <img src="./assets/bread/300gm.jpeg" alt="Fresh Sandwich Bread 300g" class="hero-product-main-img">
+                  <!-- Slide 5: Keshav Bread Suji Toast -->
+                  <div class="hero-slide" data-index="5">
+                    <img src="./assets/rusk/keshav_suji_toast.jpg" alt="Keshav Bread Suji Toast" class="hero-product-main-img">
                     <div class="hero-product-badge">
-                      <span class="badge-title">Good Morning India</span>
-                      <span class="badge-sub">Sandwich Bread • 300g</span>
+                      <span class="badge-brand preeti">Preeti Range</span>
+                      <span class="badge-sub">Keshav Suji Toast • Crunchy</span>
                     </div>
                   </div>
                 </div>
-                <div class="hero-slide" data-index="4">
-                  <div class="hero-product-card-wrapper">
-                    <img src="./assets/bread/220gm.jpeg" alt="Classic Sandwich Bread 220g" class="hero-product-main-img">
-                    <div class="hero-product-badge">
-                      <span class="badge-title">Good Morning India</span>
-                      <span class="badge-sub">Sandwich Bread • 220g</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="hero-slide" data-index="5">
-                  <div class="hero-product-card-wrapper">
-                    <img src="./assets/bread/GATTU.jpeg" alt="Gattu Sandwich Bread" class="hero-product-main-img">
-                    <div class="hero-product-badge">
-                      <span class="badge-title">Good Morning India</span>
-                      <span class="badge-sub">Gattu Special Pack</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Carousel Dots -->
-              <div class="hero-carousel-dots" id="hero-carousel-dots">
-                <button class="carousel-dot active" data-slide="0"></button>
-                <button class="carousel-dot" data-slide="1"></button>
-                <button class="carousel-dot" data-slide="2"></button>
-                <button class="carousel-dot" data-slide="3"></button>
-                <button class="carousel-dot" data-slide="4"></button>
-                <button class="carousel-dot" data-slide="5"></button>
               </div>
             </div>
-            <!-- Soft Realistic Drop Shadow -->
-            <div class="hero-product-shadow"></div>
+            <!-- Carousel Dots -->
+            <div class="hero-carousel-dots" id="hero-carousel-dots">
+              <button class="carousel-dot active" data-slide="0" aria-label="Slide 1"></button>
+              <button class="carousel-dot" data-slide="1" aria-label="Slide 2"></button>
+              <button class="carousel-dot" data-slide="2" aria-label="Slide 3"></button>
+              <button class="carousel-dot" data-slide="3" aria-label="Slide 4"></button>
+              <button class="carousel-dot" data-slide="4" aria-label="Slide 5"></button>
+              <button class="carousel-dot" data-slide="5" aria-label="Slide 6"></button>
+            </div>
           </div>
         </div>
       </div>
-
-      <!-- Curved Bottom Transition Divider -->
-      <div class="hero-curved-divider">
-        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-          <path d="M0,32 C360,96 1080,96 1440,32 L1440,120 L0,120 Z" fill="#FFFFFF"></path>
-        </svg>
-      </div>
     </section>
 
-    <!-- STATS STRIP -->
-    <section class="stats-bar">
-      <div class="container stats-grid">
-        <div class="stat-card">
-          <h3>2012</h3>
-          <p>Established Year</p>
+    <!-- SUB-BRAND DISTINCTION SECTION -->
+    <section class="brand-duo-section">
+      <div class="container">
+        <div class="brand-duo-heading">
+          <h2>Our Core Manufacturing Verticals</h2>
+          <p>Two focused product portfolios serving breakfast tables and tea-time snacks across Uttar Pradesh.</p>
         </div>
-        <div class="stat-card">
-          <h3>50k+</h3>
-          <p>Loaves Baked Daily</p>
-        </div>
-        <div class="stat-card">
-          <h3>150+</h3>
-          <p>Active Distributors</p>
-        </div>
-        <div class="stat-card">
-          <h3>100%</h3>
-          <p>Hygienic & Certified</p>
+        <div class="brand-duo-grid">
+          <!-- Preeti Brand Card -->
+          <a href="#/brands/preeti" class="brand-duo-card preeti">
+            <div class="brand-duo-info">
+              <img src="./assets/preeti_logo.png" alt="Preeti Rusk & Biscuits" class="brand-duo-logo">
+              <h3>Preeti</h3>
+              <p>Double-baked crispy rusks, eggless handmade biscottis, and light digestive suji toast for wholesale distribution.</p>
+              <span class="brand-duo-link">View Preeti Range <i data-lucide="arrow-right" style="width: 15px; height: 15px;"></i></span>
+            </div>
+            <div class="brand-duo-img">
+              <img src="./assets/rusk/preeti_rusk_toast.jpg" alt="Preeti Rusk & Toast Products">
+            </div>
+          </a>
+
+          <!-- Good Morning India Brand Card -->
+          <a href="#/brands/good-morning-india" class="brand-duo-card gmi">
+            <div class="brand-duo-info">
+              <img src="./assets/gmi_logo.png" alt="Good Morning India Bread" class="brand-duo-logo">
+              <h3>Good Morning India</h3>
+              <p>Fresh white loaves, sandwich bread, sweet buns, and burger buns with morning route dispatch reliability.</p>
+              <span class="brand-duo-link">View Bread Range <i data-lucide="arrow-right" style="width: 15px; height: 15px;"></i></span>
+            </div>
+            <div class="brand-duo-img">
+              <img src="./assets/bread/500gm.jpeg" alt="Good Morning India Bread Products">
+            </div>
+          </a>
         </div>
       </div>
     </section>
@@ -403,43 +383,6 @@ function renderHome() {
               <p>${p.desc}</p>
             </div>
           `).join('')}
-        </div>
-      </div>
-    </section>
-
-    <!-- BRANDS HUB SECTION -->
-    <section class="section-padding brands-section">
-      <div class="container">
-        <div class="section-title">
-          <h2>One Manufacturer. Two Iconic Brands.</h2>
-          <p>We pack two distinct product verticals to own the breakfast and tea-time table respectively.</p>
-        </div>
-        <div class="brands-grid">
-          <!-- Preeti Brand Card -->
-          <div class="brand-showcase-card preeti">
-            <div class="brand-card-header preeti">
-              <img src="./assets/preeti_logo.png" alt="Preeti Rusk & Biscuits Logo" class="brand-logo-img">
-              <h3>Preeti</h3>
-              <p>Rusk, bakery cookies & suji toast. India's favorite double-baked tea-time staples, crisp and full of rich flavor.</p>
-              <a href="#/brands/preeti" class="btn btn-primary" style="background: var(--preeti-blue);">View Preeti Products</a>
-            </div>
-            <div class="brand-preview-img-container">
-              <img src="./assets/rusk/preeti_rusk_toast.jpg" alt="Preeti Rusk Packaging Preview">
-            </div>
-          </div>
-
-          <!-- Good Morning India Brand Card -->
-          <div class="brand-showcase-card gmi">
-            <div class="brand-card-header gmi">
-              <img src="./assets/gmi_logo.png" alt="Good Morning India Bread Logo" class="brand-logo-img">
-              <h3>Good Morning India</h3>
-              <p>Soft white loaves, brown bread, sweet buns, and burger buns. Loaded with standard weights and color-coded packaging.</p>
-              <a href="#/brands/good-morning-india" class="btn btn-primary" style="background: var(--gmi-red);">View Bread Products</a>
-            </div>
-            <div class="brand-preview-img-container">
-              <img src="./assets/bread/500gm.jpeg" alt="Good Morning India Bread Preview">
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -975,7 +918,7 @@ function initInteractions(path) {
 
   // Route-Specific JS Listeners
   if (path === "/" || path === "") {
-    initHeroParallax();
+    initHeroCarousel();
   } else if (path === "/gallery") {
     initGalleryFilters();
     initLightbox();
@@ -986,20 +929,8 @@ function initInteractions(path) {
   }
 }
 
-// Hero Parallax Scroll Logic + Product Carousel
-function initHeroParallax() {
-  const heroStage = document.querySelector(".hero-product-stage");
-  if (!heroStage) return;
-
-  // Parallax on scroll
-  window.addEventListener("scroll", () => {
-    const scrollY = window.scrollY;
-    if (scrollY < 700) {
-      heroStage.style.transform = `translateY(${scrollY * 0.12}px)`;
-    }
-  }, { passive: true });
-
-  // Product Carousel
+// Hero Product Carousel
+function initHeroCarousel() {
   const slides = document.querySelectorAll(".hero-slide");
   const dots = document.querySelectorAll(".carousel-dot");
   if (slides.length === 0) return;
