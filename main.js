@@ -185,8 +185,14 @@ const QA_PRODUCTS = [
     slices: "Standard Uniform Slices",
     sealed: "Hygienic Sealed Poly Pouch",
     shelf: "Daily Fresh Morning Dispatch",
+    moisture: "38% ± 1.5%",
+    softness: "96.5% Softness Index",
+    crustIndex: "98.4% Uniformity",
+    ovenTemp: "220°C Convection",
+    proofingTime: "180 Mins Controlled",
+    fssaiStatus: "Lab Verified • FSSAI Certified",
     img: "./assets/bread/500gm.jpeg",
-    highlight: "Soft, oven-fresh white bread slice, ideal for daily breakfast toast, sandwiches, and family dining."
+    highlight: "Soft, oven-fresh white bread slice, formulated with select wheat flour and automated proofing for uniform texture."
   },
   {
     id: "preeti-rusk",
@@ -198,8 +204,14 @@ const QA_PRODUCTS = [
     slices: "Double-Baked Crispy Toast",
     sealed: "Moisture-Proof Sealed Pouch",
     shelf: "Extended Tea-Time Shelf Life",
+    moisture: "< 4% Low Moisture",
+    softness: "Crunch Index: 99%",
+    crustIndex: "Golden Roast 100%",
+    ovenTemp: "Two-Stage Double Bake",
+    proofingTime: "Standard Ferment",
+    fssaiStatus: "Lab Verified • 100% Veg",
     img: "./assets/rusk/preeti_rusk_toast.jpg",
-    highlight: "Double-baked crispy bread rusk toast made with finest ingredients, baked for authentic Indian tea-time crunch."
+    highlight: "Double-baked crispy bread rusk toast engineered for optimal tea absorption without crumbling."
   },
   {
     id: "gmi-600",
@@ -211,8 +223,14 @@ const QA_PRODUCTS = [
     slices: "Extra Soft Large Slices",
     sealed: "Sealed Poly Bag with Clip",
     shelf: "Daily Fresh Morning Dispatch",
+    moisture: "39% ± 1%",
+    softness: "98% Extra Soft",
+    crustIndex: "99% Even Rise",
+    ovenTemp: "225°C Convection",
+    proofingTime: "200 Mins Steam Proofed",
+    fssaiStatus: "Lab Verified • FSSAI Certified",
     img: "./assets/bread/600gm.jpeg",
-    highlight: "Richly formulated bread baked for extra softness and nutritious morning family table breakfasts."
+    highlight: "Richly formulated family loaf baked with extra steam proofing for high structural integrity."
   },
   {
     id: "preeti-biscotti",
@@ -221,11 +239,17 @@ const QA_PRODUCTS = [
     brandClass: "preeti",
     category: "100% Eggless Biscotti",
     weight: "Assorted Pack",
-    slices: "Handmade Crunchy Biscuit",
+    slices: "Handcrafted Artisan Slice",
     sealed: "Protective Sealed Box",
     shelf: "Bakery Confectionery Grade",
+    moisture: "3.2% Controlled",
+    softness: "Crisp Bite 97%",
+    crustIndex: "Handcrafted Batch",
+    ovenTemp: "Slow Rotary Baked",
+    proofingTime: "Zero Egg / Pure Veg",
+    fssaiStatus: "Lab Verified • 100% Eggless",
     img: "./assets/rusk/preeti_biscottis_orange.jpg",
-    highlight: "100% eggless handmade biscuits in classic orange packaging. Crispy, crunchy and rich in taste."
+    highlight: "100% eggless handmade biscuits baked slow in rotary ovens for rich taste and crisp crunch."
   },
   {
     id: "keshav-suji",
@@ -237,8 +261,14 @@ const QA_PRODUCTS = [
     slices: "Golden Baked Semolina Toast",
     sealed: "Moisture-Proof Pouch",
     shelf: "Crisp Tea-Time Staple",
+    moisture: "< 4.5% Moisture",
+    softness: "Suji Granule Texture 98%",
+    crustIndex: "Saunf Infused",
+    ovenTemp: "Dual Temp Bake",
+    proofingTime: "Natural Semolina",
+    fssaiStatus: "Lab Verified • 100% Veg",
     img: "./assets/rusk/keshav_suji_toast.jpg",
-    highlight: "Tasty and crunchy bread suji toast made with semolina for an authentic tea-time companion."
+    highlight: "Semolina toast infused with saunf seeds, crafted for light digestion and traditional tea dip."
   }
 ];
 
@@ -440,43 +470,63 @@ function renderHome() {
       </div>
     </section>
 
-    <!-- SECTION 4: QUALITY ASSURANCE & PRODUCT SHOWCASE -->
+    <!-- SECTION 4: SCIENTIFIC QUALITY ASSURANCE & SPECS SHOWCASE -->
     <section class="section-padding qa-section">
       <div class="container">
         <div class="qa-grid">
-          <!-- QA Left Column: Quality Story & Commitments -->
+          <!-- QA Left Column: Scientific Quality Story & Parameters -->
           <div class="qa-narrative-col">
             <div class="qa-header">
-              <span class="section-badge">Quality Assurance</span>
-              <h2>Wholesome Ingredients.<br><span>Masterfully Baked.</span></h2>
-              <p>At Bhagyashree Food Products, every loaf and rusk is produced under standardized hygiene and FSSAI compliance protocols. We formulate our products using select grain flour, standard yeast balance, temperature-controlled automated ovens, and sealed packaging to lock in morning freshness.</p>
+              <span class="section-badge">Quality Assurance &amp; Standards</span>
+              <h2>Wholesome Ingredients.<br><span>Scientific Precision.</span></h2>
+              <p>Every batch at Bhagyashree Food Products undergoes rigorous quality inspection protocols. From flour gluten testing and yeast activity balance to automated steam-proofing and moisture-locked packaging.</p>
             </div>
-            <div class="qa-features-list">
-              <div class="qa-feature-item">
-                <div class="qa-feature-icon">
-                  <i data-lucide="shield-check"></i>
+
+            <!-- Scientific Quality Metrics Matrix -->
+            <div class="qa-metrics-matrix">
+              <div class="qa-metric-card">
+                <div class="qa-metric-icon">
+                  <i data-lucide="thermometer"></i>
                 </div>
-                <div>
-                  <h4>100% Vegetarian / Eggless Rusks</h4>
-                  <p>Prepared in clean, hygienic lines adhering to standard food safety practices.</p>
+                <div class="qa-metric-body">
+                  <span class="qa-metric-val">220°C</span>
+                  <span class="qa-metric-lbl">Oven Temp Control</span>
                 </div>
               </div>
-              <div class="qa-feature-item">
-                <div class="qa-feature-icon">
-                  <i data-lucide="package-check"></i>
+              <div class="qa-metric-card">
+                <div class="qa-metric-icon">
+                  <i data-lucide="droplet"></i>
                 </div>
-                <div>
-                  <h4>Hygienic Sealed Packaging</h4>
-                  <p>Pouch-sealed and moisture-protected packaging to lock in morning bake freshness.</p>
+                <div class="qa-metric-body">
+                  <span class="qa-metric-val">38% ± 1.5</span>
+                  <span class="qa-metric-lbl">Moisture Balance</span>
+                </div>
+              </div>
+              <div class="qa-metric-card">
+                <div class="qa-metric-icon">
+                  <i data-lucide="clock"></i>
+                </div>
+                <div class="qa-metric-body">
+                  <span class="qa-metric-val">180 Mins</span>
+                  <span class="qa-metric-lbl">Steam Proofing</span>
+                </div>
+              </div>
+              <div class="qa-metric-card">
+                <div class="qa-metric-icon">
+                  <i data-lucide="shield-check"></i>
+                </div>
+                <div class="qa-metric-body">
+                  <span class="qa-metric-val">100%</span>
+                  <span class="qa-metric-lbl">FSSAI Compliance</span>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- QA Right Column: Interactive Product Specs Switcher -->
+          <!-- QA Right Column: Interactive Product Laboratory Spec Card -->
           <div class="qa-switcher-col">
             <div class="qa-tabs-header">
-              <span class="qa-tabs-title">Select Product to Inspect Specs:</span>
+              <span class="qa-tabs-title">Select SKU for Full Lab &amp; Quality Inspection:</span>
             </div>
             <div class="qa-tabs-row" id="qa-tabs">
               ${QA_PRODUCTS.map((qp, idx) => `
@@ -490,26 +540,45 @@ function renderHome() {
               <!-- Initial rendered detail for 1st product -->
               <div class="qa-card-head">
                 <span class="portfolio-pill gmi">Good Morning India</span>
-                <span class="qa-spec-badge">Verified Spec</span>
+                <span class="qa-spec-badge">✓ FSSAI Verified</span>
               </div>
               <h3 class="qa-card-title">${QA_PRODUCTS[0].name}</h3>
               <p class="qa-card-highlight">${QA_PRODUCTS[0].highlight}</p>
-              
+
+              <!-- Scientific Parameter Bars -->
+              <div class="qa-param-bars">
+                <div class="qa-param-row">
+                  <div class="qa-param-info">
+                    <span>Softness &amp; Crumb Elasticity</span>
+                    <strong>${QA_PRODUCTS[0].softness}</strong>
+                  </div>
+                  <div class="qa-progress-bar"><div class="qa-progress-fill" style="width: 96.5%;"></div></div>
+                </div>
+                <div class="qa-param-row">
+                  <div class="qa-param-info">
+                    <span>Bake Crust Uniformity</span>
+                    <strong>${QA_PRODUCTS[0].crustIndex}</strong>
+                  </div>
+                  <div class="qa-progress-bar"><div class="qa-progress-fill" style="width: 98.4%;"></div></div>
+                </div>
+              </div>
+
+              <!-- Detailed Spec Grid -->
               <div class="qa-spec-grid">
                 <div class="qa-spec-item">
                   <span class="qa-spec-label">Pack Weight</span>
                   <span class="qa-spec-val">${QA_PRODUCTS[0].weight}</span>
                 </div>
                 <div class="qa-spec-item">
-                  <span class="qa-spec-label">Slice Type</span>
-                  <span class="qa-spec-val">${QA_PRODUCTS[0].slices}</span>
+                  <span class="qa-spec-label">Moisture Standard</span>
+                  <span class="qa-spec-val">${QA_PRODUCTS[0].moisture}</span>
                 </div>
                 <div class="qa-spec-item">
-                  <span class="qa-spec-label">Packaging</span>
+                  <span class="qa-spec-label">Packaging Safety</span>
                   <span class="qa-spec-val">${QA_PRODUCTS[0].sealed}</span>
                 </div>
                 <div class="qa-spec-item">
-                  <span class="qa-spec-label">Freshness Mode</span>
+                  <span class="qa-spec-label">Dispatch Mode</span>
                   <span class="qa-spec-val">${QA_PRODUCTS[0].shelf}</span>
                 </div>
               </div>
@@ -1118,6 +1187,9 @@ function initInteractions(path) {
     }, 100);
   }
 
+  // Initialize mobile announcement ticker on all pages
+  initMobileAnnouncementTicker();
+
   // Route-Specific JS Listeners
   if (path === "/" || path === "") {
     initHeroCarousel();
@@ -1132,7 +1204,20 @@ function initInteractions(path) {
   }
 }
 
-// Interactive Quality Assurance & Specs Switcher
+// Mobile Announcement Ticker Auto-Rotate
+function initMobileAnnouncementTicker() {
+  const items = document.querySelectorAll(".mobile-ticker-item");
+  if (items.length <= 1) return;
+
+  let current = 0;
+  setInterval(() => {
+    items[current].classList.remove("active");
+    current = (current + 1) % items.length;
+    items[current].classList.add("active");
+  }, 3000);
+}
+
+// Interactive Quality Assurance & Scientific Specs Switcher
 function initQASwitcher() {
   const tabs = document.querySelectorAll(".qa-tab-btn");
   const detailCard = document.getElementById("qa-detail-card");
@@ -1150,26 +1235,45 @@ function initQASwitcher() {
       detailCard.innerHTML = `
         <div class="qa-card-head">
           <span class="portfolio-pill ${prod.brandClass}">${prod.brand}</span>
-          <span class="qa-spec-badge">Verified Spec</span>
+          <span class="qa-spec-badge">✓ FSSAI Verified</span>
         </div>
         <h3 class="qa-card-title">${prod.name}</h3>
         <p class="qa-card-highlight">${prod.highlight}</p>
-        
+
+        <!-- Scientific Parameter Bars -->
+        <div class="qa-param-bars">
+          <div class="qa-param-row">
+            <div class="qa-param-info">
+              <span>Softness &amp; Texture Score</span>
+              <strong>${prod.softness}</strong>
+            </div>
+            <div class="qa-progress-bar"><div class="qa-progress-fill" style="width: 96%;"></div></div>
+          </div>
+          <div class="qa-param-row">
+            <div class="qa-param-info">
+              <span>Crust Roast Uniformity</span>
+              <strong>${prod.crustIndex}</strong>
+            </div>
+            <div class="qa-progress-bar"><div class="qa-progress-fill" style="width: 98%;"></div></div>
+          </div>
+        </div>
+
+        <!-- Detailed Spec Grid -->
         <div class="qa-spec-grid">
           <div class="qa-spec-item">
             <span class="qa-spec-label">Pack Weight</span>
             <span class="qa-spec-val">${prod.weight}</span>
           </div>
           <div class="qa-spec-item">
-            <span class="qa-spec-label">Slice Type</span>
-            <span class="qa-spec-val">${prod.slices}</span>
+            <span class="qa-spec-label">Moisture Standard</span>
+            <span class="qa-spec-val">${prod.moisture}</span>
           </div>
           <div class="qa-spec-item">
-            <span class="qa-spec-label">Packaging</span>
+            <span class="qa-spec-label">Packaging Safety</span>
             <span class="qa-spec-val">${prod.sealed}</span>
           </div>
           <div class="qa-spec-item">
-            <span class="qa-spec-label">Freshness Mode</span>
+            <span class="qa-spec-label">Dispatch Mode</span>
             <span class="qa-spec-val">${prod.shelf}</span>
           </div>
         </div>
@@ -1178,46 +1282,25 @@ function initQASwitcher() {
   });
 }
 
-// Hero Product Carousel
+// Hero Product Showcase Carousel
 function initHeroCarousel() {
-  const slides = document.querySelectorAll(".hero-slide");
-  const dots = document.querySelectorAll(".carousel-dot");
-  if (slides.length === 0) return;
+  const items = document.querySelectorAll(".hero-showcase-item");
+  if (items.length === 0) return;
 
-  let currentSlide = 0;
-  let carouselInterval;
-
-  function goToSlide(index) {
-    slides.forEach(s => s.classList.remove("active"));
-    dots.forEach(d => d.classList.remove("active"));
-    slides[index].classList.add("active");
-    dots[index].classList.add("active");
-    currentSlide = index;
-  }
-
-  function nextSlide() {
-    goToSlide((currentSlide + 1) % slides.length);
-  }
-
-  // Auto-rotate every 3.5 seconds
-  function startAutoplay() {
-    carouselInterval = setInterval(nextSlide, 3500);
-  }
-
-  function resetAutoplay() {
-    clearInterval(carouselInterval);
-    startAutoplay();
-  }
-
-  // Dot click handlers
-  dots.forEach(dot => {
-    dot.addEventListener("click", () => {
-      goToSlide(parseInt(dot.getAttribute("data-slide")));
-      resetAutoplay();
+  let current = 0;
+  setInterval(() => {
+    // Subtle float focus rotation across items
+    items.forEach((item, idx) => {
+      if (idx === current) {
+        item.style.borderColor = "var(--brand-accent)";
+        item.style.boxShadow = "0 12px 30px rgba(212,160,23,0.25)";
+      } else {
+        item.style.borderColor = "rgba(255,255,255,0.06)";
+        item.style.boxShadow = "none";
+      }
     });
-  });
-
-  startAutoplay();
+    current = (current + 1) % items.length;
+  }, 3500);
 }
 
 // Gallery Filtering Logic

@@ -132,6 +132,13 @@ main {
   gap: 16px;
 }
 
+.header-top-desktop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
 .header-top-address {
   font-size: 11.5px;
   opacity: 0.95;
@@ -141,23 +148,44 @@ main {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 11.5px;
 }
 
 .header-top-contact a {
-  color: var(--text-light);
+  color: #FFFFFF;
   text-decoration: none;
-  font-weight: 600;
-  transition: opacity 0.2s ease;
+  opacity: 0.95;
 }
 
 .header-top-contact a:hover {
-  text-decoration: underline;
-  opacity: 0.85;
+  opacity: 1;
 }
 
 .header-top-sep {
-  opacity: 0.5;
+  opacity: 0.4;
+}
+
+/* Mobile Announcement Bar Ticker Carousel */
+.header-top-mobile-ticker {
+  display: none;
+  width: 100%;
+  text-align: center;
+  height: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.mobile-ticker-item {
+  display: none;
+  font-size: 11px;
+  font-weight: 600;
+  color: #FFFFFF;
+  letter-spacing: 0.3px;
+  width: 100%;
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.mobile-ticker-item.active {
+  display: block;
 }
 
 .header-nav {
@@ -619,9 +647,9 @@ main {
 
 
 
-/* --- SECTION 4: QUALITY ASSURANCE & PRODUCT SHOWCASE --- */
+/* --- SECTION 4: SCIENTIFIC QUALITY ASSURANCE & SPECS SHOWCASE --- */
 .qa-section {
-  background: #FFFFFF;
+  background: var(--bg-primary);
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -658,43 +686,58 @@ main {
   margin-bottom: 28px;
 }
 
-.qa-features-list {
-  display: flex;
-  flex-direction: column;
+/* Scientific Quality Metrics Matrix Grid */
+.qa-metrics-matrix {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 16px;
 }
 
-.qa-feature-item {
+.qa-metric-card {
   display: flex;
-  gap: 16px;
-  padding: 16px 20px;
-  background: #FDFBF9;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  background: #FFFFFF;
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
-  align-items: flex-start;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
 }
 
-.qa-feature-icon {
-  width: 40px;
-  height: 40px;
+.qa-metric-card:hover {
+  border-color: var(--brand-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.qa-metric-icon {
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
-  background: var(--brand-accent-light);
-  color: var(--brand-accent);
+  background: var(--gmi-bg);
+  color: var(--gmi-red);
   display: grid;
   place-items: center;
   flex-shrink: 0;
 }
 
-.qa-feature-item h4 {
-  font-size: 15px;
-  font-weight: 800;
-  color: var(--text-dark);
-  margin-bottom: 4px;
+.qa-metric-body {
+  display: flex;
+  flex-direction: column;
 }
 
-.qa-feature-item p {
-  font-size: 13px;
-  line-height: 1.45;
+.qa-metric-val {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--text-dark);
+  line-height: 1.2;
+}
+
+.qa-metric-lbl {
+  font-size: 11.5px;
+  font-weight: 600;
   color: var(--text-muted);
 }
 
@@ -720,7 +763,7 @@ main {
 }
 
 .qa-tab-btn {
-  background: #F7F5F0;
+  background: #FFFFFF;
   border: 1.5px solid var(--border-color);
   border-radius: var(--radius-sm);
   padding: 8px 6px;
@@ -783,7 +826,7 @@ main {
   letter-spacing: 0.5px;
   background: #EAF8F0;
   color: #10B981;
-  padding: 3px 10px;
+  padding: 4px 12px;
   border-radius: 20px;
 }
 
@@ -800,6 +843,54 @@ main {
   line-height: 1.5;
   color: var(--text-muted);
   margin-bottom: 22px;
+}
+
+/* Scientific Progress Parameter Bars */
+.qa-param-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 24px;
+  padding: 16px;
+  background: #FDFBF8;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+}
+
+.qa-param-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.qa-param-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--text-dark);
+}
+
+.qa-param-info span {
+  color: var(--text-muted);
+}
+
+.qa-param-info strong {
+  color: var(--gmi-red);
+}
+
+.qa-progress-bar {
+  height: 6px;
+  width: 100%;
+  background: #EADFD3;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.qa-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gmi-red), var(--brand-accent));
+  border-radius: 3px;
+  transition: width 0.5s ease;
 }
 
 .qa-spec-grid {
@@ -2051,17 +2142,11 @@ textarea.form-input {
   .header-top {
     padding: 6px 0;
   }
-  .header-top-inner {
-    flex-direction: column;
-    text-align: center;
-    gap: 4px;
+  .header-top-desktop {
+    display: none;
   }
-  .header-top-address {
-    font-size: 11px;
-  }
-  .header-top-contact {
-    font-size: 11px;
-    justify-content: center;
+  .header-top-mobile-ticker {
+    display: block;
   }
   .header-nav {
     padding: 12px 0;
@@ -2124,6 +2209,10 @@ textarea.form-input {
   .portfolio-grid {
     grid-template-columns: 1fr;
     gap: 20px;
+  }
+  .qa-metrics-matrix {
+    grid-template-columns: 1fr;
+    gap: 10px;
   }
   .qa-tabs-row {
     grid-template-columns: repeat(3, 1fr);
