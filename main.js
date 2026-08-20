@@ -357,16 +357,16 @@ function renderHome() {
   ];
 
   return `
-    <!-- SECTION 1: HERO BANNER (PRODUCT-FIRST) -->
+    <!-- SECTION 1: PREMIUM PRODUCT SHOWCASE HERO -->
     <section class="hero" id="hero-section">
       <div class="container hero-grid">
         <div class="hero-text-col">
-          <h1 class="hero-title">Freshly Baked<br>Every Morning.</h1>
-          <p class="hero-desc">Delivering soft, hygienic bread, crispy rusks, and handmade biscottis crafted with quality ingredients for families, retailers, and distributors.</p>
+          <h1 class="hero-title">Freshly Baked<br><span>Every Morning.</span></h1>
+          <p class="hero-desc">Delivering soft, hygienic and delicious bread made with quality ingredients for families, retailers and distributors across Uttar Pradesh.</p>
           
           <div class="hero-actions">
             <a href="#/brands" class="btn btn-primary hero-btn-primary">
-              <span>Explore Our Products</span>
+              <span>Explore Products</span>
               <i data-lucide="arrow-right" style="width: 18px; height: 18px;"></i>
             </a>
             <a href="#/distributors" class="btn btn-secondary hero-btn-secondary">
@@ -375,183 +375,68 @@ function renderHome() {
             </a>
           </div>
 
-          <!-- FACTUAL TRUST STRIP -->
+          <!-- TRUST BADGES -->
           <div class="hero-trust-strip">
             <div class="trust-strip-item">
               <span class="trust-strip-dot"></span>
-              <span>FSSAI Licensed</span>
+              <span>Fresh Every Day</span>
             </div>
             <div class="trust-strip-item">
               <span class="trust-strip-dot"></span>
-              <span>GST Registered</span>
+              <span>Hygienically Packed</span>
             </div>
             <div class="trust-strip-item">
               <span class="trust-strip-dot"></span>
-              <span>Udyam Registered</span>
+              <span>Quality Ingredients</span>
             </div>
             <div class="trust-strip-item">
               <span class="trust-strip-dot"></span>
-              <span>Est. 2012</span>
-            </div>
-            <div class="trust-strip-item">
-              <span class="trust-strip-dot"></span>
-              <span>24×7 Production</span>
+              <span>Trusted by Thousands</span>
             </div>
           </div>
         </div>
 
         <div class="hero-visual-col">
-          <!-- Multi-Brand Product Carousel Showcase (GMI & Preeti) -->
           <div class="hero-product-stage">
-            <div class="hero-product-card-wrapper">
-              <div class="hero-carousel" id="hero-carousel">
-                <div class="hero-carousel-track">
-                  <!-- Slide 0: GMI 500g Bread -->
-                  <div class="hero-slide active" data-index="0">
-                    <img src="./assets/bread/500gm.jpeg" alt="Good Morning India Fresh White Bread 500g" class="hero-product-main-img">
-                    <div class="hero-product-badge">
-                      <span class="badge-brand gmi">Good Morning India</span>
-                      <span class="badge-sub">Fresh White Bread • 500g</span>
-                    </div>
-                  </div>
-                  <!-- Slide 1: Preeti Bread Rusk Toast -->
-                  <div class="hero-slide" data-index="1">
-                    <img src="./assets/rusk/preeti_rusk_toast.jpg" alt="Preeti Bread Rusk Toast" class="hero-product-main-img">
-                    <div class="hero-product-badge">
-                      <span class="badge-brand preeti">Preeti</span>
-                      <span class="badge-sub">Bread Rusk Toast • Crispy</span>
-                    </div>
-                  </div>
-                  <!-- Slide 2: GMI 600g Premium Bread -->
-                  <div class="hero-slide" data-index="2">
-                    <img src="./assets/bread/600gm.jpeg" alt="Good Morning India Premium Bread 600g" class="hero-product-main-img">
-                    <div class="hero-product-badge">
-                      <span class="badge-brand gmi">Good Morning India</span>
-                      <span class="badge-sub">Premium Bread • 600g Family Pack</span>
-                    </div>
-                  </div>
-                  <!-- Slide 3: Preeti Biscottis Classic -->
-                  <div class="hero-slide" data-index="3">
-                    <img src="./assets/rusk/preeti_biscottis_orange.jpg" alt="Preeti Biscottis Classic" class="hero-product-main-img">
-                    <div class="hero-product-badge">
-                      <span class="badge-brand preeti">Preeti</span>
-                      <span class="badge-sub">Handmade Biscottis • 100% Eggless</span>
-                    </div>
-                  </div>
-                  <!-- Slide 4: GMI Special Sandwich Bread -->
-                  <div class="hero-slide" data-index="4">
-                    <img src="./assets/bread/350gm.jpeg" alt="Good Morning India Sandwich Bread 350g" class="hero-product-main-img">
-                    <div class="hero-product-badge">
-                      <span class="badge-brand gmi">Good Morning India</span>
-                      <span class="badge-sub">Sandwich Bread • 350g</span>
-                    </div>
-                  </div>
-                  <!-- Slide 5: Keshav Bread Suji Toast -->
-                  <div class="hero-slide" data-index="5">
-                    <img src="./assets/rusk/keshav_suji_toast.jpg" alt="Keshav Bread Suji Toast" class="hero-product-main-img">
-                    <div class="hero-product-badge">
-                      <span class="badge-brand preeti">Preeti Range</span>
-                      <span class="badge-sub">Keshav Suji Toast • Crunchy</span>
-                    </div>
-                  </div>
+            <div class="hero-showcase-grid">
+              <div class="hero-showcase-item">
+                <img src="./assets/bread/500gm.jpeg" alt="Good Morning India Fresh White Bread 500g" loading="eager">
+                <div class="hero-showcase-label">
+                  <h4>Fresh White Bread</h4>
+                  <span>500g Pack</span>
                 </div>
               </div>
-            </div>
-            <!-- Carousel Dots -->
-            <div class="hero-carousel-dots" id="hero-carousel-dots">
-              <button class="carousel-dot active" data-slide="0" aria-label="Slide 1"></button>
-              <button class="carousel-dot" data-slide="1" aria-label="Slide 2"></button>
-              <button class="carousel-dot" data-slide="2" aria-label="Slide 3"></button>
-              <button class="carousel-dot" data-slide="3" aria-label="Slide 4"></button>
-              <button class="carousel-dot" data-slide="4" aria-label="Slide 5"></button>
-              <button class="carousel-dot" data-slide="5" aria-label="Slide 6"></button>
+              <div class="hero-showcase-item">
+                <img src="./assets/rusk/preeti_rusk_toast.jpg" alt="Preeti Bread Rusk Toast" loading="eager">
+                <div class="hero-showcase-label">
+                  <h4>Preeti Rusk Toast</h4>
+                  <span>Crispy & Crunchy</span>
+                </div>
+              </div>
+              <div class="hero-showcase-item">
+                <img src="./assets/bread/600gm.jpeg" alt="Good Morning India Premium Bread 600g" loading="eager">
+                <div class="hero-showcase-label">
+                  <h4>Premium Bread</h4>
+                  <span>600g Family Pack</span>
+                </div>
+              </div>
+              <div class="hero-showcase-item">
+                <img src="./assets/rusk/preeti_biscottis_orange.jpg" alt="Preeti Handmade Biscottis" loading="eager">
+                <div class="hero-showcase-label">
+                  <h4>Handmade Biscottis</h4>
+                  <span>100% Eggless</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- SECTION 2: FEATURED PRODUCTS (PRODUCT-FIRST DISCOVERY) -->
-    <section class="section-padding featured-section">
-      <div class="container">
-        <div class="section-title">
-          <span class="section-badge">Product Discovery</span>
-          <h2>Featured Products</h2>
-          <p>Explore our daily baked breakfast loaves, sandwich bread, handmade eggless biscottis and crispy rusks.</p>
-        </div>
-        <div class="featured-grid">
-          ${FEATURED_PRODUCTS.map(p => `
-            <div class="featured-card">
-              <div class="featured-img-wrap">
-                <img src="${p.img}" alt="${p.name}" loading="lazy">
-                <span class="featured-badge ${p.brandClass}">${p.brand}</span>
-              </div>
-              <div class="featured-body">
-                <div class="featured-meta">
-                  <span class="featured-category">${p.category}</span>
-                  <span class="featured-weight">${p.weight}</span>
-                </div>
-                <h3 class="featured-name">${p.name}</h3>
-                <p class="featured-desc">${p.desc}</p>
-                <a href="${p.link}" class="featured-link">View Product <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i></a>
-              </div>
-            </div>
-          `).join('')}
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 3: OUR COLLECTIONS (3 VISUAL BANNERS) -->
-    <section class="section-padding collections-section">
-      <div class="container">
-        <div class="section-title">
-          <span class="section-badge">Our Collections</span>
-          <h2>Baked for Every Meal &amp; Tea Time</h2>
-          <p>Explore our core product lines crafted for morning breakfast tables and evening refreshments.</p>
-        </div>
-        <div class="collections-grid">
-          <!-- Collection 1: Bread & Bakery -->
-          <a href="#/brands/good-morning-india" class="collection-banner-card collection-bread">
-            <div class="collection-banner-backdrop"></div>
-            <div class="collection-content">
-              <span class="collection-tag">Bread &amp; Bakery</span>
-              <h3>Good Morning India Breads</h3>
-              <p>Soft white loaves, sandwich bread, standard daily packs &amp; family loaves.</p>
-              <span class="collection-link">Explore Collection <i data-lucide="arrow-right" style="width: 15px; height: 15px;"></i></span>
-            </div>
-            <div class="collection-image-box">
-              <img src="./assets/bread/500gm.jpeg" alt="Good Morning India Bread Collection" loading="lazy">
-            </div>
-          </a>
-
-          <!-- Collection 2: Eggless Biscottis -->
-          <a href="#/brands/preeti" class="collection-banner-card collection-biscotti">
-            <div class="collection-banner-backdrop"></div>
-            <div class="collection-content">
-              <span class="collection-tag">Eggless Bakery</span>
-              <h3>Preeti Biscottis &amp; Cookies</h3>
-              <p>100% eggless handmade biscottis in classic orange &amp; dry fruit varieties.</p>
-              <span class="collection-link">Explore Collection <i data-lucide="arrow-right" style="width: 15px; height: 15px;"></i></span>
-            </div>
-            <div class="collection-image-box">
-              <img src="./assets/rusk/preeti_biscottis_orange.jpg" alt="Preeti Biscottis Collection" loading="lazy">
-            </div>
-          </a>
-
-          <!-- Collection 3: Rusks & Suji Toast -->
-          <a href="#/brands/preeti" class="collection-banner-card collection-rusk">
-            <div class="collection-banner-backdrop"></div>
-            <div class="collection-content">
-              <span class="collection-tag">Tea-Time Staples</span>
-              <h3>Preeti Rusks &amp; Suji Toast</h3>
-              <p>Double-baked crispy rusks and semolina toast crafted for the daily tea cup.</p>
-              <span class="collection-link">Explore Collection <i data-lucide="arrow-right" style="width: 15px; height: 15px;"></i></span>
-            </div>
-            <div class="collection-image-box">
-              <img src="./assets/rusk/preeti_rusk_toast.jpg" alt="Preeti Rusks &amp; Toast Collection" loading="lazy">
-            </div>
-          </a>
-        </div>
+      <!-- Curved Bottom Divider -->
+      <div class="hero-bottom-curve">
+        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path d="M0,0 C360,80 1080,80 1440,0 L1440,80 L0,80 Z" fill="var(--bg-primary)"/>
+        </svg>
       </div>
     </section>
 
