@@ -59,6 +59,9 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  overflow-x: hidden;
+  max-width: 100vw;
+  width: 100%;
 }
 
 body {
@@ -68,6 +71,14 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  max-width: 100vw;
+  width: 100%;
+}
+
+img, svg, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 a {
@@ -1881,6 +1892,9 @@ footer {
    RESPONSIVE STYLES
    ========================================================================== */
 @media (max-width: 1024px) {
+  .container {
+    padding: 0 20px;
+  }
   .fmcg-hero-grid {
     grid-template-columns: 1fr 1fr;
     gap: 32px;
@@ -1897,28 +1911,41 @@ footer {
   }
   .footer-grid {
     grid-template-columns: 1fr 1fr;
+    gap: 32px;
   }
 }
 
 @media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+  .section-padding {
+    padding: 44px 0;
+  }
+
+  /* Top Bar */
   .header-top {
     padding: 7px 0;
   }
   .header-top-desktop {
-    display: none;
+    display: none !important;
   }
   .header-top-mobile {
-    display: flex;
+    display: flex !important;
   }
   .header-top-inner {
     justify-content: center;
   }
 
+  /* Navigation Bar */
   .header-nav {
     padding: 10px 0;
   }
   .logo-title {
     font-size: 16px;
+  }
+  .logo-sub {
+    font-size: 9px;
   }
   .logo-icon {
     width: 34px;
@@ -1932,28 +1959,42 @@ footer {
     left: 0;
     width: 100%;
     background: #FFFFFF;
-    border-bottom: 1px solid var(--border-color);
-    padding: 24px;
+    border-bottom: 2px solid var(--border-color);
+    padding: 20px 24px;
     flex-direction: column;
-    gap: 16px;
-    box-shadow: var(--shadow-md);
+    gap: 12px;
+    box-shadow: var(--shadow-lg);
+    z-index: 999;
   }
   .nav-menu.active {
     display: flex;
   }
+  .nav-link {
+    font-size: 15px;
+    padding: 8px 0;
+    width: 100%;
+  }
   .mobile-menu-toggle {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
   }
   .nav-cta {
     display: none;
   }
 
+  /* Hero Section */
   .fmcg-hero {
-    padding: 28px 0 0;
+    padding: 24px 0 0;
+  }
+  .fmcg-hero-stage {
+    min-height: auto;
   }
   .fmcg-hero-grid {
     grid-template-columns: 1fr;
     gap: 20px;
+    min-height: auto;
   }
   .fmcg-hero-text {
     text-align: center;
@@ -1963,19 +2004,20 @@ footer {
     font-size: 10px;
     padding: 5px 12px;
     margin-bottom: 12px;
-    max-width: 95%;
+    max-width: 100%;
     text-align: center;
     line-height: 1.3;
   }
   .fmcg-hero-title {
-    font-size: 30px;
+    font-size: clamp(26px, 7vw, 36px);
     line-height: 1.15;
     margin-bottom: 12px;
   }
   .fmcg-hero-desc {
-    font-size: 14px;
+    font-size: 14.5px;
     line-height: 1.55;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
+    max-width: 100%;
   }
   .fmcg-hero-actions {
     display: flex;
@@ -1992,9 +2034,10 @@ footer {
   .fmcg-hero-trust-bullets {
     display: flex;
     justify-content: center;
-    gap: 10px 14px;
+    gap: 8px 12px;
     flex-wrap: wrap;
     margin-top: 4px;
+    width: 100%;
   }
   .fmcg-bullet-item {
     font-size: 11.5px;
@@ -2002,8 +2045,17 @@ footer {
   .fmcg-hero-tabs {
     grid-template-columns: 1fr 1fr;
     gap: 8px;
-    margin-top: 24px;
-    padding-bottom: 16px;
+    margin-top: 20px;
+    padding-bottom: 14px;
+  }
+  .fmcg-hero-tab {
+    padding: 10px 12px;
+  }
+  .fmcg-tab-title {
+    font-size: 11.5px;
+  }
+  .fmcg-tab-num {
+    font-size: 11.5px;
   }
   .fmcg-product-card-showcase {
     max-width: 100%;
@@ -2011,38 +2063,99 @@ footer {
     border-radius: var(--radius-md);
   }
   .fmcg-product-pedestal {
-    height: 220px;
+    height: 200px;
   }
   .fmcg-hero-product-img {
-    max-height: 190px;
+    max-height: 180px;
   }
 
-  .fmcg-product-grid, .collections-grid, .portfolio-grid, .pillars-grid, .brands-grid, .products-grid, .gallery-grid {
-    grid-template-columns: 1fr;
+  /* Section Titles */
+  .section-title {
+    margin-bottom: 28px;
   }
-  .about-split, .contact-split, .dist-split, .brand-hero-content {
+  .section-title h2 {
+    font-size: clamp(22px, 6vw, 30px);
+  }
+  .section-title p {
+    font-size: 14px;
+  }
+
+  /* Filter Bar */
+  .fmcg-filter-bar {
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+  .fmcg-filter-chip {
+    padding: 7px 14px;
+    font-size: 12px;
+  }
+
+  /* Grids */
+  .fmcg-product-grid,
+  .collections-grid,
+  .portfolio-grid,
+  .pillars-grid,
+  .brands-grid,
+  .products-grid,
+  .gallery-grid,
+  .qa-grid,
+  .qa-visual-grid,
+  .footer-grid {
     grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .about-split,
+  .contact-split,
+  .dist-split,
+  .brand-hero-content {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .brand-hero-text h1 {
+    font-size: 28px;
   }
   .form-row {
     grid-template-columns: 1fr;
   }
-  .section-padding {
-    padding: 50px 0;
+
+  /* Quality Section */
+  .qa-header h2 {
+    font-size: 26px;
+  }
+
+  /* Timeline */
+  .timeline {
+    padding-left: 0;
+  }
+  .timeline::before {
+    left: 18px;
+  }
+  .timeline-step {
+    padding-left: 54px;
+    margin-bottom: 28px;
+  }
+  .step-num {
+    left: 0;
+    width: 36px;
+    height: 36px;
+    font-size: 12px;
   }
 }
 
 @media (max-width: 480px) {
   .fmcg-hero-title {
-    font-size: 26px;
+    font-size: 24px;
   }
   .fmcg-hero-tabs {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
   }
   .fmcg-hero-trust-bar {
     font-size: 11px;
-    gap: 8px 12px;
+    gap: 6px 10px;
   }
-  .footer-grid {
-    grid-template-columns: 1fr;
+  .btn {
+    padding: 10px 18px;
+    font-size: 13px;
   }
 }
