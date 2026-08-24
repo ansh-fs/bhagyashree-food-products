@@ -1275,6 +1275,9 @@ function initInteractions(path) {
     }, 100);
   }
 
+  // Initialize mobile announcement ticker
+  initMobileAnnouncementTicker();
+
   if (path === "/" || path === "") {
     initHeroShowcase();
     initCategoryFilter();
@@ -1286,6 +1289,30 @@ function initInteractions(path) {
   } else if (path === "/contact") {
     initContactForm();
   }
+}
+
+// Mobile Announcement Bar Carousel Ticker
+let tickerInterval = null;
+function initMobileAnnouncementTicker() {
+  const slides = document.querySelectorAll(".mobile-ticker-slide");
+  if (!slides.length) return;
+  if (tickerInterval) clearInterval(tickerInterval);
+
+  let current = 0;
+  tickerInterval = setInterval(() => {
+    if (!slides[current]) return;
+    slides[current].classList.remove("active");
+    slides[current].classList.add("exit");
+    
+    setTimeout(() => {
+      slides.forEach(s => s.classList.remove("exit"));
+    }, 400);
+
+    current = (current + 1) % slides.length;
+    if (slides[current]) {
+      slides[current].classList.add("active");
+    }
+  }, 3200);
 }
 
 // Benchmark FMCG Hero Showcase (English Oven / Britannia / Bonn Style)
