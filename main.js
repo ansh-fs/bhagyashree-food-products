@@ -469,16 +469,29 @@ function renderHome() {
                     </a>
                   </div>
 
-                  <div class="fmcg-hero-tagpill">
-                    <span>${slide.tagPill}</span>
+                  <div class="fmcg-hero-trust-bullets">
+                    <span class="fmcg-bullet-item"><i data-lucide="shield-check" style="width:14px;height:14px;color:var(--brand-primary);"></i> FSSAI Grade-A</span>
+                    <span class="fmcg-bullet-item"><i data-lucide="leaf" style="width:14px;height:14px;color:#10B981;"></i> 100% Vegetarian</span>
+                    <span class="fmcg-bullet-item"><i data-lucide="truck" style="width:14px;height:14px;color:var(--brand-gold);"></i> 5 AM Daily Dispatch</span>
                   </div>
                 </div>
 
-                <!-- Product Showcase Column -->
+                <!-- Product Showcase Card Column -->
                 <div class="fmcg-hero-visual">
-                  <div class="fmcg-product-pedestal">
-                    <div class="fmcg-pedestal-glow"></div>
-                    <img src="${slide.img}" alt="${slide.tabTitle}" class="fmcg-hero-product-img">
+                  <div class="fmcg-product-card-showcase">
+                    <div class="fmcg-card-showcase-top">
+                      <span class="fmcg-showcase-brand ${slide.brandClass}">
+                        ${slide.id === 'breads' ? 'Good Morning India' : slide.id === 'rusks' || slide.id === 'biscottis' ? 'Preeti' : 'Bhagyashree Plant'}
+                      </span>
+                      <span class="fmcg-showcase-quality">✓ Standardized Quality</span>
+                    </div>
+                    <div class="fmcg-product-pedestal">
+                      <div class="fmcg-pedestal-glow"></div>
+                      <img src="${slide.img}" alt="${slide.tabTitle}" class="fmcg-hero-product-img">
+                    </div>
+                    <div class="fmcg-card-showcase-bottom">
+                      <span>${slide.tagPill}</span>
+                    </div>
                   </div>
                 </div>
               </div>
