@@ -486,9 +486,10 @@ function renderHome() {
         `).join('')}
       </div>
 
-      <!-- Minimal Editorial Carousel Navigation (Section 8 Spec) -->
+      <!-- Minimal Editorial Carousel Navigation (Desktop & Mobile Compact) -->
       <div class="fmcg-hero-nav-bar">
         <div class="container fmcg-hero-nav-container">
+          <!-- Desktop Editorial Nav List -->
           <div class="fmcg-editorial-nav-list" id="fmcg-hero-tabs">
             ${HERO_SHOWCASE_SLIDES.map((slide, idx) => `
               <button class="fmcg-editorial-nav-item ${idx === 0 ? 'active' : ''}" data-tab-index="${idx}" aria-label="Slide ${slide.slideNum} ${slide.label}">
@@ -499,7 +500,27 @@ function renderHome() {
             `).join('')}
           </div>
 
-          <!-- Arrow Controls -->
+          <!-- Mobile Compact Controls: [ ← ]  01 FRESHNESS  ● ○ ○ ○  [ → ] -->
+          <div class="fmcg-mobile-carousel-controls">
+            <button class="fmcg-hero-arrow fmcg-arrow-prev-mob" aria-label="Previous Slide">
+              <i data-lucide="chevron-left" style="width: 16px; height: 16px;"></i>
+            </button>
+
+            <div class="fmcg-mobile-nav-info">
+              <span class="fmcg-mobile-active-label" id="fmcg-mobile-active-label">01 FRESHNESS</span>
+              <div class="fmcg-mobile-dots" id="fmcg-mobile-dots">
+                ${HERO_SHOWCASE_SLIDES.map((slide, idx) => `
+                  <button class="fmcg-mobile-dot ${idx === 0 ? 'active' : ''}" data-tab-index="${idx}" aria-label="Go to slide ${idx + 1}"></button>
+                `).join('')}
+              </div>
+            </div>
+
+            <button class="fmcg-hero-arrow fmcg-arrow-next-mob" aria-label="Next Slide">
+              <i data-lucide="chevron-right" style="width: 16px; height: 16px;"></i>
+            </button>
+          </div>
+
+          <!-- Desktop Arrow Controls -->
           <div class="fmcg-hero-arrow-controls">
             <button class="fmcg-hero-arrow fmcg-arrow-prev" id="hero-prev-btn" aria-label="Previous Slide">
               <i data-lucide="chevron-left" style="width: 18px; height: 18px;"></i>
@@ -1333,13 +1354,24 @@ function initMobileAnnouncementTicker() {
 function initHeroShowcase() {
   const slides = document.querySelectorAll(".fmcg-hero-slide-v2");
   const tabs = document.querySelectorAll(".fmcg-editorial-nav-item");
+  const dots = document.querySelectorAll(".fmcg-mobile-dot");
+  const mobileLabel = document.getElementById("fmcg-mobile-active-label");
+  
   const prevBtn = document.getElementById("hero-prev-btn");
   const nextBtn = document.getElementById("hero-next-btn");
-  if (!slides.length || !tabs.length) return;
+  const prevBtnMob = document.querySelector(".fmcg-arrow-prev-mob");
+  const nextBtnMob = document.querySelector(".fmcg-arrow-next-mob");
+
+  if (!slides.length) return;
+
+  // Clean up any pre-existing timer on window
+  if (window.heroAutoTimer) {
+    clearInterval(window.heroAutoTimer);
+    window.heroAutoTimer = null;
+  }
 
   let current = 0;
-  let autoTimer = null;
-  const DURATION = 6500; // 6.5s autoplay duration as specified
+  const DURATION = 6000; // Exactly 6 seconds autoplay as requested
   let startTime = Date.now();
 
   // Respect prefers-reduced-motion
@@ -1353,8 +1385,16 @@ function initHeroShowcase() {
       if (fill) fill.style.width = "0%";
     });
 
+    dots.forEach(d => d.classList.remove("active"));
+
     slides[index].classList.add("active");
-    tabs[index].classList.add("active");
+    if (tabs[index]) tabs[index].classList.add("active");
+    if (dots[index]) dots[index].classList.add("active");
+
+    if (mobileLabel && HERO_SHOWCASE_SLIDES[index]) {
+      mobileLabel.textContent = `${HERO_SHOWCASE_SLIDES[index].slideNum} ${HERO_SHOWCASE_SLIDES[index].label}`;
+    }
+
     current = index;
     startTime = Date.now();
 
@@ -1372,20 +1412,20 @@ function initHeroShowcase() {
   function startTimer() {
     if (reducedMotion) return;
     stopTimer();
-    autoTimer = setInterval(nextSlide, DURATION);
+    window.heroAutoTimer = setInterval(nextSlide, DURATION);
     startTime = Date.now();
   }
 
   function stopTimer() {
-    if (autoTimer) {
-      clearInterval(autoTimer);
-      autoTimer = null;
+    if (window.heroAutoTimer) {
+      clearInterval(window.heroAutoTimer);
+      window.heroAutoTimer = null;
     }
   }
 
-  // Smooth progress fill animation for current active tab
+  // Smooth progress fill animation for current active desktop tab
   function updateProgress() {
-    if (!reducedMotion) {
+    if (!reducedMotion && window.heroAutoTimer) {
       const activeTab = tabs[current];
       if (activeTab) {
         const fill = activeTab.querySelector(".fmcg-nav-fill");
@@ -1400,7 +1440,7 @@ function initHeroShowcase() {
   }
   requestAnimationFrame(updateProgress);
 
-  // Tab navigation click handlers
+  // Desktop Tab navigation click handlers
   tabs.forEach(tab => {
     tab.addEventListener("click", () => {
       const idx = parseInt(tab.getAttribute("data-tab-index"));
@@ -1409,29 +1449,41 @@ function initHeroShowcase() {
     });
   });
 
-  // Arrow navigation handlers
-  if (prevBtn) {
-    prevBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      prevSlide();
+  // Mobile Dot click handlers
+  dots.forEach(dot => {
+    dot.addEventListener("click", () => {
+      const idx = parseInt(dot.getAttribute("data-tab-index"));
+      switchSlide(idx);
       startTimer();
     });
-  }
+  });
 
-  if (nextBtn) {
-    nextBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      nextSlide();
-      startTimer();
-    });
-  }
+  // Desktop & Mobile Arrow navigation handlers
+  [prevBtn, prevBtnMob].forEach(btn => {
+    if (btn) {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        prevSlide();
+        startTimer();
+      });
+    }
+  });
+
+  [nextBtn, nextBtnMob].forEach(btn => {
+    if (btn) {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        nextSlide();
+        startTimer();
+      });
+    }
+  });
 
   // Keyboard Navigation (Left / Right Arrows)
   document.addEventListener("keydown", (e) => {
     const heroSection = document.getElementById("hero-section");
     if (!heroSection) return;
     const rect = heroSection.getBoundingClientRect();
-    // Only trigger if hero is in viewport
     if (rect.top <= window.innerHeight && rect.bottom >= 0) {
       if (e.key === "ArrowRight") {
         nextSlide();
@@ -1443,14 +1495,14 @@ function initHeroShowcase() {
     }
   });
 
-  // Pause on hover
+  // Pause on hover (desktop)
   const heroSection = document.getElementById("hero-section");
   if (heroSection) {
     heroSection.addEventListener("mouseenter", stopTimer);
     heroSection.addEventListener("mouseleave", startTimer);
   }
 
-  // Touch Swipe Gesture Handling
+  // Touch Swipe Gesture Handling for Mobile
   let touchStartX = 0;
   const stage = document.getElementById("fmcg-hero-stage");
   if (stage) {
