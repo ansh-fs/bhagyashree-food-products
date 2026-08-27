@@ -243,70 +243,70 @@ const ALL_FMCG_PRODUCTS = [
   }
 ];
 
-// Hero Showcase Data (English Oven / Britannia / Bonn Style)
+// Hero Showcase Data — Premium FMCG Visual Campaign
 const HERO_SHOWCASE_SLIDES = [
   {
-    id: "breads",
-    tabNumber: "01",
-    tabTitle: "Daily Fresh Breads",
-    icon: "sandwich",
-    badge: "Good Morning India • Fresh Morning Bake",
-    title: "Pure Morning Freshness,<br>Baked for Every Table.",
-    desc: "Soft, oven-fresh white bread loaves and sandwich slices baked daily from select grains with standardized FSSAI hygiene controls in Moradabad.",
-    img: "./assets/bread/500gm.jpeg",
+    id: "freshness",
+    slideNum: "01",
+    label: "FRESHNESS",
+    eyebrow: "GOOD MORNING INDIA",
+    title: "Freshness<br>Baked Every Day.",
+    desc: "Freshly baked bread made for everyday Indian mornings.",
+    bgImg: "./assets/hero_slide_1.jpg",
+    productImg: "./assets/bread/500gm.jpeg",
+    productAlt: "Good Morning India Fresh White Bread 500g",
     brandClass: "gmi",
-    tagPill: "🍞 Fresh Daily Morning Dispatch Across UP",
-    cta1Text: "Explore Bread Range",
+    cta1Text: "Explore Our Breads",
     cta1Link: "#/brands/good-morning-india",
     cta2Text: "Become a Distributor",
     cta2Link: "#/distributors"
   },
   {
-    id: "rusks",
-    tabNumber: "02",
-    tabTitle: "Tea-Time Rusks & Toast",
-    icon: "coffee",
-    badge: "Preeti • Authentic Indian Tea-Time",
-    title: "The Golden Crunch for<br>Every Cup of Chai.",
-    desc: "Double-baked crispy bread rusks and crunchy semolina toast made with 100% vegetarian purity, natural aroma, and zero artificial preservatives.",
-    img: "./assets/rusk/preeti_rusk_toast.jpg",
-    brandClass: "preeti",
-    tagPill: "☕ 100% Vegetarian Double-Baked Crispy",
-    cta1Text: "Explore Preeti Rusks",
-    cta1Link: "#/brands/preeti",
-    cta2Text: "Wholesale Dealership",
-    cta2Link: "#/distributors"
-  },
-  {
-    id: "biscottis",
-    tabNumber: "03",
-    tabTitle: "Eggless Biscottis",
-    icon: "cookie",
-    badge: "Preeti • 100% Eggless Bakery",
-    title: "Handmade Artisan Crunch<br>with Dry Fruits.",
-    desc: "Delicate, crispy, and rich handmade eggless biscuits in classic orange and dry fruit variants. Crafted for daily tea-time indulgence and gifting.",
-    img: "./assets/rusk/preeti_biscottis_orange.jpg",
-    brandClass: "preeti",
-    tagPill: "✨ 100% Eggless Artisan Biscuit",
-    cta1Text: "View Biscottis Range",
-    cta1Link: "#/brands/preeti",
-    cta2Text: "Bulk Order Rates",
-    cta2Link: "#/contact"
-  },
-  {
-    id: "factory",
-    tabNumber: "04",
-    tabTitle: "Modern Bakery Plant",
-    icon: "factory",
-    badge: "Bhagyashree Plant • Est. 2012 Moradabad",
-    title: "Automated Baking Lines<br>&amp; Daily Route Logistics.",
-    desc: "State-of-the-art continuous baking ovens, steel proofing chambers, and a dedicated early-morning delivery fleet supplying distributors across Uttar Pradesh.",
-    img: "./assets/bread/600gm.jpeg",
+    id: "bakery",
+    slideNum: "02",
+    label: "OUR BAKERY",
+    eyebrow: "MADE AT BHAGYASHREE",
+    title: "Made Here.<br>Delivered Fresh.",
+    desc: "Manufactured with standardized processes at our Moradabad bakery facility.",
+    bgImg: "./assets/hero_slide_2.jpg",
+    productImg: "./assets/bread/600gm.jpeg",
+    productAlt: "Bhagyashree Bakery Plant & Fresh Loaves",
     brandClass: "gmi",
-    tagPill: "🏭 24×7 Industrial Production Capacity",
-    cta1Text: "Our Manufacturing Facility",
-    cta1Link: "#/about",
-    cta2Text: "Factory Partnership Desk",
+    cta1Text: "Discover Our Process",
+    cta1Link: "#/process",
+    cta2Text: "Our Factory",
+    cta2Link: "#/about"
+  },
+  {
+    id: "range",
+    slideNum: "03",
+    label: "OUR RANGE",
+    eyebrow: "OUR BAKERY RANGE",
+    title: "More Than Bread.",
+    desc: "Everyday bakery favourites, made for every table.",
+    bgImg: "./assets/hero_slide_3.jpg",
+    productImg: "./assets/rusk/preeti_rusk_toast.jpg",
+    productAlt: "Preeti Rusk & Biscottis FMCG Range",
+    brandClass: "preeti",
+    cta1Text: "Explore Our Products",
+    cta1Link: "#/brands",
+    cta2Text: "View All Brands",
+    cta2Link: "#/brands"
+  },
+  {
+    id: "distribution",
+    slideNum: "04",
+    label: "DISTRIBUTION",
+    eyebrow: "FROM OUR BAKERY TO THE MARKET",
+    title: "Freshness<br>That Travels.",
+    desc: "From our bakery in Moradabad to retailers across the region.",
+    bgImg: "./assets/hero_slide_4.jpg",
+    productImg: "./assets/bread/600gm.jpeg",
+    productAlt: "Bhagyashree Daily Morning Logistics Fleet",
+    brandClass: "gmi",
+    cta1Text: "Become a Distributor",
+    cta1Link: "#/distributors",
+    cta2Text: "Contact Us",
     cta2Link: "#/contact"
   }
 ];
@@ -441,92 +441,106 @@ function renderHome() {
   ];
 
   return `
-    <!-- SECTION 1: BENCHMARK FMCG HERO (ENGLISH OVEN / BRITANNIA STYLE) -->
-    <section class="fmcg-hero" id="hero-section">
-      <div class="container fmcg-hero-container">
-        
-        <!-- Hero Slides Stage -->
-        <div class="fmcg-hero-stage" id="fmcg-hero-stage">
-          ${HERO_SHOWCASE_SLIDES.map((slide, idx) => `
-            <div class="fmcg-hero-slide ${idx === 0 ? 'active' : ''}" data-hero-index="${idx}">
-              <div class="fmcg-hero-grid">
-                <!-- Text Column -->
-                <div class="fmcg-hero-text">
-                  <div class="fmcg-hero-badge ${slide.brandClass}">
-                    <span>${slide.badge}</span>
-                  </div>
-                  <h1 class="fmcg-hero-title">${slide.title}</h1>
-                  <p class="fmcg-hero-desc">${slide.desc}</p>
+    <!-- SECTION 1: FULL-WIDTH FMCG ADVERTISING HERO CAROUSEL -->
+    <section class="fmcg-hero-v2" id="hero-section">
+      <!-- Full-Width Carousel Viewport -->
+      <div class="fmcg-hero-viewport" id="fmcg-hero-stage">
+        ${HERO_SHOWCASE_SLIDES.map((slide, idx) => `
+          <div class="fmcg-hero-slide-v2 ${idx === 0 ? 'active' : ''}" data-hero-index="${idx}">
+            <!-- Full-Bleed Background Photography -->
+            <div class="fmcg-hero-bg-wrap">
+              <img src="${slide.bgImg}" alt="${slide.label} Background" class="fmcg-hero-bg-img" loading="${idx === 0 ? 'eager' : 'lazy'}">
+              <div class="fmcg-hero-scrim"></div>
+            </div>
+
+            <!-- Foreground Content Layer -->
+            <div class="container fmcg-hero-content-container">
+              <div class="fmcg-hero-layout">
+                <!-- Editorial Copy Column -->
+                <div class="fmcg-hero-editorial">
+                  <span class="fmcg-hero-eyebrow ${slide.brandClass}">${slide.eyebrow}</span>
+                  <h1 class="fmcg-hero-headline">${slide.title}</h1>
+                  <p class="fmcg-hero-subtext">${slide.desc}</p>
                   
-                  <div class="fmcg-hero-actions">
-                    <a href="${slide.cta1Link}" class="btn btn-primary fmcg-btn-primary">
+                  <div class="fmcg-hero-cta-group">
+                    <a href="${slide.cta1Link}" class="btn fmcg-btn-hero-primary">
                       <span>${slide.cta1Text}</span>
                       <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
                     </a>
-                    <a href="${slide.cta2Link}" class="btn btn-secondary fmcg-btn-secondary">
+                    <a href="${slide.cta2Link}" class="btn fmcg-btn-hero-secondary">
                       <i data-lucide="handshake" style="width: 16px; height: 16px;"></i>
                       <span>${slide.cta2Text}</span>
                     </a>
                   </div>
-
-                  <div class="fmcg-hero-trust-bullets">
-                    <span class="fmcg-bullet-item"><i data-lucide="shield-check" style="width:14px;height:14px;color:var(--brand-primary);"></i> FSSAI Grade-A</span>
-                    <span class="fmcg-bullet-item"><i data-lucide="leaf" style="width:14px;height:14px;color:#10B981;"></i> 100% Vegetarian</span>
-                    <span class="fmcg-bullet-item"><i data-lucide="truck" style="width:14px;height:14px;color:var(--brand-gold);"></i> 5 AM Daily Dispatch</span>
-                  </div>
                 </div>
 
-                <!-- Product Showcase Card Column -->
-                <div class="fmcg-hero-visual">
-                  <div class="fmcg-product-card-showcase">
-                    <div class="fmcg-card-showcase-top">
-                      <span class="fmcg-showcase-brand ${slide.brandClass}">
-                        ${slide.id === 'breads' ? 'Good Morning India' : slide.id === 'rusks' || slide.id === 'biscottis' ? 'Preeti' : 'Bhagyashree Plant'}
-                      </span>
-                      <span class="fmcg-showcase-quality">✓ Standardized Quality</span>
-                    </div>
-                    <div class="fmcg-product-pedestal">
-                      <div class="fmcg-pedestal-glow"></div>
-                      <img src="${slide.img}" alt="${slide.tabTitle}" class="fmcg-hero-product-img">
-                    </div>
-                    <div class="fmcg-card-showcase-bottom">
-                      <span>${slide.tagPill}</span>
-                    </div>
+                <!-- Prominent Real Product Hero Object -->
+                <div class="fmcg-hero-product-stage">
+                  <div class="fmcg-product-spotlight">
+                    <img src="${slide.productImg}" alt="${slide.productAlt}" class="fmcg-hero-pack-img">
                   </div>
                 </div>
               </div>
             </div>
-          `).join('')}
-        </div>
+          </div>
+        `).join('')}
+      </div>
 
-        <!-- Hero Bottom Tab Switcher (English Oven Style) -->
-        <div class="fmcg-hero-tabs" id="fmcg-hero-tabs">
-          ${HERO_SHOWCASE_SLIDES.map((slide, idx) => `
-            <button class="fmcg-hero-tab ${idx === 0 ? 'active' : ''}" data-tab-index="${idx}" aria-label="${slide.tabTitle}">
-              <div class="fmcg-tab-progress"><div class="fmcg-tab-progress-fill"></div></div>
-              <div class="fmcg-tab-inner">
-                <span class="fmcg-tab-num">${slide.tabNumber}</span>
-                <div class="fmcg-tab-content">
-                  <span class="fmcg-tab-title">${slide.tabTitle}</span>
-                </div>
-              </div>
+      <!-- Minimal Editorial Carousel Navigation (Section 8 Spec) -->
+      <div class="fmcg-hero-nav-bar">
+        <div class="container fmcg-hero-nav-container">
+          <div class="fmcg-editorial-nav-list" id="fmcg-hero-tabs">
+            ${HERO_SHOWCASE_SLIDES.map((slide, idx) => `
+              <button class="fmcg-editorial-nav-item ${idx === 0 ? 'active' : ''}" data-tab-index="${idx}" aria-label="Slide ${slide.slideNum} ${slide.label}">
+                <span class="fmcg-nav-num">${slide.slideNum}</span>
+                <span class="fmcg-nav-label">${slide.label}</span>
+                <div class="fmcg-nav-line"><div class="fmcg-nav-fill"></div></div>
+              </button>
+            `).join('')}
+          </div>
+
+          <!-- Arrow Controls -->
+          <div class="fmcg-hero-arrow-controls">
+            <button class="fmcg-hero-arrow fmcg-arrow-prev" id="hero-prev-btn" aria-label="Previous Slide">
+              <i data-lucide="chevron-left" style="width: 18px; height: 18px;"></i>
             </button>
-          `).join('')}
+            <button class="fmcg-hero-arrow fmcg-arrow-next" id="hero-next-btn" aria-label="Next Slide">
+              <i data-lucide="chevron-right" style="width: 18px; height: 18px;"></i>
+            </button>
+          </div>
         </div>
+      </div>
+    </section>
 
-        <!-- Factual FMCG Trust Strip -->
-        <div class="fmcg-hero-trust-bar">
-          <div class="fmcg-trust-item"><i data-lucide="shield-check" style="width:14px;height:14px;color:var(--brand-primary);"></i><span>FSSAI Lic: 12718060000582</span></div>
-          <span class="fmcg-trust-sep">•</span>
-          <div class="fmcg-trust-item"><i data-lucide="award" style="width:14px;height:14px;color:var(--brand-gold);"></i><span>GST Registered</span></div>
-          <span class="fmcg-trust-sep">•</span>
-          <div class="fmcg-trust-item"><i data-lucide="check-circle" style="width:14px;height:14px;color:#10B981;"></i><span>Udyam Certified</span></div>
-          <span class="fmcg-trust-sep">•</span>
-          <div class="fmcg-trust-item"><i data-lucide="calendar" style="width:14px;height:14px;color:var(--brand-primary);"></i><span>Est. 2012 Moradabad</span></div>
-          <span class="fmcg-trust-sep">•</span>
-          <div class="fmcg-trust-item"><i data-lucide="leaf" style="width:14px;height:14px;color:#10B981;"></i><span>100% Vegetarian Plant</span></div>
+    <!-- POST-HERO DEDICATED TRUST STRIP (SECTION 15 SPEC) -->
+    <section class="fmcg-post-hero-trust">
+      <div class="container">
+        <div class="fmcg-trust-strip-inner">
+          <div class="fmcg-trust-pill-item">
+            <i data-lucide="shield-check" style="width: 18px; height: 18px; color: var(--brand-primary);"></i>
+            <span>FSSAI Grade-A (Lic: 12718060000582)</span>
+          </div>
+          <span class="fmcg-trust-dot">•</span>
+          <div class="fmcg-trust-pill-item">
+            <i data-lucide="leaf" style="width: 18px; height: 18px; color: #10B981;"></i>
+            <span>100% Vegetarian Purity</span>
+          </div>
+          <span class="fmcg-trust-dot">•</span>
+          <div class="fmcg-trust-pill-item">
+            <i data-lucide="truck" style="width: 18px; height: 18px; color: var(--brand-amber);"></i>
+            <span>5 AM Daily Dispatch Across UP</span>
+          </div>
+          <span class="fmcg-trust-dot">•</span>
+          <div class="fmcg-trust-pill-item">
+            <i data-lucide="award" style="width: 18px; height: 18px; color: var(--brand-gold);"></i>
+            <span>GST &amp; Udyam Certified</span>
+          </div>
+          <span class="fmcg-trust-dot">•</span>
+          <div class="fmcg-trust-pill-item">
+            <i data-lucide="calendar" style="width: 18px; height: 18px; color: var(--brand-primary);"></i>
+            <span>Est. 2012 Moradabad</span>
+          </div>
         </div>
-
       </div>
     </section>
 
@@ -1315,22 +1329,27 @@ function initMobileAnnouncementTicker() {
   }, 3200);
 }
 
-// Benchmark FMCG Hero Showcase (English Oven / Britannia / Bonn Style)
+// Benchmark FMCG Visual Hero Carousel Implementation
 function initHeroShowcase() {
-  const slides = document.querySelectorAll(".fmcg-hero-slide");
-  const tabs = document.querySelectorAll(".fmcg-hero-tab");
+  const slides = document.querySelectorAll(".fmcg-hero-slide-v2");
+  const tabs = document.querySelectorAll(".fmcg-editorial-nav-item");
+  const prevBtn = document.getElementById("hero-prev-btn");
+  const nextBtn = document.getElementById("hero-next-btn");
   if (!slides.length || !tabs.length) return;
 
   let current = 0;
   let autoTimer = null;
-  const DURATION = 5000;
+  const DURATION = 6500; // 6.5s autoplay duration as specified
   let startTime = Date.now();
+
+  // Respect prefers-reduced-motion
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   function switchSlide(index) {
     slides.forEach(s => s.classList.remove("active"));
     tabs.forEach(t => {
       t.classList.remove("active");
-      const fill = t.querySelector(".fmcg-tab-progress-fill");
+      const fill = t.querySelector(".fmcg-nav-fill");
       if (fill) fill.style.width = "0%";
     });
 
@@ -1338,8 +1357,7 @@ function initHeroShowcase() {
     tabs[index].classList.add("active");
     current = index;
     startTime = Date.now();
-    
-    // Refresh icons inside active slide if any
+
     if (typeof lucide !== 'undefined') lucide.createIcons();
   }
 
@@ -1347,7 +1365,12 @@ function initHeroShowcase() {
     switchSlide((current + 1) % slides.length);
   }
 
+  function prevSlide() {
+    switchSlide((current - 1 + slides.length) % slides.length);
+  }
+
   function startTimer() {
+    if (reducedMotion) return;
     stopTimer();
     autoTimer = setInterval(nextSlide, DURATION);
     startTime = Date.now();
@@ -1360,28 +1383,64 @@ function initHeroShowcase() {
     }
   }
 
-  // Animate active tab fill progress
+  // Smooth progress fill animation for current active tab
   function updateProgress() {
-    const activeTab = tabs[current];
-    if (activeTab) {
-      const fill = activeTab.querySelector(".fmcg-tab-progress-fill");
-      if (fill) {
-        const elapsed = Date.now() - startTime;
-        const progress = Math.min((elapsed / DURATION) * 100, 100);
-        fill.style.width = `${progress}%`;
+    if (!reducedMotion) {
+      const activeTab = tabs[current];
+      if (activeTab) {
+        const fill = activeTab.querySelector(".fmcg-nav-fill");
+        if (fill) {
+          const elapsed = Date.now() - startTime;
+          const progress = Math.min((elapsed / DURATION) * 100, 100);
+          fill.style.width = `${progress}%`;
+        }
       }
     }
     requestAnimationFrame(updateProgress);
   }
   requestAnimationFrame(updateProgress);
 
-  // Tab click handlers
+  // Tab navigation click handlers
   tabs.forEach(tab => {
     tab.addEventListener("click", () => {
       const idx = parseInt(tab.getAttribute("data-tab-index"));
       switchSlide(idx);
       startTimer();
     });
+  });
+
+  // Arrow navigation handlers
+  if (prevBtn) {
+    prevBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      prevSlide();
+      startTimer();
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      nextSlide();
+      startTimer();
+    });
+  }
+
+  // Keyboard Navigation (Left / Right Arrows)
+  document.addEventListener("keydown", (e) => {
+    const heroSection = document.getElementById("hero-section");
+    if (!heroSection) return;
+    const rect = heroSection.getBoundingClientRect();
+    // Only trigger if hero is in viewport
+    if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+      if (e.key === "ArrowRight") {
+        nextSlide();
+        startTimer();
+      } else if (e.key === "ArrowLeft") {
+        prevSlide();
+        startTimer();
+      }
+    }
   });
 
   // Pause on hover
@@ -1391,7 +1450,7 @@ function initHeroShowcase() {
     heroSection.addEventListener("mouseleave", startTimer);
   }
 
-  // Touch Swipe
+  // Touch Swipe Gesture Handling
   let touchStartX = 0;
   const stage = document.getElementById("fmcg-hero-stage");
   if (stage) {
@@ -1402,9 +1461,9 @@ function initHeroShowcase() {
       const diff = touchStartX - e.changedTouches[0].screenX;
       if (Math.abs(diff) > 40) {
         if (diff > 0) {
-          switchSlide((current + 1) % slides.length);
+          nextSlide();
         } else {
-          switchSlide((current - 1 + slides.length) % slides.length);
+          prevSlide();
         }
         startTimer();
       }

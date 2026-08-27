@@ -436,329 +436,343 @@ main {
 /* ==========================================================================
    1. BENCHMARK FMCG HERO SECTION (ENGLISH OVEN / BRITANNIA STYLE)
    ========================================================================== */
-.fmcg-hero {
+/* ==========================================================================
+   1. FULL-WIDTH VISUAL FMCG ADVERTISING HERO CAROUSEL
+   ========================================================================== */
+.fmcg-hero-v2 {
   position: relative;
-  background: linear-gradient(180deg, #FFFDF9 0%, #FAF5ED 100%);
-  border-bottom: 1px solid var(--border-color);
-  padding: 48px 0 0;
+  width: 100%;
+  background: #110E0D;
+  color: #FFFFFF;
+  height: clamp(520px, 82vh, 740px);
   overflow: hidden;
 }
 
-.fmcg-hero-stage {
+.fmcg-hero-viewport {
   position: relative;
-  min-height: 480px;
+  width: 100%;
+  height: 100%;
 }
 
-.fmcg-hero-slide {
-  display: none;
+.fmcg-hero-slide-v2 {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   opacity: 0;
-  transition: opacity 0.5s ease;
+  visibility: hidden;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.8s ease;
+  z-index: 1;
+  pointer-events: none;
 }
 
-.fmcg-hero-slide.active {
-  display: block;
+.fmcg-hero-slide-v2.active {
   opacity: 1;
+  visibility: visible;
+  z-index: 2;
+  pointer-events: auto;
 }
 
-.fmcg-hero-grid {
+/* Full-Bleed Photography & Gradient Scrim */
+.fmcg-hero-bg-wrap {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.fmcg-hero-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.05);
+  transition: transform 7s ease-out;
+}
+
+.fmcg-hero-slide-v2.active .fmcg-hero-bg-img {
+  transform: scale(1);
+}
+
+.fmcg-hero-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, 
+    rgba(15, 12, 11, 0.88) 0%, 
+    rgba(15, 12, 11, 0.72) 42%, 
+    rgba(15, 12, 11, 0.25) 75%,
+    rgba(15, 12, 11, 0.1) 100%
+  );
+  z-index: 1;
+}
+
+/* Foreground Content */
+.fmcg-hero-content-container {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-bottom: 72px;
+}
+
+.fmcg-hero-layout {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
-  align-items: center;
   gap: 48px;
-  min-height: 440px;
+  width: 100%;
+  align-items: center;
 }
 
-.fmcg-hero-text {
+.fmcg-hero-editorial {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
-.fmcg-hero-badge {
-  display: inline-flex;
-  align-items: center;
-  font-size: 11px;
+.fmcg-hero-eyebrow {
+  display: inline-block;
+  font-size: 12px;
   font-weight: 800;
-  letter-spacing: 1.5px;
+  letter-spacing: 2.5px;
   text-transform: uppercase;
-  padding: 6px 14px;
+  color: var(--brand-gold);
+  background: rgba(212, 160, 23, 0.15);
+  border: 1px solid rgba(212, 160, 23, 0.35);
+  padding: 5px 14px;
   border-radius: 20px;
   margin-bottom: 16px;
+  backdrop-filter: blur(4px);
 }
 
-.fmcg-hero-badge.gmi {
-  background: var(--gmi-bg);
-  color: var(--gmi-red);
-  border: 1px solid rgba(192, 39, 45, 0.15);
-}
-
-.fmcg-hero-badge.preeti {
-  background: var(--preeti-blue-light);
-  color: var(--preeti-blue);
-  border: 1px solid rgba(27, 58, 140, 0.15);
-}
-
-.fmcg-hero-title {
+.fmcg-hero-headline {
   font-family: var(--font-display);
-  font-size: clamp(34px, 4.5vw, 52px);
+  font-size: clamp(38px, 5.2vw, 68px);
   font-weight: 900;
-  line-height: 1.1;
-  color: var(--text-dark);
-  letter-spacing: -1px;
-  margin-bottom: 16px;
+  line-height: 1.05;
+  letter-spacing: -1.2px;
+  color: #FFFFFF;
+  margin-bottom: 18px;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
 }
 
-.fmcg-hero-desc {
-  font-size: 15.5px;
-  line-height: 1.65;
-  color: var(--text-muted);
+.fmcg-hero-subtext {
+  font-size: 16.5px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
   max-width: 500px;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
-.fmcg-hero-actions {
+.fmcg-hero-cta-group {
   display: flex;
-  gap: 12px;
+  gap: 14px;
+  align-items: center;
   flex-wrap: wrap;
-  margin-bottom: 20px;
 }
 
-.fmcg-btn-primary {
-  padding: 12px 24px;
-}
-
-.fmcg-btn-secondary {
-  padding: 12px 22px;
-}
-
-/* Trust Bullets under CTAs */
-.fmcg-hero-trust-bullets {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  padding-top: 6px;
-}
-
-.fmcg-bullet-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 12.5px;
-  font-weight: 700;
-  color: var(--text-dark);
-}
-
-/* Product Showcase Card Staging (English Oven / Britannia Style) */
-.fmcg-hero-visual {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-
-.fmcg-product-card-showcase {
-  background: #FFFFFF;
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-lg);
-  padding: 20px 24px 18px;
-  box-shadow: 0 16px 36px rgba(60, 40, 20, 0.08);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  max-width: 420px;
-  position: relative;
+.fmcg-btn-hero-primary {
+  background: var(--brand-primary);
+  color: #FFFFFF;
+  font-weight: 800;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-size: 14.5px;
+  box-shadow: 0 6px 20px rgba(192, 39, 45, 0.4);
+  border: none;
   transition: var(--transition);
 }
 
-.fmcg-product-card-showcase:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 44px rgba(60, 40, 20, 0.12);
-  border-color: #C4B09B;
+.fmcg-btn-hero-primary:hover {
+  background: var(--brand-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(192, 39, 45, 0.55);
+  color: #FFFFFF;
 }
 
-.fmcg-card-showcase-top {
+.fmcg-btn-hero-secondary {
+  background: rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
+  font-weight: 700;
+  padding: 14px 26px;
+  border-radius: 8px;
+  font-size: 14.5px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(8px);
+  transition: var(--transition);
+}
+
+.fmcg-btn-hero-secondary:hover {
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: translateY(-2px);
+  color: #FFFFFF;
+}
+
+/* Product Spotlight Stage */
+.fmcg-hero-product-stage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fmcg-product-spotlight {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.fmcg-hero-pack-img {
+  max-height: 340px;
+  max-width: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.5));
+  transition: transform 0.5s ease;
+}
+
+.fmcg-hero-slide-v2.active .fmcg-hero-pack-img {
+  animation: heroPackFloat 6s ease-in-out infinite alternate;
+}
+
+@keyframes heroPackFloat {
+  0%   { transform: translateY(0) scale(1); }
+  100% { transform: translateY(-8px) scale(1.02); }
+}
+
+/* Minimal Editorial Carousel Navigation (Section 8 Spec) */
+.fmcg-hero-nav-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  padding: 14px 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(15, 12, 11, 0.9) 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.fmcg-hero-nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 12px;
-  border-bottom: 1px solid var(--border-light);
-  width: 100%;
 }
 
-.fmcg-showcase-brand {
-  font-size: 11px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  padding: 3px 10px;
-  border-radius: 4px;
-}
-
-.fmcg-showcase-brand.gmi {
-  background: var(--gmi-bg);
-  color: var(--gmi-red);
-}
-
-.fmcg-showcase-brand.preeti {
-  background: var(--preeti-blue-light);
-  color: var(--preeti-blue);
-}
-
-.fmcg-showcase-quality {
-  font-size: 11.5px;
-  font-weight: 700;
-  color: #10B981;
-}
-
-.fmcg-product-pedestal {
-  position: relative;
+.fmcg-editorial-nav-list {
   display: flex;
-  justify-content: center;
+  gap: 36px;
   align-items: center;
-  width: 100%;
-  height: 280px;
-  padding: 10px;
 }
 
-.fmcg-pedestal-glow {
-  position: absolute;
-  width: 220px;
-  height: 220px;
-  background: radial-gradient(circle, rgba(212, 160, 23, 0.15) 0%, rgba(192, 39, 45, 0.04) 50%, transparent 70%);
-  border-radius: 50%;
-  z-index: 0;
-}
-
-.fmcg-hero-product-img {
-  position: relative;
-  z-index: 1;
-  max-height: 260px;
-  max-width: 100%;
-  object-fit: contain;
-  mix-blend-mode: multiply;
-  filter: drop-shadow(0 14px 20px rgba(60, 40, 20, 0.12));
-  transition: transform 0.4s ease;
-}
-
-.fmcg-product-card-showcase:hover .fmcg-hero-product-img {
-  transform: translateY(-6px) scale(1.03);
-}
-
-.fmcg-card-showcase-bottom {
-  width: 100%;
-  text-align: center;
-  padding-top: 12px;
-  border-top: 1px solid var(--border-light);
+.fmcg-editorial-nav-item {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
   font-size: 12px;
-  font-weight: 700;
-  color: var(--text-muted);
-}
-
-/* Hero Bottom Tab Switcher (English Oven Style) */
-.fmcg-hero-tabs {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-  margin-top: 36px;
-  padding-bottom: 24px;
-  border-bottom: 1px solid var(--border-color);
-}
-
-.fmcg-hero-tab {
-  position: relative;
-  background: #FFFFFF;
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-sm);
-  padding: 12px 16px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
   text-align: left;
-  transition: var(--transition);
+  transition: color 0.3s ease;
+  padding: 4px 0;
+}
+
+.fmcg-editorial-nav-item:hover {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.fmcg-editorial-nav-item.active {
+  color: #FFFFFF;
+}
+
+.fmcg-nav-num {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.fmcg-editorial-nav-item.active .fmcg-nav-num {
+  color: var(--brand-gold);
+}
+
+.fmcg-nav-line {
+  height: 2px;
+  width: 100%;
+  min-width: 60px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 2px;
   overflow: hidden;
 }
 
-.fmcg-hero-tab:hover {
-  border-color: #C4B09B;
-  background: var(--bg-warm-elevated);
-}
-
-.fmcg-hero-tab.active {
-  border-color: var(--brand-primary);
-  background: #FFFFFF;
-  box-shadow: 0 4px 16px rgba(192, 39, 45, 0.1);
-}
-
-.fmcg-tab-progress {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: transparent;
-}
-
-.fmcg-hero-tab.active .fmcg-tab-progress {
-  background: rgba(192, 39, 45, 0.15);
-}
-
-.fmcg-tab-progress-fill {
+.fmcg-nav-fill {
   height: 100%;
   width: 0%;
   background: var(--brand-primary);
   transition: width 0.1s linear;
 }
 
-.fmcg-tab-inner {
+.fmcg-hero-arrow-controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.fmcg-hero-arrow {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
 }
 
-.fmcg-tab-num {
-  font-family: var(--font-display);
-  font-size: 13px;
-  font-weight: 900;
-  color: var(--text-muted);
-  opacity: 0.6;
+.fmcg-hero-arrow:hover {
+  background: var(--brand-primary);
+  border-color: var(--brand-primary);
+  transform: scale(1.05);
 }
 
-.fmcg-hero-tab.active .fmcg-tab-num {
-  color: var(--brand-primary);
-  opacity: 1;
+/* Post-Hero Trust Strip */
+.fmcg-post-hero-trust {
+  background: #FAF5ED;
+  border-bottom: 1px solid var(--border-color);
+  padding: 16px 0;
 }
 
-.fmcg-tab-title {
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--text-dark);
-}
-
-.fmcg-hero-tab.active .fmcg-tab-title {
-  color: var(--brand-primary);
-}
-
-/* Factual FMCG Trust Strip */
-.fmcg-hero-trust-bar {
+.fmcg-trust-strip-inner {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 16px;
-  padding: 16px 0 20px;
+  gap: 18px;
   flex-wrap: wrap;
-}
-
-.fmcg-trust-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 12.5px;
+  font-size: 13px;
   font-weight: 700;
   color: var(--text-dark);
 }
 
-.fmcg-trust-sep {
-  color: #D4C3B2;
-  font-weight: bold;
+.fmcg-trust-pill-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.fmcg-trust-dot {
+  color: #C4B09B;
+  font-size: 14px;
 }
 
 /* ==========================================================================
@@ -1984,89 +1998,89 @@ footer {
     display: none;
   }
 
-  /* Hero Section */
-  .fmcg-hero {
-    padding: 24px 0 0;
+  /* Hero Section V2 (Full-Width Visual Carousel) */
+  .fmcg-hero-v2 {
+    height: auto;
+    min-height: 520px;
+    padding-bottom: 64px;
   }
-  .fmcg-hero-stage {
-    min-height: auto;
+
+  .fmcg-hero-content-container {
+    padding-top: 36px;
+    padding-bottom: 64px;
   }
-  .fmcg-hero-grid {
+
+  .fmcg-hero-scrim {
+    background: linear-gradient(180deg, 
+      rgba(15, 12, 11, 0.65) 0%, 
+      rgba(15, 12, 11, 0.85) 50%, 
+      rgba(15, 12, 11, 0.95) 100%
+    );
+  }
+
+  .fmcg-hero-layout {
     grid-template-columns: 1fr;
     gap: 20px;
-    min-height: auto;
-  }
-  .fmcg-hero-text {
     text-align: center;
+    justify-items: center;
+  }
+
+  .fmcg-hero-editorial {
     align-items: center;
   }
-  .fmcg-hero-badge {
-    font-size: 10px;
-    padding: 5px 12px;
-    margin-bottom: 12px;
-    max-width: 100%;
-    text-align: center;
-    line-height: 1.3;
-  }
-  .fmcg-hero-title {
-    font-size: clamp(26px, 7vw, 36px);
-    line-height: 1.15;
+
+  .fmcg-hero-eyebrow {
+    font-size: 10.5px;
+    padding: 4px 12px;
     margin-bottom: 12px;
   }
-  .fmcg-hero-desc {
+
+  .fmcg-hero-headline {
+    font-size: clamp(28px, 7.5vw, 42px);
+    margin-bottom: 12px;
+  }
+
+  .fmcg-hero-subtext {
     font-size: 14.5px;
-    line-height: 1.55;
-    margin-bottom: 18px;
+    line-height: 1.5;
+    margin-bottom: 20px;
     max-width: 100%;
   }
-  .fmcg-hero-actions {
+
+  .fmcg-hero-cta-group {
     display: flex;
     flex-direction: column;
     width: 100%;
     gap: 10px;
-    margin-bottom: 16px;
   }
-  .fmcg-hero-actions .btn {
+
+  .fmcg-btn-hero-primary, .fmcg-btn-hero-secondary {
     width: 100%;
     justify-content: center;
     padding: 12px 20px;
   }
-  .fmcg-hero-trust-bullets {
-    display: flex;
-    justify-content: center;
-    gap: 8px 12px;
-    flex-wrap: wrap;
-    margin-top: 4px;
-    width: 100%;
+
+  .fmcg-hero-pack-img {
+    max-height: 220px;
   }
-  .fmcg-bullet-item {
-    font-size: 11.5px;
+
+  .fmcg-hero-nav-bar {
+    padding: 10px 0;
   }
-  .fmcg-hero-tabs {
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-    margin-top: 20px;
-    padding-bottom: 14px;
-  }
-  .fmcg-hero-tab {
-    padding: 10px 12px;
-  }
-  .fmcg-tab-title {
-    font-size: 11.5px;
-  }
-  .fmcg-tab-num {
-    font-size: 11.5px;
-  }
-  .fmcg-product-card-showcase {
+
+  .fmcg-editorial-nav-list {
+    gap: 16px;
+    overflow-x: auto;
     max-width: 100%;
-    padding: 16px;
-    border-radius: var(--radius-md);
+    padding-bottom: 2px;
   }
-  .fmcg-product-pedestal {
-    height: 200px;
+
+  .fmcg-editorial-nav-item {
+    font-size: 10.5px;
   }
-  .fmcg-hero-product-img {
-    max-height: 180px;
+
+  .fmcg-nav-line {
+    min-width: 40px;
   }
 
   /* Section Titles */
