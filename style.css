@@ -448,6 +448,21 @@ main {
   overflow: hidden;
 }
 
+/* Presentation Toggles */
+.fmcg-hero-desktop-view {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.fmcg-hero-mobile-view {
+  display: none;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
 .fmcg-hero-viewport {
   position: relative;
   width: 100%;
@@ -750,8 +765,25 @@ main {
 }
 
 /* Mobile Compact Navigation Controls */
+.fmcg-mobile-nav-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  padding: 10px 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(15, 12, 11, 0.95) 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.fmcg-mobile-nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .fmcg-mobile-carousel-controls {
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
@@ -2048,17 +2080,20 @@ footer {
     display: none;
   }
 
-  /* Hero Section V2 Dedicated Mobile Layout */
+  /* Hero Presentation View Toggle */
+  .fmcg-hero-desktop-view {
+    display: none !important;
+  }
+
+  .fmcg-hero-mobile-view {
+    display: block !important;
+  }
+
   .fmcg-hero-v2 {
     height: auto;
     min-height: 520px;
     padding-bottom: 20px;
     background: #181412;
-  }
-
-  .fmcg-hero-content-container {
-    padding-top: 16px;
-    padding-bottom: 70px;
   }
 
   .fmcg-hero-scrim {
@@ -2067,101 +2102,6 @@ footer {
       rgba(24, 20, 18, 0.9) 60%, 
       #181412 100%
     );
-  }
-
-  .fmcg-hero-layout {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 14px;
-    text-align: center;
-    align-items: center;
-  }
-
-  /* Order 1: Product Visual */
-  .fmcg-hero-product-stage {
-    order: 1;
-    width: 100%;
-    margin: 4px 0 10px;
-    display: flex;
-    justify-content: center;
-  }
-
-  .fmcg-product-spotlight {
-    padding: 10px;
-    background: radial-gradient(circle, rgba(255, 253, 249, 0.95) 0%, rgba(250, 245, 237, 0.6) 55%, transparent 75%);
-    border-radius: 50%;
-  }
-
-  .fmcg-hero-pack-img {
-    max-height: 200px;
-    width: auto;
-    object-fit: contain;
-    mix-blend-mode: multiply;
-    filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.35));
-  }
-
-  /* Order 2: Editorial Text Column */
-  .fmcg-hero-editorial {
-    order: 2;
-    width: 100%;
-    align-items: center;
-    text-align: center;
-  }
-
-  .fmcg-hero-eyebrow {
-    font-size: 10.5px;
-    padding: 4px 12px;
-    margin-bottom: 10px;
-  }
-
-  .fmcg-hero-headline {
-    font-size: clamp(30px, 8vw, 42px);
-    line-height: 1.12;
-    margin-bottom: 10px;
-    color: #FFFFFF;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-  }
-
-  .fmcg-hero-subtext {
-    font-size: 14.5px;
-    line-height: 1.5;
-    margin-bottom: 20px;
-    max-width: 360px;
-    color: rgba(255, 255, 255, 0.92);
-  }
-
-  .fmcg-hero-cta-group {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 10px;
-  }
-
-  .fmcg-btn-hero-primary, .fmcg-btn-hero-secondary {
-    width: 100%;
-    justify-content: center;
-    padding: 13px 20px;
-    min-height: 46px;
-    font-size: 14.5px;
-  }
-
-  /* Hide Desktop Editorial Nav & Arrows on Mobile */
-  .fmcg-editorial-nav-list {
-    display: none !important;
-  }
-
-  .fmcg-hero-arrow-controls {
-    display: none !important;
-  }
-
-  /* Show Compact Mobile Controls */
-  .fmcg-mobile-carousel-controls {
-    display: flex !important;
-  }
-
-  .fmcg-hero-nav-bar {
-    padding: 10px 0;
   }
 
   /* Post-Hero Trust Strip Mobile Grid */

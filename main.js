@@ -431,32 +431,21 @@ if (document.readyState === "loading") {
 
 // --- RENDER PAGES ---
 
-// Render: Home Page (Benchmark FMCG Architecture — English Oven, Bonn, Britannia, Modern Foods)
-function renderHome() {
-  const pillars = [
-    { icon: "factory", title: "Automated Continuous Baking", desc: "Equipped with continuous automated ovens, stainless steel proofing chambers, and hygienic conveyor feeds." },
-    { icon: "shield-check", title: "FSSAI Grade-A Quality Control", desc: "Standardized checking protocols for flour quality, yeast balance, and baking temperatures (Lic: 12718060000582)." },
-    { icon: "package-check", title: "Tamper-Evident Sealed Packaging", desc: "Standardized unit weights and moisture-protected sealed pouches locking in morning bake freshness." },
-    { icon: "truck", title: "Daily Morning Route Fleet", desc: "Dedicated 5 AM dispatch supply lines supporting wholesale stockists and grocery retail routes throughout UP." }
-  ];
+// --- HERO SEPARATE PRESENTATION LOGIC (DESKTOP & MOBILE SHARE HERO_SHOWCASE_SLIDES DATA) ---
 
+// Desktop Hero Presentation View (Viewport > 768px)
+function renderDesktopHero(slides) {
   return `
-    <!-- SECTION 1: FULL-WIDTH FMCG ADVERTISING HERO CAROUSEL -->
-    <section class="fmcg-hero-v2" id="hero-section">
-      <!-- Full-Width Carousel Viewport -->
-      <div class="fmcg-hero-viewport" id="fmcg-hero-stage">
-        ${HERO_SHOWCASE_SLIDES.map((slide, idx) => `
-          <div class="fmcg-hero-slide-v2 ${idx === 0 ? 'active' : ''}" data-hero-index="${idx}">
-            <!-- Full-Bleed Background Photography -->
+    <div class="fmcg-hero-desktop-view">
+      <div class="fmcg-hero-viewport" id="fmcg-hero-stage-desktop">
+        ${slides.map((slide, idx) => `
+          <div class="fmcg-hero-slide-v2 fmcg-hero-slide-desktop ${idx === 0 ? 'active' : ''}" data-hero-index="${idx}">
             <div class="fmcg-hero-bg-wrap">
               <img src="${slide.bgImg}" alt="${slide.label} Background" class="fmcg-hero-bg-img" loading="${idx === 0 ? 'eager' : 'lazy'}">
               <div class="fmcg-hero-scrim"></div>
             </div>
-
-            <!-- Foreground Content Layer -->
             <div class="container fmcg-hero-content-container">
               <div class="fmcg-hero-layout">
-                <!-- Editorial Copy Column -->
                 <div class="fmcg-hero-editorial">
                   <span class="fmcg-hero-eyebrow ${slide.brandClass}">${slide.eyebrow}</span>
                   <h1 class="fmcg-hero-headline">${slide.title}</h1>
@@ -474,7 +463,6 @@ function renderHome() {
                   </div>
                 </div>
 
-                <!-- Prominent Real Product Hero Object -->
                 <div class="fmcg-hero-product-stage">
                   <div class="fmcg-product-spotlight">
                     <img src="${slide.productImg}" alt="${slide.productAlt}" class="fmcg-hero-pack-img">
@@ -486,12 +474,10 @@ function renderHome() {
         `).join('')}
       </div>
 
-      <!-- Minimal Editorial Carousel Navigation (Desktop & Mobile Compact) -->
       <div class="fmcg-hero-nav-bar">
         <div class="container fmcg-hero-nav-container">
-          <!-- Desktop Editorial Nav List -->
           <div class="fmcg-editorial-nav-list" id="fmcg-hero-tabs">
-            ${HERO_SHOWCASE_SLIDES.map((slide, idx) => `
+            ${slides.map((slide, idx) => `
               <button class="fmcg-editorial-nav-item ${idx === 0 ? 'active' : ''}" data-tab-index="${idx}" aria-label="Slide ${slide.slideNum} ${slide.label}">
                 <span class="fmcg-nav-num">${slide.slideNum}</span>
                 <span class="fmcg-nav-label">${slide.label}</span>
@@ -500,27 +486,6 @@ function renderHome() {
             `).join('')}
           </div>
 
-          <!-- Mobile Compact Controls: [ ← ]  01 FRESHNESS  ● ○ ○ ○  [ → ] -->
-          <div class="fmcg-mobile-carousel-controls">
-            <button class="fmcg-hero-arrow fmcg-arrow-prev-mob" aria-label="Previous Slide">
-              <i data-lucide="chevron-left" style="width: 16px; height: 16px;"></i>
-            </button>
-
-            <div class="fmcg-mobile-nav-info">
-              <span class="fmcg-mobile-active-label" id="fmcg-mobile-active-label">01 FRESHNESS</span>
-              <div class="fmcg-mobile-dots" id="fmcg-mobile-dots">
-                ${HERO_SHOWCASE_SLIDES.map((slide, idx) => `
-                  <button class="fmcg-mobile-dot ${idx === 0 ? 'active' : ''}" data-tab-index="${idx}" aria-label="Go to slide ${idx + 1}"></button>
-                `).join('')}
-              </div>
-            </div>
-
-            <button class="fmcg-hero-arrow fmcg-arrow-next-mob" aria-label="Next Slide">
-              <i data-lucide="chevron-right" style="width: 16px; height: 16px;"></i>
-            </button>
-          </div>
-
-          <!-- Desktop Arrow Controls -->
           <div class="fmcg-hero-arrow-controls">
             <button class="fmcg-hero-arrow fmcg-arrow-prev" id="hero-prev-btn" aria-label="Previous Slide">
               <i data-lucide="chevron-left" style="width: 18px; height: 18px;"></i>
@@ -531,6 +496,95 @@ function renderHome() {
           </div>
         </div>
       </div>
+    </div>
+  `;
+}
+
+// Mobile Hero Presentation View (Viewport <= 768px)
+function renderMobileHero(slides) {
+  return `
+    <div class="fmcg-hero-mobile-view">
+      <div class="fmcg-hero-viewport" id="fmcg-hero-stage-mobile">
+        ${slides.map((slide, idx) => `
+          <div class="fmcg-hero-slide-v2 fmcg-hero-slide-mobile ${idx === 0 ? 'active' : ''}" data-hero-index="${idx}">
+            <div class="fmcg-hero-bg-wrap">
+              <img src="${slide.bgImg}" alt="${slide.label} Background" class="fmcg-hero-bg-img" loading="${idx === 0 ? 'eager' : 'lazy'}">
+              <div class="fmcg-hero-scrim"></div>
+            </div>
+            
+            <div class="container fmcg-mobile-hero-container">
+              <!-- 1. Product Stage (Top) -->
+              <div class="fmcg-mobile-product-stage">
+                <div class="fmcg-product-spotlight">
+                  <img src="${slide.productImg}" alt="${slide.productAlt}" class="fmcg-hero-pack-img">
+                </div>
+              </div>
+
+              <!-- 2. Eyebrow Badge -->
+              <span class="fmcg-hero-eyebrow ${slide.brandClass}">${slide.eyebrow}</span>
+
+              <!-- 3. Headline -->
+              <h1 class="fmcg-mobile-headline">${slide.title}</h1>
+
+              <!-- 4. Supporting Text -->
+              <p class="fmcg-mobile-subtext">${slide.desc}</p>
+
+              <!-- 5. CTA Buttons (Stacked 100%) -->
+              <div class="fmcg-mobile-cta-group">
+                <a href="${slide.cta1Link}" class="btn fmcg-btn-hero-primary">
+                  <span>${slide.cta1Text}</span>
+                  <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
+                </a>
+                <a href="${slide.cta2Link}" class="btn fmcg-btn-hero-secondary">
+                  <i data-lucide="handshake" style="width: 16px; height: 16px;"></i>
+                  <span>${slide.cta2Text}</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+
+      <!-- 6. Compact Mobile Carousel Controls -->
+      <div class="fmcg-mobile-nav-bar">
+        <div class="container fmcg-mobile-nav-container">
+          <button class="fmcg-hero-arrow fmcg-arrow-prev-mob" aria-label="Previous Slide">
+            <i data-lucide="chevron-left" style="width: 16px; height: 16px;"></i>
+          </button>
+
+          <div class="fmcg-mobile-nav-info">
+            <span class="fmcg-mobile-active-label" id="fmcg-mobile-active-label">${slides[0].slideNum} ${slides[0].label}</span>
+            <div class="fmcg-mobile-dots" id="fmcg-mobile-dots">
+              ${slides.map((slide, idx) => `
+                <button class="fmcg-mobile-dot ${idx === 0 ? 'active' : ''}" data-tab-index="${idx}" aria-label="Go to slide ${idx + 1}"></button>
+              `).join('')}
+            </div>
+          </div>
+
+          <button class="fmcg-hero-arrow fmcg-arrow-next-mob" aria-label="Next Slide">
+            <i data-lucide="chevron-right" style="width: 16px; height: 16px;"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+// Render: Home Page (Benchmark FMCG Architecture)
+function renderHome() {
+  const pillars = [
+    { icon: "factory", title: "Automated Continuous Baking", desc: "Equipped with continuous automated ovens, stainless steel proofing chambers, and hygienic conveyor feeds." },
+    { icon: "shield-check", title: "FSSAI Grade-A Quality Control", desc: "Standardized checking protocols for flour quality, yeast balance, and baking temperatures (Lic: 12718060000582)." },
+    { icon: "package-check", title: "Tamper-Evident Sealed Packaging", desc: "Standardized unit weights and moisture-protected sealed pouches locking in morning bake freshness." },
+    { icon: "truck", title: "Daily Morning Route Fleet", desc: "Dedicated 5 AM dispatch supply lines supporting wholesale stockists and grocery retail routes throughout UP." }
+  ];
+
+  return `
+    <!-- SECTION 1: FULL-WIDTH FMCG ADVERTISING HERO CAROUSEL -->
+    <section class="fmcg-hero-v2" id="hero-section">
+      <!-- Shared Data, Separate Presentation Renderers -->
+      ${renderDesktopHero(HERO_SHOWCASE_SLIDES)}
+      ${renderMobileHero(HERO_SHOWCASE_SLIDES)}
     </section>
 
     <!-- POST-HERO DEDICATED TRUST STRIP (SECTION 15 SPEC) -->
@@ -1352,7 +1406,8 @@ function initMobileAnnouncementTicker() {
 
 // Benchmark FMCG Visual Hero Carousel Implementation
 function initHeroShowcase() {
-  const slides = document.querySelectorAll(".fmcg-hero-slide-v2");
+  const desktopSlides = document.querySelectorAll(".fmcg-hero-slide-desktop");
+  const mobileSlides = document.querySelectorAll(".fmcg-hero-slide-mobile");
   const tabs = document.querySelectorAll(".fmcg-editorial-nav-item");
   const dots = document.querySelectorAll(".fmcg-mobile-dot");
   const mobileLabel = document.getElementById("fmcg-mobile-active-label");
@@ -1362,7 +1417,8 @@ function initHeroShowcase() {
   const prevBtnMob = document.querySelector(".fmcg-arrow-prev-mob");
   const nextBtnMob = document.querySelector(".fmcg-arrow-next-mob");
 
-  if (!slides.length) return;
+  const totalSlides = HERO_SHOWCASE_SLIDES.length;
+  if (!totalSlides) return;
 
   // Clean up any pre-existing timer on window
   if (window.heroAutoTimer) {
@@ -1371,14 +1427,15 @@ function initHeroShowcase() {
   }
 
   let current = 0;
-  const DURATION = 6000; // Exactly 6 seconds autoplay as requested
+  const DURATION = 6000; // Exactly 6 seconds autoplay
   let startTime = Date.now();
 
-  // Respect prefers-reduced-motion
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   function switchSlide(index) {
-    slides.forEach(s => s.classList.remove("active"));
+    desktopSlides.forEach(s => s.classList.remove("active"));
+    mobileSlides.forEach(s => s.classList.remove("active"));
+
     tabs.forEach(t => {
       t.classList.remove("active");
       const fill = t.querySelector(".fmcg-nav-fill");
@@ -1387,7 +1444,8 @@ function initHeroShowcase() {
 
     dots.forEach(d => d.classList.remove("active"));
 
-    slides[index].classList.add("active");
+    if (desktopSlides[index]) desktopSlides[index].classList.add("active");
+    if (mobileSlides[index]) mobileSlides[index].classList.add("active");
     if (tabs[index]) tabs[index].classList.add("active");
     if (dots[index]) dots[index].classList.add("active");
 
@@ -1402,11 +1460,11 @@ function initHeroShowcase() {
   }
 
   function nextSlide() {
-    switchSlide((current + 1) % slides.length);
+    switchSlide((current + 1) % totalSlides);
   }
 
   function prevSlide() {
-    switchSlide((current - 1 + slides.length) % slides.length);
+    switchSlide((current - 1 + totalSlides) % totalSlides);
   }
 
   function startTimer() {
@@ -1423,7 +1481,7 @@ function initHeroShowcase() {
     }
   }
 
-  // Smooth progress fill animation for current active desktop tab
+  // Smooth progress fill animation for active desktop tab
   function updateProgress() {
     if (!reducedMotion && window.heroAutoTimer) {
       const activeTab = tabs[current];
@@ -1502,25 +1560,27 @@ function initHeroShowcase() {
     heroSection.addEventListener("mouseleave", startTimer);
   }
 
-  // Touch Swipe Gesture Handling for Mobile
+  // Touch Swipe Gesture Handling for Mobile & Desktop
   let touchStartX = 0;
-  const stage = document.getElementById("fmcg-hero-stage");
-  if (stage) {
-    stage.addEventListener("touchstart", (e) => {
-      touchStartX = e.changedTouches[0].screenX;
-    }, { passive: true });
-    stage.addEventListener("touchend", (e) => {
-      const diff = touchStartX - e.changedTouches[0].screenX;
-      if (Math.abs(diff) > 40) {
-        if (diff > 0) {
-          nextSlide();
-        } else {
-          prevSlide();
+  const stages = [document.getElementById("fmcg-hero-stage-desktop"), document.getElementById("fmcg-hero-stage-mobile")];
+  stages.forEach(stage => {
+    if (stage) {
+      stage.addEventListener("touchstart", (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+      stage.addEventListener("touchend", (e) => {
+        const diff = touchStartX - e.changedTouches[0].screenX;
+        if (Math.abs(diff) > 40) {
+          if (diff > 0) {
+            nextSlide();
+          } else {
+            prevSlide();
+          }
+          startTimer();
         }
-        startTimer();
-      }
-    }, { passive: true });
-  }
+      }, { passive: true });
+    }
+  });
 
   switchSlide(0);
   startTimer();
