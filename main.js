@@ -724,7 +724,7 @@ function renderMobileHero(slides) {
           </button>
 
           <div class="fmcg-mobile-nav-info">
-            <span class="fmcg-mobile-active-label" id="fmcg-mobile-active-label">${slides[0].slideNum} ${slides[0].label}</span>
+            <span class="fmcg-mobile-active-label" id="fmcg-mobile-active-label">${slides[0].slideNum} / 04 • ${slides[0].label}</span>
             <div class="fmcg-mobile-dots" id="fmcg-mobile-dots">
               ${slides.map((slide, idx) => `
                 <button class="fmcg-mobile-dot ${idx === 0 ? 'active' : ''}" data-tab-index="${idx}" aria-label="Go to slide ${idx + 1}"></button>
@@ -1737,7 +1737,7 @@ function initHeroShowcase() {
     if (dots[index]) dots[index].classList.add("active");
 
     if (mobileLabel && HERO_SHOWCASE_SLIDES[index]) {
-      mobileLabel.textContent = `${HERO_SHOWCASE_SLIDES[index].slideNum} ${HERO_SHOWCASE_SLIDES[index].label}`;
+      mobileLabel.textContent = `${HERO_SHOWCASE_SLIDES[index].slideNum} / 04 • ${HERO_SHOWCASE_SLIDES[index].label}`;
     }
 
     current = index;
