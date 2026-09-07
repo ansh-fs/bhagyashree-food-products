@@ -906,11 +906,21 @@ function renderHome() {
 
     <!-- SECTION 2: NEW PREMIUM FMCG PRODUCT SHOWCASE -->
     <section class="section-padding fmcg-product-showcase-section" id="product-showcase-section">
+      <!-- Curved Section Transition Layer -->
+      <div class="fmcg-showcase-curve-divider" aria-hidden="true">
+        <svg viewBox="0 0 1440 80" fill="none" preserveAspectRatio="none">
+          <path d="M0,0 C380,75 1060,75 1440,0 L1440,80 L0,80 Z" fill="#FAF6F0"/>
+        </svg>
+      </div>
+
       <div class="container">
         <div class="fmcg-showcase-header">
           <div class="fmcg-showcase-titles">
-            <span class="section-badge">Our Products</span>
-            <h2>Everyday Favourites.<br><span>Made for Every Table.</span></h2>
+            <div class="fmcg-showcase-eyebrow">
+              <span class="fmcg-eyebrow-text">OUR PRODUCTS</span>
+              <span class="fmcg-eyebrow-line"></span>
+            </div>
+            <h2>Everyday Favourites.<br><span class="fmcg-heading-accent">Made for Every Table.</span></h2>
             <p>Explore the bakery products manufactured by Bhagyashree Food Products — from everyday breads to crispy rusks, biscuits and traditional tea-time favourites.</p>
           </div>
           
