@@ -401,12 +401,12 @@ const HERO_SHOWCASE_SLIDES = [
     label: "FRESHNESS",
     eyebrow: "GOOD MORNING INDIA",
     title: "Freshness<br>Baked Every Day.",
-    desc: "Freshly baked bread made for everyday Indian mornings.",
+    desc: "Fresh bread made for everyday Indian mornings.",
     bgImg: "./assets/hero_slide_1.jpg",
     productImg: "./assets/bread/500gm.jpeg",
     productAlt: "Good Morning India Fresh White Bread 500g",
     brandClass: "gmi",
-    cta1Text: "Explore Our Breads",
+    cta1Text: "Explore Breads",
     cta1Link: "#/brands/good-morning-india",
     cta2Text: "Become a Distributor",
     cta2Link: "#/distributors"
@@ -415,30 +415,31 @@ const HERO_SHOWCASE_SLIDES = [
     id: "bakery",
     slideNum: "02",
     label: "OUR BAKERY",
-    eyebrow: "MADE AT BHAGYASHREE",
-    title: "Made Here.<br>Delivered Fresh.",
-    desc: "Manufactured with standardized processes at our Moradabad bakery facility.",
-    bgImg: "./assets/hero_slide_2.jpg",
-    productImg: "./assets/bread/600gm.jpeg",
-    productAlt: "Bhagyashree Bakery Plant & Fresh Loaves",
-    brandClass: "gmi",
-    cta1Text: "Discover Our Process",
-    cta1Link: "#/process",
-    cta2Text: "Our Factory",
-    cta2Link: "#/about"
+    eyebrow: "PREETI BAKERY RANGE",
+    title: "More Than<br>Bread.",
+    desc: "Rusks, biscuits and everyday tea-time favourites.",
+    bgImg: "./assets/hero_slide_3.jpg",
+    productImg: "./assets/rusk/preeti_rusk_toast.jpg",
+    productAlt: "Preeti Rusk & Tea-Time Favourites",
+    brandClass: "preeti",
+    cta1Text: "Explore Preeti",
+    cta1Link: "#/brands/preeti",
+    cta2Text: "View Tea-Time Range",
+    cta2Link: "#/brands/preeti"
   },
   {
     id: "range",
     slideNum: "03",
     label: "OUR RANGE",
     eyebrow: "OUR BAKERY RANGE",
-    title: "More Than Bread.",
-    desc: "Everyday bakery favourites, made for every table.",
-    bgImg: "./assets/hero_slide_3.jpg",
+    title: "Made for<br>Every Table.",
+    desc: "Everyday bakery favourites made for homes, retailers and businesses.",
+    bgImg: "./assets/premium_bakery_bg.jpg",
     productImg: "./assets/rusk/preeti_rusk_toast.jpg",
-    productAlt: "Preeti Rusk & Biscottis FMCG Range",
-    brandClass: "preeti",
-    cta1Text: "Explore Our Products",
+    productAlt: "Bhagyashree Multi-Category FMCG Bakery Portfolio",
+    brandClass: "range",
+    isComposition: true,
+    cta1Text: "Explore Products",
     cta1Link: "#/brands",
     cta2Text: "View All Brands",
     cta2Link: "#/brands"
@@ -447,17 +448,17 @@ const HERO_SHOWCASE_SLIDES = [
     id: "distribution",
     slideNum: "04",
     label: "DISTRIBUTION",
-    eyebrow: "FROM OUR BAKERY TO THE MARKET",
-    title: "Freshness<br>That Travels.",
-    desc: "From our bakery in Moradabad to retailers across the region.",
+    eyebrow: "FROM OUR BAKERY TO YOUR MARKET",
+    title: "Built to Deliver<br>Freshness.",
+    desc: "A dedicated bakery manufacturing operation serving retailers, distributors and markets across the region.",
     bgImg: "./assets/hero_slide_4.jpg",
     productImg: "./assets/bread/600gm.jpeg",
-    productAlt: "Bhagyashree Daily Morning Logistics Fleet",
-    brandClass: "gmi",
+    productAlt: "Bhagyashree Plant Production & Wholesale Logistics Fleet",
+    brandClass: "mfg",
     cta1Text: "Become a Distributor",
     cta1Link: "#/distributors",
-    cta2Text: "Contact Us",
-    cta2Link: "#/contact"
+    cta2Text: "Our Manufacturing",
+    cta2Link: "#/about"
   }
 ];
 
@@ -610,7 +611,7 @@ function renderDesktopHero(slides) {
     <div class="fmcg-hero-desktop-view">
       <div class="fmcg-hero-viewport" id="fmcg-hero-stage-desktop">
         ${slides.map((slide, idx) => `
-          <div class="fmcg-hero-slide-v2 fmcg-hero-slide-desktop ${idx === 0 ? 'active' : ''}" data-hero-index="${idx}">
+          <div class="fmcg-hero-slide-v2 fmcg-hero-slide-desktop slide-${slide.id} ${idx === 0 ? 'active' : ''}" data-hero-index="${idx}">
             <div class="fmcg-hero-bg-wrap">
               <img src="${slide.bgImg}" alt="${slide.label} Background" class="fmcg-hero-bg-img" loading="${idx === 0 ? 'eager' : 'lazy'}">
               <div class="fmcg-hero-scrim"></div>
@@ -635,9 +636,23 @@ function renderDesktopHero(slides) {
                 </div>
 
                 <div class="fmcg-hero-product-stage">
-                  <div class="fmcg-product-spotlight">
-                    <img src="${slide.productImg}" alt="${slide.productAlt}" class="fmcg-hero-pack-img">
-                  </div>
+                  ${slide.isComposition ? `
+                    <div class="fmcg-hero-composition">
+                      <div class="fmcg-comp-item comp-back">
+                        <img src="./assets/bread/600gm.jpeg" alt="Good Morning India Bread Family Loaf" class="fmcg-comp-img">
+                      </div>
+                      <div class="fmcg-comp-item comp-center">
+                        <img src="./assets/rusk/preeti_rusk_toast.jpg" alt="Preeti Bread Rusk Toast" class="fmcg-comp-img">
+                      </div>
+                      <div class="fmcg-comp-item comp-front">
+                        <img src="./assets/rusk/preeti_biscottis_tall.jpg" alt="Preeti 100% Eggless Biscottis" class="fmcg-comp-img">
+                      </div>
+                    </div>
+                  ` : `
+                    <div class="fmcg-hero-pack-natural">
+                      <img src="${slide.productImg}" alt="${slide.productAlt}" class="fmcg-hero-pack-img">
+                    </div>
+                  `}
                 </div>
               </div>
             </div>
@@ -650,8 +665,8 @@ function renderDesktopHero(slides) {
           <div class="fmcg-editorial-nav-list" id="fmcg-hero-tabs">
             ${slides.map((slide, idx) => `
               <button class="fmcg-editorial-nav-item ${idx === 0 ? 'active' : ''}" data-tab-index="${idx}" aria-label="Slide ${slide.slideNum} ${slide.label}">
-                <span class="fmcg-nav-num">${slide.slideNum}</span>
-                <span class="fmcg-nav-label">${slide.label}</span>
+                <span class="fmcg-nav-num">${slide.slideNum} / 04</span>
+                <span class="fmcg-nav-label">${slide.label === 'FRESHNESS' ? 'Freshness' : slide.label === 'OUR BAKERY' ? 'Our Bakery' : slide.label === 'OUR RANGE' ? 'Our Range' : 'Distribution'}</span>
                 <div class="fmcg-nav-line"><div class="fmcg-nav-fill"></div></div>
               </button>
             `).join('')}
@@ -677,7 +692,7 @@ function renderMobileHero(slides) {
     <div class="fmcg-hero-mobile-view">
       <div class="fmcg-hero-viewport" id="fmcg-hero-stage-mobile">
         ${slides.map((slide, idx) => `
-          <div class="fmcg-hero-slide-v2 fmcg-hero-slide-mobile ${idx === 0 ? 'active' : ''}" data-hero-index="${idx}">
+          <div class="fmcg-hero-slide-v2 fmcg-hero-slide-mobile slide-${slide.id} ${idx === 0 ? 'active' : ''}" data-hero-index="${idx}">
             <div class="fmcg-hero-bg-wrap">
               <img src="${slide.bgImg}" alt="${slide.label} Background" class="fmcg-hero-bg-img" loading="${idx === 0 ? 'eager' : 'lazy'}">
               <div class="fmcg-hero-scrim"></div>
@@ -686,9 +701,23 @@ function renderMobileHero(slides) {
             <div class="container fmcg-mobile-hero-container">
               <!-- 1. Product Stage (Top) -->
               <div class="fmcg-mobile-product-stage">
-                <div class="fmcg-product-spotlight">
-                  <img src="${slide.productImg}" alt="${slide.productAlt}" class="fmcg-hero-pack-img">
-                </div>
+                ${slide.isComposition ? `
+                  <div class="fmcg-hero-composition fmcg-hero-comp-mobile">
+                    <div class="fmcg-comp-item comp-back">
+                      <img src="./assets/bread/600gm.jpeg" alt="Good Morning India Bread" class="fmcg-comp-img">
+                    </div>
+                    <div class="fmcg-comp-item comp-center">
+                      <img src="./assets/rusk/preeti_rusk_toast.jpg" alt="Preeti Bread Rusk" class="fmcg-comp-img">
+                    </div>
+                    <div class="fmcg-comp-item comp-front">
+                      <img src="./assets/rusk/preeti_biscottis_tall.jpg" alt="Preeti Biscottis" class="fmcg-comp-img">
+                    </div>
+                  </div>
+                ` : `
+                  <div class="fmcg-hero-pack-natural">
+                    <img src="${slide.productImg}" alt="${slide.productAlt}" class="fmcg-hero-pack-img">
+                  </div>
+                `}
               </div>
 
               <!-- 2. Eyebrow Badge -->
@@ -724,7 +753,7 @@ function renderMobileHero(slides) {
           </button>
 
           <div class="fmcg-mobile-nav-info">
-            <span class="fmcg-mobile-active-label" id="fmcg-mobile-active-label">${slides[0].slideNum} / 04 • ${slides[0].label}</span>
+            <span class="fmcg-mobile-active-label" id="fmcg-mobile-active-label">${slides[0].slideNum} / 04 • ${slides[0].label === 'FRESHNESS' ? 'Freshness' : slides[0].label === 'OUR BAKERY' ? 'Our Bakery' : slides[0].label === 'OUR RANGE' ? 'Our Range' : 'Distribution'}</span>
             <div class="fmcg-mobile-dots" id="fmcg-mobile-dots">
               ${slides.map((slide, idx) => `
                 <button class="fmcg-mobile-dot ${idx === 0 ? 'active' : ''}" data-tab-index="${idx}" aria-label="Go to slide ${idx + 1}"></button>
@@ -1724,7 +1753,7 @@ function initHeroShowcase() {
   }
 
   let current = 0;
-  const DURATION = 6000; // Exactly 6 seconds autoplay
+  const DURATION = 5000; // Exactly 5 seconds autoplay as requested
   let startTime = Date.now();
 
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -1747,7 +1776,9 @@ function initHeroShowcase() {
     if (dots[index]) dots[index].classList.add("active");
 
     if (mobileLabel && HERO_SHOWCASE_SLIDES[index]) {
-      mobileLabel.textContent = `${HERO_SHOWCASE_SLIDES[index].slideNum} / 04 • ${HERO_SHOWCASE_SLIDES[index].label}`;
+      const s = HERO_SHOWCASE_SLIDES[index];
+      const titleLabel = s.label === 'FRESHNESS' ? 'Freshness' : s.label === 'OUR BAKERY' ? 'Our Bakery' : s.label === 'OUR RANGE' ? 'Our Range' : 'Distribution';
+      mobileLabel.textContent = `${s.slideNum} / 04 • ${titleLabel}`;
     }
 
     current = index;

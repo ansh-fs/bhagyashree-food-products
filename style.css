@@ -538,8 +538,8 @@ main {
 
 .fmcg-hero-layout {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 48px;
+  grid-template-columns: 42% 58%;
+  gap: 40px;
   width: 100%;
   align-items: center;
 }
@@ -548,13 +548,14 @@ main {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  z-index: 3;
 }
 
 .fmcg-hero-eyebrow {
   display: inline-block;
   font-size: 12px;
   font-weight: 800;
-  letter-spacing: 2.5px;
+  letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--brand-gold);
   background: rgba(212, 160, 23, 0.15);
@@ -563,26 +564,68 @@ main {
   border-radius: 20px;
   margin-bottom: 16px;
   backdrop-filter: blur(4px);
+  transition: all 0.4s ease;
+}
+
+/* Slide Specific Scrims & Eyebrows */
+.slide-freshness .fmcg-hero-eyebrow {
+  color: #FBBF24;
+  background: rgba(251, 191, 36, 0.15);
+  border-color: rgba(251, 191, 36, 0.4);
+}
+
+.slide-bakery .fmcg-hero-eyebrow {
+  color: #F59E0B;
+  background: rgba(245, 158, 11, 0.15);
+  border-color: rgba(245, 158, 11, 0.4);
+}
+
+.slide-range .fmcg-hero-eyebrow {
+  color: #FCD34D;
+  background: rgba(252, 211, 77, 0.15);
+  border-color: rgba(252, 211, 77, 0.4);
+}
+
+.slide-distribution .fmcg-hero-eyebrow {
+  color: #FCA5A5;
+  background: rgba(239, 68, 68, 0.18);
+  border-color: rgba(239, 68, 68, 0.4);
 }
 
 .fmcg-hero-headline {
   font-family: var(--font-display);
-  font-size: clamp(38px, 5.2vw, 68px);
+  font-size: clamp(38px, 4.8vw, 64px);
   font-weight: 900;
-  line-height: 1.05;
-  letter-spacing: -1.2px;
+  line-height: 1.06;
+  letter-spacing: -1px;
   color: #FFFFFF;
   margin-bottom: 18px;
-  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  transform: translateY(14px);
+  opacity: 0;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.65s ease;
+}
+
+.fmcg-hero-slide-v2.active .fmcg-hero-headline {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .fmcg-hero-subtext {
-  font-size: 16.5px;
+  font-size: 16px;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.9);
-  max-width: 500px;
+  max-width: 480px;
   margin-bottom: 28px;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  transform: translateY(14px);
+  opacity: 0;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.1s, opacity 0.65s ease 0.1s;
+}
+
+.fmcg-hero-slide-v2.active .fmcg-hero-subtext {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .fmcg-hero-cta-group {
@@ -590,6 +633,14 @@ main {
   gap: 14px;
   align-items: center;
   flex-wrap: wrap;
+  transform: translateY(14px);
+  opacity: 0;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.2s, opacity 0.65s ease 0.2s;
+}
+
+.fmcg-hero-slide-v2.active .fmcg-hero-cta-group {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .fmcg-btn-hero-primary {
@@ -602,6 +653,10 @@ main {
   box-shadow: 0 6px 20px rgba(192, 39, 45, 0.4);
   border: none;
   transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
 }
 
 .fmcg-btn-hero-primary:hover {
@@ -621,6 +676,10 @@ main {
   border: 1px solid rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(8px);
   transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
 }
 
 .fmcg-btn-hero-secondary:hover {
@@ -630,39 +689,96 @@ main {
   color: #FFFFFF;
 }
 
-/* Product Spotlight Stage */
+/* Product Natural Stage (NO artificial circular glow, NO floating white box) */
 .fmcg-hero-product-stage {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
-.fmcg-product-spotlight {
+.fmcg-hero-pack-natural {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
-  background: radial-gradient(circle, rgba(255, 253, 249, 0.95) 0%, rgba(250, 245, 237, 0.6) 55%, transparent 75%);
-  border-radius: 50%;
+  width: 100%;
 }
 
-.fmcg-hero-pack-img {
-  max-height: 340px;
+.fmcg-hero-pack-natural .fmcg-hero-pack-img {
+  max-height: clamp(340px, 48vh, 440px);
   max-width: 100%;
   object-fit: contain;
-  mix-blend-mode: multiply;
-  filter: drop-shadow(0 18px 30px rgba(0, 0, 0, 0.45));
-  transition: transform 0.5s ease;
+  mix-blend-mode: normal;
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.55));
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.fmcg-hero-slide-v2.active .fmcg-hero-pack-img {
-  animation: heroPackFloat 6s ease-in-out infinite alternate;
+.fmcg-hero-slide-v2.active .fmcg-hero-pack-natural .fmcg-hero-pack-img {
+  animation: naturalHeroFloat 5s ease-in-out infinite alternate;
 }
 
-@keyframes heroPackFloat {
-  0%   { transform: translateY(0) scale(1); }
-  100% { transform: translateY(-8px) scale(1.02); }
+/* Multi-Item FMCG Bakery Composition for Slide 03 */
+.fmcg-hero-composition {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+  min-height: 380px;
+}
+
+.fmcg-comp-item {
+  position: relative;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fmcg-comp-img {
+  max-width: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 18px 26px rgba(0, 0, 0, 0.55));
+}
+
+.fmcg-comp-item.comp-back {
+  z-index: 1;
+  margin-right: -45px;
+  margin-bottom: 25px;
+  transform: scale(0.88);
+}
+
+.fmcg-comp-item.comp-back .fmcg-comp-img {
+  max-height: 320px;
+}
+
+.fmcg-comp-item.comp-center {
+  z-index: 3;
+  transform: scale(1);
+}
+
+.fmcg-comp-item.comp-center .fmcg-comp-img {
+  max-height: 380px;
+}
+
+.fmcg-comp-item.comp-front {
+  z-index: 2;
+  margin-left: -35px;
+  margin-bottom: 10px;
+  transform: scale(0.92);
+}
+
+.fmcg-comp-item.comp-front .fmcg-comp-img {
+  max-height: 340px;
+}
+
+.fmcg-hero-slide-v2.active .fmcg-hero-composition {
+  animation: naturalHeroFloat 5.5s ease-in-out infinite alternate;
+}
+
+@keyframes naturalHeroFloat {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(-7px); }
 }
 
 /* Minimal Editorial Carousel Navigation (Desktop & Mobile) */
@@ -2517,20 +2633,58 @@ footer {
     padding: 6px 0 10px;
   }
 
-  .fmcg-mobile-product-stage .fmcg-product-spotlight {
-    background: none !important;
-    border-radius: 0 !important;
-    padding: 0 !important;
-    box-shadow: none !important;
+  .fmcg-mobile-product-stage .fmcg-hero-pack-natural {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .fmcg-mobile-product-stage .fmcg-hero-pack-img {
-    max-height: clamp(160px, 24vh, 195px) !important;
+    max-height: clamp(170px, 25vh, 210px) !important;
     width: auto !important;
     max-width: 82% !important;
     object-fit: contain !important;
     mix-blend-mode: normal !important;
-    filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.55)) !important;
+    filter: drop-shadow(0 14px 26px rgba(0, 0, 0, 0.6)) !important;
+  }
+
+  /* Mobile Multi-Item FMCG Composition for Slide 3 */
+  .fmcg-hero-comp-mobile {
+    min-height: 190px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: flex-end !important;
+    width: 100% !important;
+  }
+
+  .fmcg-hero-comp-mobile .fmcg-comp-item.comp-back {
+    margin-right: -28px !important;
+    margin-bottom: 12px !important;
+    transform: scale(0.85) !important;
+  }
+
+  .fmcg-hero-comp-mobile .fmcg-comp-item.comp-back .fmcg-comp-img {
+    max-height: 145px !important;
+  }
+
+  .fmcg-hero-comp-mobile .fmcg-comp-item.comp-center {
+    z-index: 3 !important;
+    transform: scale(1) !important;
+  }
+
+  .fmcg-hero-comp-mobile .fmcg-comp-item.comp-center .fmcg-comp-img {
+    max-height: 185px !important;
+  }
+
+  .fmcg-hero-comp-mobile .fmcg-comp-item.comp-front {
+    margin-left: -24px !important;
+    margin-bottom: 6px !important;
+    transform: scale(0.9) !important;
+  }
+
+  .fmcg-hero-comp-mobile .fmcg-comp-item.comp-front .fmcg-comp-img {
+    max-height: 155px !important;
   }
 
   /* 2. Eyebrow Badge */
