@@ -906,10 +906,10 @@ function renderHome() {
 
     <!-- SECTION 2: NEW PREMIUM FMCG PRODUCT SHOWCASE -->
     <section class="section-padding fmcg-product-showcase-section" id="product-showcase-section">
-      <!-- Curved Section Transition Layer -->
+      <!-- Curved Section Transition Layer (One Large Smooth Curve) -->
       <div class="fmcg-showcase-curve-divider" aria-hidden="true">
         <svg viewBox="0 0 1440 80" fill="none" preserveAspectRatio="none">
-          <path d="M0,0 C380,75 1060,75 1440,0 L1440,80 L0,80 Z" fill="#FAF6F0"/>
+          <path d="M0,0 C420,0 720,80 1440,80 L1440,0 L0,0 Z" fill="#FAF5ED"/>
         </svg>
       </div>
 
